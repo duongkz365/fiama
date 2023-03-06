@@ -4,7 +4,7 @@ class Home extends Controller {
 
     public function __construct()
     {
-        $this->homeModel = $this->Model('HomeModel');
+        $this->homeModel = $this->CreateModel('HomeModel');
     }
     public function index(){
         echo "<pre>";
