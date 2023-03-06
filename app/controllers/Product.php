@@ -1,7 +1,14 @@
 <?php
 
-class Product {
+class Product extends Controller{
+    public $productModel;
+    function __construct()
+    {
+        $this->productModel = $this->Model('ProductModel');  
+    }
     function index(){
-        echo "Danh Sách Sản PHẩm";
+        echo "<pre>";
+        print_r($this->productModel->GetList());
+        echo "</pre>";
     }
 }
