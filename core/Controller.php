@@ -1,4 +1,7 @@
 <?php
+// Author     : KyDing
+// Description: Class Base Controller
+// Date       : 06/03/2023
 class Controller {
 
     // Model initialization function
