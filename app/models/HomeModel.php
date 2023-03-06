@@ -1,15 +1,10 @@
 <?php
-class HomeModel {
 
-    public $table = 'products';
+class HomeModel extends Model{
+    private $_table = 'color';
+    
     public function GetList(){
-        $data = [
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
-            'Item 5'
-        ];
+        $data = $this->db->Query("SELECT * FROM fiama.$this->_table")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }
