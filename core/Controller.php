@@ -2,7 +2,7 @@
 class Controller {
 
     // Model initialization function
-    public function Model($modelName){
+    public function CreateModel($modelName){
         if(file_exists('./app/models/'.$modelName.'.php'))
            require_once './app/models/'.$modelName.'.php';
         if(class_exists($modelName)){
@@ -10,5 +10,12 @@ class Controller {
             return $model; // Return model class
         }
         return false; 
+    }
+
+
+    public function RenderView($view,$data = []){
+        extract($data);
+        if(file_exists('./app/views/'.$view.'.php'))
+        require_once './app/views/'.$view.'.php';
     }
 }
