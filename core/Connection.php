@@ -20,7 +20,7 @@ class Connection {
             self::$conn =  $con;
         }catch(Exception $e) {
             $mess = $e -> getMessage();
-            // App::$app->LoadError();
+            App::$app->LoadError();
             die($mess);
         }
 

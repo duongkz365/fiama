@@ -12,16 +12,26 @@ class Product extends Controller{
 
         $this->RenderView('products/list');
     }
-    function listProduct(){
+    function list(){
+
+        if(!empty($_GET['page'])){
+            echo $_GET['page'];
+        }
         $this->data['subData']['pageTitle'] = 'Danh sách sản phẩm';
         $this->data['subData']['listProduct'] = $this->productModel->GetList();
         $this->data['views'] = 'products/list';
         $this->RenderView('layouts/clientLayout',$this->data);
 
     }
-    function detailProduct(){
+    function detail(){
+        if(!empty($_GET['page'])){
+            echo $_GET['page'];
+        }
         $data = $this->productModel->GetList();
-        $this->RenderView('products/detail');
+        $this->data['pageTitle'] = '';
+        $this->data['views'] = 'products/detail';
+        $this->data['subData']['objProduct'] = [];
+        $this->RenderView('layouts/clientLayout',$this->data);
 
     }
 }
