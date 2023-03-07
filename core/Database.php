@@ -7,8 +7,7 @@ class Database
     {
         global $db_config;
         $this->__db = $db_config;
-        $this->__conn = ConnectioN::getInstance($db_config);
-        var_dump($this->__conn);
+        $this->__conn = Connection::getInstance($db_config);
     }
 
     function Query($sql){
