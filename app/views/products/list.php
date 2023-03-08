@@ -179,11 +179,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__breadcrumb-inner text-center">
-                        <h1 class="ltn__page-title">Shop</h1>
+                        <h1 class="ltn__page-title"><?php echo strtoupper($pageTitle) ?></h1>
                         <div class="ltn__breadcrumb-list">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
-                                <li>Shop Left Sidebar</li>
+                                <li><?php echo ucfirst(strtolower($pageTitle)) ?></li>
                             </ul>
                         </div>
                     </div>
@@ -767,7 +767,7 @@
                         <!-- Search Widget -->
                         <div class="widget ltn__search-widget">
                             <form action="#">
-                                <input type="text" name="search" placeholder="Search your keyword...">
+                                <input type="text" name="search" placeholder="<?php if($search != '') echo $search;else echo "Search your keyword..."; ?>">
                                 <button type="submit"><i class="icon-magnifier"></i></button>
                             </form>
                         </div>

@@ -7,7 +7,7 @@ class Home extends Controller {
         $this->homeModel = $this->CreateModel('HomeModel');
     }
     public function index(){
-        $this->data['pageTitle'] = 'Fiama';
+        $this->data['subData']['pageTitle'] = 'Fiama';
         $this->data['views'] = 'home/index';
         $this->data['subData']['newArrivalItem']   = $this->homeModel->GetNewArrivalItem();
         $this->data['subData']['promotion']        = $this->homeModel->GetPromotion();
