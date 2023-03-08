@@ -14,12 +14,30 @@ class Product extends Controller{
     }
     function list(){
 
-        if(!empty($_GET['page'])){
-            echo $_GET['page'];
+        if(!empty($_GET['search'])){
+            $this->data['subData']['search'] = $_GET['search'];
+            $this->data['subData']['pageTitle'] = 'search';
+        }else {
+            $this->data['subData']['search'] = '';
+            $this->data['subData']['pageTitle'] = 'flowers';
+            
+
         }
-        $this->data['subData']['pageTitle'] = 'Danh sách sản phẩm';
+
+
+
         $this->data['subData']['listProduct'] = $this->productModel->GetList();
         $this->data['views'] = 'products/list';
+
+
+        $this->data['header']['category']          = [];
+        $this->data['header']['subCategory']       = [];
+
+        //data footer
+
+        $this->data['footer'][] = [];
+
+        $this->RenderView('layouts/clientLayout',$this->data);
         $this->RenderView('layouts/clientLayout',$this->data);
 
     }

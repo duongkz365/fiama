@@ -17,14 +17,14 @@
                                     <i class="icon-phone"></i>
                                 </div>
                                 <div class="header-feature-info">
-                                    <h6>Phone</h6>
-                                    <p><a href="tel:0123456789">+0123-456-789</a></p>
+                                    <h6>Điện Thoại</h6>
+                                    <p><a href="tel:0123456789">0398755231</a></p>
                                 </div>
                             </div>
                             <!-- header-search-2 -->
                             <div class="header-search-2">
                                 <form id="#123" method="get"  action="#">
-                                    <input type="text" name="search" value="" placeholder="Search here..."/>
+                                    <input type="text" name="search" value="" placeholder="Tìm Hoa Tặng Người Yêu..."/>
                                     <button type="submit">
                                         <span><i class="icon-magnifier"></i></span>
                                     </button>
@@ -98,7 +98,7 @@
                                                 <i class="icon-handbag"></i>
                                                 <sup>2</sup>
                                             </span>
-                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">$89.25</span></h6>
+                                            <h6><span>Giỏ Hàng</span> <span class="ltn__secondary-color">$89.25</span></h6>
                                         </a>
                                     </div>
                                 </li>
@@ -137,14 +137,14 @@
                                 <div class="ltn__main-menu">
                                     <ul>
                                         <li class="menu-icon"><a href="#">Home</a>
-                                            <ul>
+                                            <!-- <ul>
                                                 <li><a href="index.html">Home Style - 01</a></li>
                                                 <li><a href="index-2.html">Home Style - 02</a></li>
                                                 <li><a href="index-3.html">Home Style - 03</a></li>
                                                 <li><a href="index-4.html">Home Style - 04</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
-                                        <li class="menu-icon"><a href="#">Pages</a>
+                                        <li class="menu-icon"><a href="./danh-sach/1">Flowers</a>
                                             <ul class="mega-menu">
                                                 <!-- Render Product Category -->
                                                 <?php
@@ -167,7 +167,25 @@
                                                 ?>
                                             </ul>
                                         </li>
-                                        <li class="menu-icon"><a href="#">Shop</a>
+
+                                        <li class="menu-icon"><a href="#">Portfolio</a>
+                                            <ul>
+                                                <li><a href="portfolio.html">Portfolio</a></li>
+                                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
+                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-icon"><a href="#">News</a>
+                                            <ul>
+                                                <li><a href="blog.html">News</a></li>
+                                                <li><a href="blog-grid.html">News Grid</a></li>
+                                                <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
+                                                <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
+                                                <li><a href="blog-details.html">News details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li class="menu-icon"><a href="#">Account</a>
                                             <ul>
                                                 <li><a href="shop.html">Shop</a></li>
                                                 <li><a href="shop-grid.html">Shop Grid</a></li>
@@ -187,23 +205,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu-icon"><a href="#">Portfolio</a>
-                                            <ul>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-icon"><a href="#">News</a>
-                                            <ul>
-                                                <li><a href="blog.html">News</a></li>
-                                                <li><a href="blog-grid.html">News Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
-                                                <li><a href="blog-details.html">News details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
                             </nav>
