@@ -67,6 +67,8 @@ class App {
         $controller = new Controller();
         $data['views'] = 'errors/404';
         $data['subData'] = [];
+
+        $data['header'] = [];
         $controller->RenderView('layouts/clientLayout',$data);
     }
     

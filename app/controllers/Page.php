@@ -1,12 +1,15 @@
 <?php
 
-class OrderPage extends Controller{
+class Page extends Controller{
 
-    public $orderPageModel,$data = [];
+    public $pageModel,$data = [];
 
     function __construct()
     {
-        $this->orderPageModel = $this->CreateModel('OrderPageModel');
+        $this->pageModel = $this->CreateModel('PageModel');
+
+        $this->data['header']['category']          = $this->pageModel->GetProductCategory();
+        $this->data['header']['subCategory']       = $this->pageModel->GetProductSubCategory();
     }
     function Index(){
         
