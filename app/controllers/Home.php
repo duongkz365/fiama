@@ -24,6 +24,7 @@ class Home extends Controller {
         $this->data['footer'][] = [];
 
         $this->RenderView('layouts/clientLayout',$this->data);
+        
     }
 
 }
