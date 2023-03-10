@@ -7,6 +7,7 @@ class Product extends Controller
     function __construct()
     {
         $this->productModel = $this->CreateModel('ProductModel');
+
     }
     function index()
     {

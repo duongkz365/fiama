@@ -136,13 +136,7 @@
                             <nav>
                                 <div class="ltn__main-menu">
                                     <ul>
-                                        <li class="menu-icon"><a href="#">Home</a>
-                                            <!-- <ul>
-                                                <li><a href="index.html">Home Style - 01</a></li>
-                                                <li><a href="index-2.html">Home Style - 02</a></li>
-                                                <li><a href="index-3.html">Home Style - 03</a></li>
-                                                <li><a href="index-4.html">Home Style - 04</a></li>
-                                            </ul> -->
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>">Home</a>
                                         </li>
                                         <li class="menu-icon"><a href="./danh-sach/1">Flowers</a>
                                             <ul class="mega-menu">
@@ -156,7 +150,7 @@
                                                         <?php
                                                             foreach($subCategory as $sc){
                                                                 if($sc['CategoryId'] == $c['Id']){
-                                                                    echo '<li><a href="'.$sc['Path'].'">'.$sc['Title'].'</a></li>';
+                                                                    echo '<li><a href="'._WEB_ROOT.'/'.$sc['Path'].'">'.$sc['Title'].'</a></li>';
                                                                 }
                                                             }
                                                         ?>
@@ -168,30 +162,32 @@
                                             </ul>
                                         </li>
 
-                                        <li class="menu-icon"><a href="#">Portfolio</a>
-                                            <ul>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>/portfolio">Portfolio</a>
+                                            <!-- <ul>
                                                 <li><a href="portfolio.html">Portfolio</a></li>
                                                 <li><a href="portfolio-2.html">Portfolio - 02</a></li>
                                                 <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
-                                        <li class="menu-icon"><a href="#">News</a>
-                                            <ul>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT?>/tin-tuc">News</a>
+                                            <!-- <ul>
                                                 <li><a href="blog.html">News</a></li>
                                                 <li><a href="blog-grid.html">News Grid</a></li>
                                                 <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
                                                 <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
                                                 <li><a href="blog-details.html">News details</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="<?php echo _WEB_ROOT?>/lien-he">Contact</a></li>
                                         <li class="menu-icon"><a href="#">Account</a>
                                             <ul>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                                <li><a href="shop-left-sidebar.html">Shop Left sidebar</a></li>
-                                                <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-                                                <li><a href="product-details.html">Shop details </a></li>
+                                                <li><a href="shop.html">My Account</a></li>
+                                                <li><a href="shop-grid.html">Shopping Cart</a></li>
+                                                <li><a href="shop-left-sidebar.html">WishList</a></li>
+
+
+
+
                                                 <li><a href="#">Other Pages <span class="float-right">>></span></a>
                                                     <ul>
                                                         <li><a href="cart.html">Cart</a></li>
