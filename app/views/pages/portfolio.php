@@ -8,7 +8,7 @@
             <div class="mini-cart-product-area ltn__scrollbar">
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/1.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/1.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/2.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/2.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/3.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/3.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/4.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/4.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -67,7 +67,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/logo.png" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
@@ -218,7 +218,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/1.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/1.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -235,7 +235,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="#ltn__inline_description_1" data-rel="lightcase:myCollection">
-                                <img src="img/product/2.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/2.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="far fa-file-alt"></i>
                                 </span>
@@ -252,7 +252,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="//www.youtube.com/embed/6v2L2UGZJAM?version=3" data-rel="lightcase:myCollection">
-                                <img src="img/product/3.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/3.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fab fa-youtube"></i>
                                 </span>
@@ -269,7 +269,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="https://player.vimeo.com/video/47362400" data-rel="lightcase:myCollection">
-                                <img src="img/product/4.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/4.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fab fa-vimeo-v"></i>
                                 </span>
@@ -286,7 +286,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="media/1.mp4" data-rel="lightcase:myCollection">
-                                <img src="img/product/5.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/5.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-video"></i>
                                 </span>
@@ -303,7 +303,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1575.9076122223137!2d144.96590401578402!3d-37.81779982944919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b6af832249%3A0xe39e415e49a7c44e!2sFlinders%20Street%20Railway%20Station!5e0!3m2!1sen!2sbd!4v1598113544515!5m2!1sen!2sbd" data-rel="lightcase:myCollection">
-                                <img src="img/product/6.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/6.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </span>
@@ -320,7 +320,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection" data-bs-lc-caption="Your caption Here">
-                                <img src="img/product/7.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/7.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fab fa-acquisitions-incorporated"></i>
                                 </span>
@@ -337,7 +337,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/no-image.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/8.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/8.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-not-equal"></i>
                                 </span>
@@ -354,7 +354,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/9.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/9.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -371,7 +371,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/10.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/10.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -388,7 +388,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/1.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/1.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -405,7 +405,7 @@
                     <div class="ltn__gallery-item-inner">
                         <div class="ltn__gallery-item-img">
                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                <img src="img/product/2.png" alt="Image">
+                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/2.png" alt="Image">
                                 <span class="ltn__gallery-action-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -459,37 +459,37 @@
             <div class="row ltn__brand-logo-active">
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/1.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/1.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/2.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/2.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/3.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/3.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/4.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/4.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/5.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/5.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/1.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/1.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/2.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/brand-logo/2.png" alt="Brand Logo">
                     </div>
                 </div>
             </div>

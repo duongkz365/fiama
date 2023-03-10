@@ -1,18 +1,15 @@
 <?php
-    class PageModel extends Model {
 
-        public function TableFill()
-        {
-            
-        }
-        function FieldFill()
-        {
-            
-        }
+class PageModel  extends Model{
 
-        function __construct()
-        {
-            
-        }
+    public function TableFill()
+    {
+        
     }
-?>
+    public function FieldFill()
+    {
+        
+    }
+
+
+}

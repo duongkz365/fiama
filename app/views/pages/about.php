@@ -8,7 +8,7 @@
             <div class="mini-cart-product-area ltn__scrollbar">
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/1.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/1.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/2.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/2.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/3.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/3.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                     <div class="mini-cart-img">
-                        <a href="#"><img src="img/product/4.png" alt="Image"></a>
+                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/4.png" alt="Image"></a>
                         <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
                     </div>
                     <div class="mini-cart-info">
@@ -67,7 +67,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                    <a href="index.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/logo.png" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
@@ -201,7 +201,7 @@
                     <div class="ltn__feature-item-box-wrap ltn__feature-item-box-wrap-2 ltn__border section-bg-6">
                         <div class="ltn__feature-item ltn__feature-item-8">
                             <div class="ltn__feature-icon">
-                                <img src="img/icons/svg/8-trolley.svg" alt="#">
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/icons/svg/8-trolley.svg" alt="#">
                             </div>
                             <div class="ltn__feature-info">
                                 <h4>Free shipping</h4>
@@ -210,7 +210,7 @@
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-8">
                             <div class="ltn__feature-icon">
-                                <img src="img/icons/svg/9-money.svg" alt="#">
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/icons/svg/9-money.svg" alt="#">
                             </div>
                             <div class="ltn__feature-info">
                                 <h4>15 days returns</h4>
@@ -219,7 +219,7 @@
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-8">
                             <div class="ltn__feature-icon">
-                                <img src="img/icons/svg/10-credit-card.svg" alt="#">
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/icons/svg/10-credit-card.svg" alt="#">
                             </div>
                             <div class="ltn__feature-info">
                                 <h4>Secure checkout</h4>
@@ -228,7 +228,7 @@
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-8">
                             <div class="ltn__feature-icon">
-                                <img src="img/icons/svg/11-gift-card.svg" alt="#">
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/icons/svg/11-gift-card.svg" alt="#">
                             </div>
                             <div class="ltn__feature-info">
                                 <h4>Offer & gift here</h4>
@@ -294,16 +294,16 @@
                     <div class="ltn__testimonial-7-wrap text-center">
                         <div class="ltn__testimonial-7-image-slider">
                             <div class="testimonial-image">
-                                <img src="img/team/11.jpg" alt="Images of Testimonial"/>
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/team/11.jpg" alt="Images of Testimonial"/>
                             </div>
                             <div class="testimonial-image">
-                                <img src="img/team/12.jpg" alt="Images of Testimonial"/>
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/team/12.jpg" alt="Images of Testimonial"/>
                             </div>
                             <div class="testimonial-image">
-                                <img src="img/team/13.jpg" alt="Images of Testimonial"/>
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/team/13.jpg" alt="Images of Testimonial"/>
                             </div>
                             <div class="testimonial-image">
-                                <img src="img/team/14.jpg" alt="Images of Testimonial"/>
+                                <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/team/14.jpg" alt="Images of Testimonial"/>
                             </div>
                         </div>
                         <!--End Testimonial Wrap -->
@@ -345,7 +345,7 @@
                 <div class="col-md-12">
                     <div class="ltn__banner-item">
                         <div class="ltn__banner-img">
-                            <a href="shop.html"><img src="img/banner/10.jpg" alt="Banner Image"></a>
+                            <a href="shop.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/banner/10.jpg" alt="Banner Image"></a>
                         </div>
                     </div>
                 </div>
@@ -369,7 +369,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="img/blog/1.jpg" alt="#"></a>
+                            <a href="blog-details.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/blog/1.jpg" alt="#"></a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
@@ -393,7 +393,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="img/blog/2.jpg" alt="#"></a>
+                            <a href="blog-details.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/blog/2.jpg" alt="#"></a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
@@ -417,7 +417,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="img/blog/3.jpg" alt="#"></a>
+                            <a href="blog-details.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/blog/3.jpg" alt="#"></a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
@@ -441,7 +441,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="img/blog/4.jpg" alt="#"></a>
+                            <a href="blog-details.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/blog/4.jpg" alt="#"></a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
@@ -465,7 +465,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__blog-item">
                         <div class="ltn__blog-img">
-                            <a href="blog-details.html"><img src="img/blog/5.jpg" alt="#"></a>
+                            <a href="blog-details.html"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/blog/5.jpg" alt="#"></a>
                         </div>
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
@@ -497,37 +497,37 @@
             <div class="row ltn__brand-logo-active">
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/1.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/1.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/2.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/2.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/3.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/3.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/4.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/4.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/5.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/5.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/1.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/1.png" alt="Brand Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
-                        <img src="img/brand-logo/2.png" alt="Brand Logo">
+                        <img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/brand-logo/2.png" alt="Brand Logo">
                     </div>
                 </div>
             </div>
