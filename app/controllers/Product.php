@@ -7,6 +7,12 @@ class Product extends Controller
     function __construct()
     {
         $this->productModel = $this->CreateModel('ProductModel');
+        $this->data['header']['category']          = $this->productModel->GetProductCategory();
+        $this->data['header']['subCategory']       = $this->productModel->GetProductSubCategory();
+
+        //data footer
+
+        $this->data['footer'][] = [];
 
     }
     function index()
@@ -25,10 +31,6 @@ class Product extends Controller
         // filter value here: color,price,size,sort
 
         // filter value end
-
-
-
-
         $this->data['subData']['category'] = $category;
         $this->data['subData']['pageCount'] = $pageCount;
         $this->data['subData']['listCategory'] = $listCategory;
@@ -64,33 +66,21 @@ class Product extends Controller
             $this->data['subData']['search'] = '';
             $this->data['subData']['pageTitle'] = $this->productModel->GetProCategory($idCategory)[0]['Title'];
         }
-
-
-
         $this->data['views'] = 'products/list';
-
-
-        $this->data['header']['category']          = $this->productModel->GetProductCategory();
-        $this->data['header']['subCategory']       = $this->productModel->GetProductSubCategory();
-
-        //data footer
-
-        $this->data['footer'][] = [];
-
-
-        
         $this->RenderView('layouts/clientLayout', $this->data);
 
     }
-    function detail()
+    function detail($strPath)
     {
-        if (!empty($_GET['page'])) {
-            echo $_GET['page'];
-        }
-        $data = $this->productModel->GetList();
-        $this->data['pageTitle'] = '';
+        $product =  $this->productModel->GetProduct($strPath)[0];
+
+        echo "<pre>";
+        print_r($product);
+        echo "</pre>";
+
+        $this->data['subData']['pageTitle'] = $product['Title'];
         $this->data['views'] = 'products/detail';
-        $this->data['subData']['objProduct'] = [];
+        $this->data['subData']['product'] = $product;
         $this->RenderView('layouts/clientLayout', $this->data);
     }
 
@@ -101,4 +91,24 @@ class Product extends Controller
         else
             return (int)(sizeof($arr) / 9) + 1;
     }
+
+    function convert_name($str) {
+		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+		$str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+		$str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+		$str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+		$str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+		$str = preg_replace("/(đ)/", 'd', $str);
+		$str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+		$str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+		$str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+		$str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+		$str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+		$str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+		$str = preg_replace("/(Đ)/", 'D', $str);
+		$str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
+		$str = preg_replace("/( )/", '-', $str);
+		return $str;
+	}
 }

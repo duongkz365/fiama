@@ -24,4 +24,17 @@ class ProductModel  extends Model{
         $data = $this->db->Query("SELECT * FROM fiama.sub_category LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+
+    public function GetIdProduct($strPath){
+        $data = $this->db->Query("SELECT Id FROM fiama.product WHERE Path = '$strPath'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+    public function GetIdCategory($strPath){
+        
+    }
+
+    public function GetProduct($strPath){
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE Path = '$strPath'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }

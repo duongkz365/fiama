@@ -237,7 +237,7 @@
                                     <div class="col-xl-4 col-sm-6 col-12">
                                         <div class="ltn__product-item text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img style="height: 420px;" src="<?php echo _WEB_ROOT ?><?php echo $lps['img'] ?>" alt="#"></a>
+                                                <a href="<?php  echo _WEB_ROOT.'/'.$category[0]['Path'].'/'.$lps['Path']?>"><img style="height: 420px;" src="<?php echo _WEB_ROOT ?><?php echo $lps['img'] ?>" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <?php
@@ -297,7 +297,7 @@
                             <?php
                             for ($i = 1; $i <= $pageCount; $i++) {
                             ?>
-                                <li <?php if ($i == $pageActive) echo 'class="active"'  ?>><a href=" <?php echo  $category[0]['Path'] . '/?page=' . $i  ?> "><?php echo $i ?></a></li>
+                                <li <?php if ($i == $pageActive) echo 'class="active"'  ?>><a href=" <?php echo _WEB_ROOT.'/'.$category[0]['Path'] . '/?page=' . $i  ?> "><?php echo $i ?></a></li>
                             <?php
                             }
                             ?>
