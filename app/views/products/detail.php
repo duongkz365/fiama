@@ -265,13 +265,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="modal-product-info shop-details-info pl-0">
-                                    <h3>Pink Flower Tree Red</h3>
+                                    <h3><?php echo $product['Title'] ?></h3>
                                     <div class="product-price-ratting mb-20">
                                         <ul>
                                             <li>
                                                 <div class="product-price">
-                                                    <span>$49.00</span>
-                                                    <del>$65.00</del>
+                                                    <span><?php echo $product['Price']?>K</span>
+                                                    <del><?php echo $product['SalePrice']?>K</del>
                                                 </div>
                                             </li>
                                             <li>
