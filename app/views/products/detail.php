@@ -203,61 +203,61 @@
                                 <div class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
                                     <div class="ltn__shop-details-small-img slick-arrow-2">
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/1.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/2.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/3.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/4.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/5.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/6.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                         <div class="single-small-img">
-                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/7.png" alt="Image">
+                                            <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                         </div>
                                     </div>
                                     <div class="ltn__shop-details-large-img">
                                         <div class="single-large-img">
                                             <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/1.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/2.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/2.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/3.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/3.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/4.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/4.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/5.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/5.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/6.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/6.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
                                             <a href="img/product/7.png" data-rel="lightcase:myCollection">
-                                                <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/7.png" alt="Image">
+                                                <img src="<?php echo _WEB_ROOT.'/'.$product['img']?>" alt="Image">
                                             </a>
                                         </div>
                                     </div>
@@ -289,37 +289,9 @@
                                         </ul>
                                     </div>
                                     <div class="modal-product-brief">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus repudiandae incidunt quidem pariatur expedita, quo quis modi tempore non.</p>
+                                        <p style="text-align:justify"><?php echo $product['QuickDescription'] ?></p>
                                     </div>
-                                    <div class="modal-product-meta ltn__product-details-menu-1 mb-20">
-                                        <ul>
-                                            <li>
-                                                <div class="ltn__color-widget clearfix">
-                                                    <strong class="d-meta-title">Color</strong>
-                                                    <ul>
-                                                        <li class="theme"><a href="#"></a></li>
-                                                        <li class="green-2"><a href="#"></a></li>
-                                                        <li class="blue-2"><a href="#"></a></li>
-                                                        <li class="white"><a href="#"></a></li>
-                                                        <li class="red"><a href="#"></a></li>
-                                                        <li class="yellow"><a href="#"></a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="ltn__size-widget clearfix mt-25">
-                                                    <strong class="d-meta-title">Size</strong>
-                                                    <ul>
-                                                        <li><a href="#">S</a></li>
-                                                        <li><a href="#">M</a></li>
-                                                        <li><a href="#">L</a></li>
-                                                        <li><a href="#">XL</a></li>
-                                                        <li><a href="#">XXL</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+ 
                                     <div class="ltn__product-details-menu-2 product-cart-wishlist-btn mb-30">
                                         <ul>
                                             <li>
@@ -342,30 +314,33 @@
                                     <div class="ltn__social-media mb-30">
                                         <ul>
                                             <li class="d-meta-title">Share:</li>
-                                            <li><a href="#" title="Facebook"><i class="icon-social-facebook"></i></a></li>
-                                            <li><a href="#" title="Twitter"><i class="icon-social-twitter"></i></a></li>
-                                            <li><a href="#" title="Pinterest"><i class="icon-social-pinterest"></i></a></li>
-                                            <li><a href="#" title="Instagram"><i class="icon-social-instagram"></i></a></li>
+                                            <li><a href="https://www.facebook.com/kydingg/" title="Facebook"><i class="icon-social-facebook"></i></a></li>
+                                            <li><a href="https://www.facebook.com/kydingg/" title="Facebook"><i class="icon-social-facebook"></i></a></li>
+                                            <li><a href="https://www.facebook.com/kydingg/" title="Facebook"><i class="icon-social-facebook"></i></a></li>
+                                            <li><a href="https://www.facebook.com/kydingg/" title="Facebook"><i class="icon-social-facebook"></i></a></li>
+                                            <!-- <li><a href="facebook.com/kydingg" title="Twitter"><i class="icon-social-twitter"></i></a></li>
+                                            <li><a href="facebook.com/kydingg" title="Pinterest"><i class="icon-social-pinterest"></i></a></li>
+                                            <li><a href="facebook.com/kydingg" title="Instagram"><i class="icon-social-instagram"></i></a></li> -->
                                             
                                         </ul>
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1 mb-30">
                                         <ul>
-                                            <li><strong>SKU:</strong> <span>12345</span></li>
+                                            <li><strong>SKU:</strong> <span><?php echo $product['SKU'] ?></span></li>
                                             <li>
                                                 <strong>Categories:</strong> 
                                                 <span>
-                                                    <a href="#">Flower</a>
+                                                    <?php
+                                                        foreach($listCategory as $lct){
+                                                    ?>
+                                                    <a href="<?php echo _WEB_ROOT.'/'.$lct['Path']?>"><?php echo $lct['Title']?></a>
+
+                                                    <?php
+                                                        }
+                                                    ?>
+
                                                 </span>
-                                            </li>
-                                            <li>
-                                                <strong>Tags:</strong> 
-                                                <span>
-                                                    <a href="#">Love</a>
-                                                    <a href="#">Flower</a>
-                                                    <a href="#">Heart</a>
-                                                </span>
-                                            </li>
+
                                         </ul>
                                     </div>
                                     <div class="ltn__safe-checkout d-none">
@@ -388,25 +363,33 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__shop-details-tab-inner">
-                        <div class="ltn__shop-details-tab-menu">
-                            <div class="nav">
-                                <a class="active show" data-bs-toggle="tab" href="#liton_tab_details_1_1">Description</a>
-                                <a data-bs-toggle="tab" href="#liton_tab_details_1_2" class="">Reviews</a>
-                                <!-- <a data-bs-toggle="tab" href="#liton_tab_details_1_3" class="">Comments</a> -->
-                                <a data-bs-toggle="tab" href="#liton_tab_details_1_4" class="">Shipping</a>
-                                <!-- <a data-bs-toggle="tab" href="#liton_tab_details_1_5" class="">Size Chart</a> -->
-                            </div>
-                        </div>
+
                         <div class="tab-content">
                             <div class="tab-pane fade active show" id="liton_tab_details_1_1">
                                 <div class="ltn__shop-details-tab-content-inner text-center">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost exercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepte sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit volu accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explica Nemllo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
+                                    <h4>Thông tin sản phẩm</h4>
+                                    <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost exercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepte sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit volu accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explica Nemllo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="liton_tab_details_1_2">
+                            <div class="tab-pane fade active show" id="liton_tab_details_1_4">
+                                <div class="ltn__shop-details-tab-content-inner">
+                                    <h4 class="title-2">Shipping policy for our store</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptates rerum neque ea libero numquam officiis ipsum, consectetur ducimus dicta in earum repellat sunt ab odit laboriosam cupiditate ipsam, doloremque.</p>
+                                    <ul>
+                                        <li>1-2 business days (Typically by end of day)</li>
+                                        <li><a href="#">30 days money back guaranty</a></li>
+                                        <li>24/7 live support</li>
+                                        <li>odio dignissim qui blandit praesent</li>
+                                        <li>luptatum zzril delenit augue duis dolore</li>
+                                        <li>te feugait nulla facilisi.</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, quia vel eligendi ipsam. Ea, quasi quam ducimus recusandae unde ipsa nam rem a minus tenetur quae sint voluptatem voluptate inventore.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade active show" id="liton_tab_details_1_2">
                                 <div class="ltn__shop-details-tab-content-inner">
                                     <div class="customer-reviews-head text-center">
-                                        <h4 class="title-2">Customer Reviews</h4>
+                                        <h4 class="title-2">Khách hàng đánh giá</h4>
                                         <div class="product-ratting">
                                             <ul>
                                                 <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -496,10 +479,10 @@
                                             <!-- comment-reply -->
                                             <div class="ltn__comment-reply-area ltn__form-box mb-60">
                                                 <form action="#">
-                                                    <h4 class="title-2">Add a Review</h4>
+                                                    <h4 class="title-2">Thêm đánh giá</h4>
                                                     <div class="mb-30">
                                                         <div class="add-a-review">
-                                                            <h6>Your Ratings:</h6>
+                                                            <h6>Xếp hạng sản phẩm:</h6>
                                                             <div class="product-ratting">
                                                                 <ul>
                                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -512,18 +495,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="input-item input-item-textarea ltn__custom-icon">
-                                                        <textarea placeholder="Type your comments...."></textarea>
+                                                        <textarea placeholder="Gõ nhận xét của bạn...."></textarea>
                                                     </div>
                                                     <div class="input-item input-item-name ltn__custom-icon">
-                                                        <input type="text" placeholder="Type your name....">
+                                                        <input type="text" placeholder="Tên của bạn....">
                                                     </div>
                                                     <div class="input-item input-item-email ltn__custom-icon">
-                                                        <input type="email" placeholder="Type your email....">
+                                                        <input type="email" placeholder="Địa chỉ email....">
                                                     </div>
-                                                    <div class="input-item input-item-website ltn__custom-icon">
-                                                        <input type="text" name="website" placeholder="Type your website....">
-                                                    </div>
-                                                    <label class="mb-0"><input type="checkbox" name="agree"> Save my name, email, and website in this browser for the next time I comment.</label>
+                                                    <label class="mb-0"><input type="checkbox" name="agree">Lưu tên và email của tôi trong trình duyệt này cho lần tôi bình luận tiếp theo.</label>
                                                     <div class="btn-wrapper">
                                                         <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Submit</button>
                                                     </div>
@@ -533,188 +513,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="liton_tab_details_1_3">
-                                <div class="ltn__shop-details-tab-content-inner">
-                                    <!-- comment-area -->
-                                    <div class="ltn__comment-area mb-30">
-                                        <h4 class="title-2">Comments (5)</h4>
-                                        <div class="ltn__comment-inner">
-                                            <ul>
-                                                <li>
-                                                    <div class="ltn__comment-item clearfix">
-                                                        <div class="ltn__commenter-img">
-                                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/testimonial/1.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="ltn__commenter-comment">
-                                                            <h6><a href="#">Adam Smit</a></h6>
-                                                            <span class="comment-date">20th May 2020</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                            <a href="#" class="ltn__comment-reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="ltn__comment-item clearfix">
-                                                        <div class="ltn__commenter-img">
-                                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/testimonial/3.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="ltn__commenter-comment">
-                                                            <h6><a href="#">Adam Smit</a></h6>
-                                                            <span class="comment-date">20th May 2020</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                            <a href="#" class="ltn__comment-reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                        </div>
-                                                    </div>
-                                                    <ul>
-                                                        <li>
-                                                            <div class="ltn__comment-item clearfix">
-                                                                <div class="ltn__commenter-img">
-                                                                    <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/testimonial/4.jpg" alt="Image">
-                                                                </div>
-                                                                <div class="ltn__commenter-comment">
-                                                                    <h6><a href="#">Adam Smit</a></h6>
-                                                                    <span class="comment-date">20th May 2020</span>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                                    <a href="#" class="ltn__comment-reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="ltn__comment-item clearfix">
-                                                                <div class="ltn__commenter-img">
-                                                                    <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/testimonial/1.jpg" alt="Image">
-                                                                </div>
-                                                                <div class="ltn__commenter-comment">
-                                                                    <h6><a href="#">Adam Smit</a></h6>
-                                                                    <span class="comment-date">20th May 2020</span>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                                    <a href="#" class="ltn__comment-reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="ltn__comment-item clearfix">
-                                                        <div class="ltn__commenter-img">
-                                                            <img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/testimonial/2.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="ltn__commenter-comment">
-                                                            <h6><a href="#">Adam Smit</a></h6>
-                                                            <span class="comment-date">20th May 2020</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                            <a href="#" class="ltn__comment-reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- comment-reply -->
-                                    <div class="ltn__comment-reply-area ltn__form-box mb-60">
-                                        <form action="#">
-                                            <h4 class="title-2">Leave a Reply</h4>
-                                            <div class="input-item input-item-textarea ltn__custom-icon">
-                                                <textarea placeholder="Type your comments...."></textarea>
-                                            </div>
-                                            <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" placeholder="Type your name....">
-                                            </div>
-                                            <div class="input-item input-item-email ltn__custom-icon">
-                                                <input type="email" placeholder="Type your email....">
-                                            </div>
-                                            <div class="input-item input-item-website ltn__custom-icon">
-                                                <input type="text" name="website" placeholder="Type your website....">
-                                            </div>
-                                            <label class="mb-0"><input type="checkbox" name="agree"> Save my name, email, and website in this browser for the next time I comment.</label>
-                                            <div class="btn-wrapper">
-                                                <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit"><i class="far fa-comments"></i> Post Comment</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="liton_tab_details_1_4">
-                                <div class="ltn__shop-details-tab-content-inner">
-                                    <h4 class="title-2">Shipping policy for our store</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptates rerum neque ea libero numquam officiis ipsum, consectetur ducimus dicta in earum repellat sunt ab odit laboriosam cupiditate ipsam, doloremque.</p>
-                                    <ul>
-                                        <li>1-2 business days (Typically by end of day)</li>
-                                        <li><a href="#">30 days money back guaranty</a></li>
-                                        <li>24/7 live support</li>
-                                        <li>odio dignissim qui blandit praesent</li>
-                                        <li>luptatum zzril delenit augue duis dolore</li>
-                                        <li>te feugait nulla facilisi.</li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, quia vel eligendi ipsam. Ea, quasi quam ducimus recusandae unde ipsa nam rem a minus tenetur quae sint voluptatem voluptate inventore.</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="liton_tab_details_1_5">
-                                <div class="ltn__shop-details-tab-content-inner">
 
-                                    <div class="table-1 mb-20">
-                                        <table class="">
-                                            <tbody>
-                                                <tr>
-                                                    <th>SIZE</th>
-                                                    <th>XS</th>
-                                                    <th>S</th>
-                                                    <th>S/M</th>
-                                                    <th>M</th>
-                                                    <th>M/L</th>
-                                                    <th>L</th>
-                                                    <th>XL</th>
-                                                </tr>
-                                                <tr data-bs-region="uk">
-                                                    <th>UK</th>
-                                                    <td>4</td>
-                                                    <td>6 - 8</td>
-                                                    <td>6 - 10</td>
-                                                    <td>10 - 12</td>
-                                                    <td>12 - 16</td>
-                                                    <td>14 - 16</td>
-                                                    <td>18</td>
-                                                </tr>
-                                                <tr data-bs-region="eur">
-                                                    <th>
-                                                        <span class="mobile-show">EUR</span><span class="mobile-none">EUROPE</span>
-                                                    </th>
-                                                    <td>32</td>
-                                                    <td>34 - 36</td>
-                                                    <td>34 - 38</td>
-                                                    <td>38 - 40</td>
-                                                    <td>40 - 44</td>
-                                                    <td>42 - 44</td>
-                                                    <td>46</td>
-                                                </tr>
-                                                <tr data-bs-region="usa">
-                                                    <th>
-                                                        <span>USA/</span><span class="mobile-none">CANADA</span><span class="mobile-show"> CA</span>
-                                                    </th>
-                                                    <td>0</td>
-                                                    <td>2 - 4</td>
-                                                    <td>2 - 6</td>
-                                                    <td>6 - 8</td>
-                                                    <td>8 - 12</td>
-                                                    <td>10 - 12</td>
-                                                    <td>14</td>
-                                                </tr>
-                                                <tr data-bs-region="aus">
-                                                    <th>AUS / NZ</th>
-                                                    <td>4</td>
-                                                    <td>6 - 8</td>
-                                                    <td>6 - 10</td>
-                                                    <td>10 - 12</td>
-                                                    <td>12 - 16</td>
-                                                    <td>14 - 16</td>
-                                                    <td>18</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -734,17 +534,21 @@
                 </div>
             </div>
             <div class="row ltn__related-product-slider-one-active slick-arrow-1">
+
+                <?php 
+                    foreach($relatedProduct as $rlp){
+                ?>
                 <!-- ltn__product-item -->
                 <div class="col-12">
                     <div class="ltn__product-item ltn__product-item-4">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/7.png" alt="#"></a>
+                            <a href="<?php echo _WEB_ROOT ?>"><img src="<?php echo _WEB_ROOT.$rlp['img']?>" alt="#"></a>
                             <div class="product-badge">
                                 <ul>
                                     <li class="badge-2">10%</li>
                                 </ul>
                             </div>
-                            <div class="product-hover-action product-hover-action-3">
+                            <!-- <div class="product-hover-action product-hover-action-3">
                                 <ul>
                                     <li>
                                         <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
@@ -762,7 +566,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="product-info">
                             <div class="product-ratting">
@@ -774,204 +578,17 @@
                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">Pink Flower Tree</a></h2>
+                            <h2 class="product-title"><a href="product-details.html"><?php echo $rlp['Title'] ?></a></h2>
                             <div class="product-price">
-                                <span>$18.00</span>
-                                <del>$21.00</del>
+                                <span><?php echo $rlp['Price'] ?>K</span>
+                                <del><?php echo $rlp['SalePrice'] ?>K</del>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ltn__product-item -->
-                <div class="col-12">
-                    <div class="ltn__product-item ltn__product-item-4">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/4.png" alt="#"></a>
-                            <div class="product-badge">
-                                <ul>
-                                    <li class="badge-1">Hot</li>
-                                </ul>
-                            </div>
-                            <div class="product-hover-action product-hover-action-3">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Premium Joyful</a></h2>
-                            <div class="product-price">
-                                <span>$18.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ltn__product-item -->
-                <div class="col-12">
-                    <div class="ltn__product-item ltn__product-item-4">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/6.png" alt="#"></a>
-                            <div class="product-badge">
-                                <ul>
-                                    <li class="badge-2">12%</li>
-                                </ul>
-                            </div>
-                            <div class="product-hover-action product-hover-action-3">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">The White Rose</a></h2>
-                            <div class="product-price">
-                                <span>$16.00</span>
-                                <del>$19.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ltn__product-item -->
-                <div class="col-12">
-                    <div class="ltn__product-item ltn__product-item-4">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/10.png" alt="#"></a>
-                            <div class="product-badge">
-                                <ul>
-                                    <li class="badge-1">Hot</li>
-                                </ul>
-                            </div>
-                            <div class="product-hover-action product-hover-action-3">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Red Rose Bouquet</a></h2>
-                            <div class="product-price">
-                                <span>$20.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ltn__product-item -->
-                <div class="col-12">
-                    <div class="ltn__product-item ltn__product-item-4">
-                        <div class="product-img">
-                            <a href="product-details.html"><img src="<?php echo _WEB_ROOT?>/public/assets/clients/img/product/12.png" alt="#"></a>
-                            <div class="product-badge">
-                                <ul>
-                                    <li class="badge-1">Hot</li>
-                                </ul>
-                            </div>
-                            <div class="product-hover-action product-hover-action-3">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Heart's Desire</a></h2>
-                            <div class="product-price">
-                                <span>$15.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--  -->
+                <?php 
+                    }
+                ?>
             </div>
         </div>
     </div>

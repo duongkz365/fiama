@@ -346,7 +346,7 @@
                         </ul>
                     </div>
                     <!-- Color Widget -->
-                    <div class="widget ltn__color-widget">
+                    <!-- <div class="widget ltn__color-widget">
                         <h4 class="ltn__widget-title">Color</h4>
                         <ul>
                             <li class="theme"><a href="#"></a></li>
@@ -356,7 +356,7 @@
                             <li class="red"><a href="#"></a></li>
                             <li class="yellow"><a href="#"></a></li>
 
-                            <!-- <li class="black"><a href="#"></a></li>
+                            <li class="black"><a href="#"></a></li>
                                 <li class="silver"><a href="#"></a></li>
                                 <li class="gray"><a href="#"></a></li>
                                 <li class="maroon"><a href="#"></a></li>
@@ -370,11 +370,11 @@
                                 <li class="purple"><a href="#"></a></li>
                                 <li class="pink"><a href="#"></a></li>
                                 <li class="nude"><a href="#"></a></li>
-                                <li class="orange"><a href="#"></a></li> -->
+                                <li class="orange"><a href="#"></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- Size Widget -->
-                    <div class="widget ltn__size-widget">
+                    <!-- <div class="widget ltn__size-widget">
                         <h4 class="ltn__widget-title">Size</h4>
                         <ul>
                             <li><a href="#">S</a></li>
@@ -383,7 +383,7 @@
                             <li><a href="#">XL</a></li>
                             <li><a href="#">XXL</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- Tagcloud Widget -->
                     <div class="widget ltn__tagcloud-widget">
                         <h4 class="ltn__widget-title">Tags</h4>

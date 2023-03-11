@@ -10,7 +10,6 @@ class Page extends Controller{
 
         $this->data['header']['category']          = $this->pageModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->pageModel->GetProductSubCategory();
-
         $this->data['footer'][] = [];
         $this->data['footer'][] = [];
     }

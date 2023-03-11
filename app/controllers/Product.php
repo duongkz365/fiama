@@ -73,16 +73,15 @@ class Product extends Controller
     function detail($strPath)
     {
         $product =  $this->productModel->GetProduct($strPath)[0];
-
-        echo "<pre>";
-        print_r($product);
-        echo "</pre>";
-
+        $listCategory = $this->productModel->GetCategoryFromStringPathDetail($strPath);
         $this->data['subData']['pageTitle'] = $product['Title'];
         $this->data['views'] = 'products/detail';
         $this->data['subData']['product'] = $product;
+        $this->data['subData']['listCategory'] = $listCategory;
+        $this->data['subData']['relatedProduct'] = $this->productModel->GetRelatedProduct();
         $this->RenderView('layouts/clientLayout', $this->data);
     }
+
 
     function PageCount($arr)
     {
