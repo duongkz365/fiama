@@ -11,6 +11,11 @@ class ProductModel  extends Model{
         
     }
 
+    public function GetProductById($idProduct){
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE Id = $idProduct")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
     public function GetProCategory($id){
         $data = $this->db->Query("SELECT * FROM fiama.sub_category WHERE Id = $id")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
