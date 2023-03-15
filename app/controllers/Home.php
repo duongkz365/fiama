@@ -5,6 +5,7 @@ class Home extends Controller {
     public function __construct()
     {
         $this->homeModel = $this->CreateModel('HomeModel');
+        $this->data['slideCart'] = [];
     }
     public function index(){
         $this->data['subData']['pageTitle'] = 'Fiama';

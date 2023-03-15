@@ -23,7 +23,7 @@ class HomeModel extends Model{
     }
     public function GetPromotion(){
         $data = [];
-        //$data = $this->db->Query("SELECT * FROM fiama.Promotion ORDER BY Id DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->Query("SELECT * FROM fiama.banner WHERE Type = 4 ORDER BY Id DESC LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
     public function GetPromotionProduct(){

@@ -9,7 +9,7 @@ class Product extends Controller
         $this->productModel = $this->CreateModel('ProductModel');
         $this->data['header']['category']          = $this->productModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->productModel->GetProductSubCategory();
-
+        $this->data['slideCart'] = [];
         //data footer
 
         $this->data['footer'][] = [];
@@ -72,8 +72,6 @@ class Product extends Controller
     }
     function detail($strPath)
     {
-
-        echo $this->convert_name("xin chào");
         $product =  $this->productModel->GetProduct($strPath)[0];
         $listCategory = $this->productModel->GetCategoryFromStringPathDetail($strPath);
         $this->data['subData']['pageTitle'] = $product['Title'];

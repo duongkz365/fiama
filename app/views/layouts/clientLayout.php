@@ -27,7 +27,7 @@
     <div class="body-wrapper">
         <?php
         //Render Slider Right Cart
-            // $this->RenderView('blocks/SlideRightCart',$slideCart);
+        $this->RenderView('blocks/SlideRightCart',$slideCart);
         // Render Header
         $this->RenderView('blocks/Header',$header);
         // End Render Header
