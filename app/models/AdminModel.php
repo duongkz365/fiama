@@ -13,5 +13,10 @@
             $data = $this->db->Query("SELECT * FROM fiama.product")->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
+
+        function GetListEmployee(){
+            $data = $this->db->Query("SELECT * FROM fiama.employee")->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
     }
 ?>

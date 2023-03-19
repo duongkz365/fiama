@@ -93,7 +93,7 @@
                                 <li>
                                     <!-- mini-cart 2 -->
                                     <div class="mini-cart-icon mini-cart-icon-2">
-                                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
+                                        <a href="<?php echo _WEB_ROOT.'/gio-hang' ?>" class="ltn__utilize-toggle">
                                             <span class="mini-cart-icon">
                                                 <i class="icon-handbag"></i>
                                                 <sup>2</sup>
@@ -136,9 +136,9 @@
                             <nav>
                                 <div class="ltn__main-menu">
                                     <ul>
-                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>">Home</a>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>">Trang Chủ</a>
                                         </li>
-                                        <li class="menu-icon"><a href="./danh-sach/1">Flowers</a>
+                                        <li class="menu-icon"><a href="./danh-sach/1">Hoa</a>
                                             <ul class="mega-menu">
                                                 <!-- Render Product Category -->
                                                 <?php
@@ -162,14 +162,14 @@
                                             </ul>
                                         </li>
 
-                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>/portfolio">Portfolio</a>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>/portfolio">Thông Tin Hoa</a>
                                             <!-- <ul>
                                                 <li><a href="portfolio.html">Portfolio</a></li>
                                                 <li><a href="portfolio-2.html">Portfolio - 02</a></li>
                                                 <li><a href="portfolio-details.html">Portfolio Details</a></li>
                                             </ul> -->
                                         </li>
-                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT?>/tin-tuc">News</a>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT?>/tin-tuc">Tin Tức</a>
                                             <!-- <ul>
                                                 <li><a href="blog.html">News</a></li>
                                                 <li><a href="blog-grid.html">News Grid</a></li>
@@ -178,17 +178,21 @@
                                                 <li><a href="blog-details.html">News details</a></li>
                                             </ul> -->
                                         </li>
-                                        <li><a href="<?php echo _WEB_ROOT?>/lien-he">Contact</a></li>
-                                        <li class="menu-icon"><a href="#">Account</a>
+                                        <li><a href="<?php echo _WEB_ROOT?>/lien-he">Liên Hệ</a></li>
+                                        <li class="menu-icon"><a href="#">Tài Khoản</a>
                                             <ul>
-                                                <li><a href="shop.html">My Account</a></li>
-                                                <li><a href="shop-grid.html">Shopping Cart</a></li>
-                                                <li><a href="shop-left-sidebar.html">WishList</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=1'?>">Tài Khoản</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT.'/gio-hang'?>">Giỏ Hàng</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=2'?>">Đơn Mua</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=6'?>">Yêu Thích</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT?>">Đăng Xuất</a></li>
+                                                <li><a href="<?php echo _WEB_ROOT.'/dang-nhap'?>">Đăng Nhập</a></li>
 
 
 
 
-                                                <li><a href="#">Other Pages <span class="float-right">>></span></a>
+
+                                                <!-- <li><a href="#">Other Pages <span class="float-right">>></span></a>
                                                     <ul>
                                                         <li><a href="cart.html">Cart</a></li>
                                                         <li><a href="wishlist.html">Wishlist</a></li>
@@ -198,7 +202,7 @@
                                                         <li><a href="login.html">Sign in</a></li>
                                                         <li><a href="register.html">Register</a></li>
                                                     </ul>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </li>
                                     </ul>

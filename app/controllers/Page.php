@@ -12,6 +12,7 @@ class Page extends Controller{
         $this->data['header']['subCategory']       = $this->pageModel->GetProductSubCategory();
         $this->data['footer'][] = [];
         $this->data['footer'][] = [];
+        $this->data['slideCart'] =[];
     }
     function AboutUs(){
         $this->data['views'] = 'pages/about';

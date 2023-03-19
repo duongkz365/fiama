@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="ltn__breadcrumb-inner text-center">
-                    <h1 class="ltn__page-title">My Account</h1>
+                    <h1 class="ltn__page-title">Tài Khoản Của Tôi</h1>
                     <div class="ltn__breadcrumb-list">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>My Account</li>
+                            <li><a href="index.html">Trang Chủ</a></li>
+                            <li>Tài Khoản Của Tôi</li>
                         </ul>
                     </div>
                 </div>
@@ -31,34 +31,33 @@
                                 <div class="ltn__tab-menu-list mb-50">
                                     <div class="nav">
                                         <a class="active show" data-bs-toggle="tab" href="#liton_tab_1_1">Bảng Điều Khiển<i class="fas fa-home"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_2">Đơn Hàng <i class="fas fa-file-alt"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_tab_1_2">Đơn Hàng <i class="fa-solid fa-bag-shopping"></i></a>
                                         <a data-bs-toggle="tab" href="#liton_tab_1_3">Đổi Mật Khẩu<i class="fa-solid fa-unlock"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_4">Thay Đổi Địa Chỉ <i class="fas fa-map-marker-alt"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_5">Thay Đổi Thông Tin <i class="fas fa-user"></i></a>
-                                        <a href="login.html">Đăng Xuất <i class="fas fa-sign-out-alt"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_tab_1_4">Thay Đổi Địa Chỉ <i class="fa-solid fa-map-location-dot"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_tab_1_5">Thay Đổi Thông Tin <i class="fa-solid fa-circle-info"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_tab_1_6">Danh Sách Yêu Thích <i class="fa-solid fa-heart"></i></i></a>
+                                        <a href="login.html">Đăng Xuất <i class="fa-solid fa-door-open"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="tab-content">
-                                    <div class="tab-pane fade active show" id="liton_tab_1_1">
-
+                                    <div class="tab-pane fade  active show" id="liton_tab_1_1">
+                                    <div class="ltn__myaccount-tab-content-inner">
+                                            <p>Xin Chào <strong>duongkz365</strong> (Không phải bạn ? <small><a class="fw-bold" href="login-register.html">ĐĂNG XUẤT</a></small> )</p>                            
+                                        </div>
                                         <div class="ltn__myaccount-tab-content-inner mb-50">
                                             <h4>Thông tin tài khoản</h4>
                                             <div class="ltn__form-box">
                                                 <form action="#">
                                                     <div class="row mb-50">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-6">
                                                             <label>Tên Đăng Nhập:</label>
                                                             <input type="email" name="ltn__lastname" placeholder="duongkz365">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label>Tên: </label>
+                                                            <label>Họ và Tên: </label>
                                                             <input type="text" name="ltn__name" placeholder="Kỳ">
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <label>Họ đệm:</label>
-                                                            <input type="text" name="ltn__lastname" placeholder="Đinh Dương">
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Số Điện Thoại:</label>
@@ -85,9 +84,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="ltn__myaccount-tab-content-inner">
-                                            <p>Xin Chào <strong>duongkz365</strong> (Không phải bạn ? <small><a href="login-register.html">Đăng Xuất</a></small> )</p>                            
-                                        </div>
+
                                     </div>
                                     <div class="tab-pane fade" id="liton_tab_1_2">
                                         <div class="ltn__myaccount-tab-content-inner">
@@ -276,10 +273,6 @@
                                                             <label>Địa chỉ Email:</label>
                                                             <input type="email" name="ltn__lastname" placeholder="example@example.com">
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <label>Thay Đổi Đường Dẫn:</label>
-                                                            <input type="email" name="ltn__lastname" placeholder="/kydingg">
-                                                        </div>
                                                         <div class="col-md-4">
                                                             <label>Ngày Sinh:</label>
                                                             <div>
@@ -310,6 +303,119 @@
                                                         <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Lưu Thay Đổi</button>
                                                     </div>
                                                 </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="liton_tab_1_6">
+                                        <div class="ltn__myaccount-tab-content-inner">
+                                            <div class="table-responsive">
+                                                <h4>Sản Phẩm Yêu Thích</h4>
+                                                <div id="table-scroll">
+                                                <table class="table" id="order-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Hình Ảnh</th>
+                                                            <th>Tên Sản Phẩm</th>
+                                                            <th>Giá</th>
+                                                            <th>Xem</th>
+                                                            <th>Bỏ Thích</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 20%">
+                                                                <div>
+                                                                    <img style="width: 40px" src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/mau-tinh-yeu.jpg" alt="">
+                                                                </div>
+                                                            </td>
+                                                            <td style="width: 30%">Màu Tình Yêu</td>
+                                                            <td style="width: 20%">150K</td>
+                                                            <td style="width: 15%"><a href="cart.html">View</a></td>
+                                                            <td style="width: 15%"> <a href="cart.html"><i class="fa-solid fa-heart-circle-xmark"></i></i></a></td>
+                                                        </tr>
+
+
+                                                        
+                                                    </tbody>
+                                                </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
