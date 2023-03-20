@@ -3,13 +3,10 @@
 				<div class="content">
 					<div class="breadcrumb-wrapper breadcrumb-contacts">
 						<div>
-							<h1>User Profile</h1>
+							<h1>Edit Profile</h1>
 							<p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-								<span><i class="mdi mdi-chevron-right"></i></span>Profile
+								<span><i class="mdi mdi-chevron-right"></i></span>Edit Profile
 							</p>
-						</div>
-						<div>
-							<a href="user-list.html" class="btn btn-primary">Edit</a>
 						</div>
 					</div>
 					<div class="card bg-white profile-content">
@@ -302,14 +299,12 @@
 										<div class="tab-pane fade" id="settings" role="tabpanel"
 											aria-labelledby="settings-tab">
 											<div class="tab-pane-content mt-5">
-												<form>
+											<form>
 													<div class="form-group row mb-6">
-														<label for="coverImage"
-															class="col-sm-4 col-lg-2 col-form-label">User Image</label>
+														<label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">User Image</label>
 														<div class="col-sm-8 col-lg-10">
 															<div class="custom-file mb-1">
-																<input type="file" class="custom-file-input"
-																	id="coverImage" required>
+																<input type="file" class="custom-file-input" id="coverImage" required>
 																<label class="custom-file-label" for="coverImage">Choose
 																	file...</label>
 																<div class="invalid-feedback">Example invalid custom
@@ -322,53 +317,145 @@
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="firstName">First name</label>
-																<input type="text" class="form-control" id="firstName"
-																	value="First name">
+																<input type="text" class="form-control" id="firstName" value="First name">
 															</div>
 														</div>
 
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="lastName">Last name</label>
-																<input type="text" class="form-control" id="lastName"
-																	value="Last name">
+																<input type="text" class="form-control" id="lastName" value="Last name">
+															</div>
+														</div>
+													</div>
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="userName">UserName</label>
+																<input type="text" class="form-control" id="userName" value="Username">
+															</div>
+														</div>
+
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="Email">Email</label>
+																<input type="text" class="form-control" id="Email" value="Email">
+															</div>
+														</div>
+													</div>
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="password">Password</label>
+																<input type="text" class="form-control" id="password" value="Password">
+															</div>
+														</div>
+
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="cofirmPassword">Cofirm Password</label>
+																<input type="text" class="form-control" id="cofirmPassword" value="Cofirm Password">
 															</div>
 														</div>
 													</div>
 
-													<div class="form-group mb-4">
-														<label for="userName">User name</label>
-														<input type="text" class="form-control" id="userName"
-															value="User name">
-														<span class="d-block mt-1">Accusamus nobis at omnis consequuntur
-															culpa tempore saepe animi.</span>
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="phone">Phone</label>
+																<input type="text" class="form-control" id="phone" value="Phone">
+															</div>
+														</div>
+
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="position">Position</label>
+
+																<div>
+																<select class="form-select" name="" id="select-position">
+																	<option value="">Choose Position</option>
+																	<option value="">Choose Position</option>
+																	<option value="">Choose Position</option>
+																	<option value="">Choose Position</option>
+																	<option value="">Choose Position</option>
+																</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="Province">Province</label>
+																<div>
+																<select class="form-select" name="" id="select-position">
+																	<option value="">Choose Province</option>
+																	<option value="">Choose Province</option>
+																	<option value="">Choose Province</option>
+																	<option value="">Choose Province</option>
+																	<option value="">Choose Province</option>
+																</select>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="district">District</label>
+																<div>
+																<select class="form-select" name="" id="select-position">
+																	<option value="">Choose District</option>
+																	<option value="">Choose District</option>
+																	<option value="">Choose District</option>
+																	<option value="">Choose District</option>
+																	<option value="">Choose District</option>
+																</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="wards">Wards</label>
+																<div>
+																<select class="form-select" name="" id="select-position">
+																	<option value="">Choose Wards</option>
+																	<option value="">Choose Wards</option>
+																	<option value="">Choose Wards</option>
+																	<option value="">Choose Wards</option>
+																	<option value="">Choose Wards</option>
+																</select>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="district">Street</label>
+																<input type="text" class="form-control" id="district" value="District">
+															</div>
+														</div>
 													</div>
 
-													<div class="form-group mb-4">
-														<label for="email">Email</label>
-														<input type="email" class="form-control" id="email"
-															value="ekka.example@gmail.com">
-													</div>
+													<div class="row mb-2">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="faceBook">Facebook</label>
+																<input type="text" class="form-control" id="faceBook" value="https://www.facebook.com/kydingg">
+															</div>
+														</div>
 
-													<div class="form-group mb-4">
-														<label for="oldPassword">Old password</label>
-														<input type="password" class="form-control" id="oldPassword">
+														<div class="col-lg-6">
+															<div class="form-group">
+																<label for="skype">Skype</label>
+																<input type="text" class="form-control" id="skype" value="skype.xxx">
+															</div>
+														</div>
 													</div>
-
-													<div class="form-group mb-4">
-														<label for="newPassword">New password</label>
-														<input type="password" class="form-control" id="newPassword">
-													</div>
-
-													<div class="form-group mb-4">
-														<label for="conPassword">Confirm password</label>
-														<input type="password" class="form-control" id="conPassword">
-													</div>
-
 													<div class="d-flex justify-content-end mt-5">
-														<button type="submit"
-															class="btn btn-primary mb-2 btn-pill">Update
-															Profile</button>
+														<button type="submit" class="btn btn-primary mb-2 btn-pill">Save Change</button>
 													</div>
 												</form>
 											</div>

@@ -47,10 +47,7 @@ class Admin extends Controller
                     $this->ViewListEmployee();
                     break;
                 case 'profile':
-                    if(!empty($_GET('id')))
-                        $this->ViewProfileEmployee();
-                    else
-                        App::$app->LoadError();
+                    $this->ViewProfileEmployee();
                     break;
                 default: App::$app->LoadError();
             }
@@ -72,10 +69,17 @@ class Admin extends Controller
         $this->data['subData'][] = [];
         $this->RenderView('layouts/adminLayout', $this->data);
     }
+
+
     public function ViewProfileEmployee(){
-        $this->data['views']['content'] = 'admin/employee/profile';
-        $this->data['subData'][] = [];
-        $this->RenderView('layouts/adminLayout', $this->data);
+
+        if(!empty($_GET['id'])){
+            $this->data['views']['content'] = 'admin/employee/profile';
+            $this->data['subData'][] = [];
+            $this->RenderView('layouts/adminLayout', $this->data);
+        }else {
+            App::$app->LoadError();
+        }
     }
 
 
