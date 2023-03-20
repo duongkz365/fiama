@@ -64,13 +64,6 @@ class Admin extends Controller
         $this->data['subData'][] = [];
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewEditEmployee($employeeId){
-        $this->data['views']['content'] = 'admin/employee/edit';
-        $this->data['subData'][] = [];
-        $this->RenderView('layouts/adminLayout', $this->data);
-    }
-
-
     public function ViewProfileEmployee(){
 
         if(!empty($_GET['id'])){
@@ -85,29 +78,48 @@ class Admin extends Controller
 
     // Customer
     public function RenderCustomer(){
-        if (empty($_GET['tab'])) {
+        if (empty($_GET['action'])) {
             // render 404
+            App::$app->LoadError();
         } else {
-            switch ($_GET['tab']) {
-                case 1:
+            switch ($_GET['action']) {
+                case 'list':
+                    $this->ViewListCustomer();
                     break;
-                case 2:
+                case 'add':
+                    $this->ViewAddCustomer();
                     break;
-                case 3:
+                case 'edit':
+                    $this->ViewListCustomer();
                     break;
+                case 'profile':
+                    $this->ViewProfileCustomer();
+                    break;
+                default: App::$app->LoadError();
             }
         }
     }
 
-    public function ViewListCutomer(){
-
+    public function ViewListCustomer(){
+        $this->data['views']['content'] = 'admin/customer/list';
+        $this->data['subData']['listCustomer'] = $this->userModel->GetListCustomer();
+        $this->RenderView('layouts/adminLayout', $this->data);
     }
+
     public function ViewAddCustomer(){
-
+        $this->data['views']['content'] = 'admin/customer/add';
+        $this->data['subData'][] = [];
+        $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    public function ViewEditCustomer(){
-        
+    public function ViewProfileCustomer(){
+        if(!empty($_GET['id'])){
+            $this->data['views']['content'] = 'admin/customer/profile';
+            $this->data['subData'][] = [];
+            $this->RenderView('layouts/adminLayout', $this->data);
+        }else {
+            App::$app->LoadError();
+        }
     }
 
 
