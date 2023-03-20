@@ -52,23 +52,23 @@
 						<li class="has-sub">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-comment-account"></i>
-								<span class="nav-text">Khách Hàng</span> <b class="caret"></b>
+								<span class="nav-text">Customer</span> <b class="caret"></b>
 							</a>
 							<div class="collapse">
 								<ul class="sub-menu" id="users" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/quan-tri/khach-hang?tab=1'?>">
-											<span class="nav-text">Danh Sách Khách Hàng</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/customer?action=list'?>">
+											<span class="nav-text">List Customer</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/quan-tri/khach-hang?tab=2'?>">
-											<span class="nav-text">Thêm Khách Hàng</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/customer?action=add'?>">
+											<span class="nav-text">Add Customer</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/quan-tri/khach-hang?tab=3'?>">
-											<span class="nav-text">Chỉnh Sửa Khách Hàng</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/customer?action=list'?>">
+											<span class="nav-text">Edit Customer</span>
 										</a>
 									</li>
 								</ul>

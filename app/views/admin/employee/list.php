@@ -52,7 +52,7 @@
 
 			                                                <div class="dropdown-menu">
 															    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=profile&id='.$le['Id']?>">Profile</a>
-			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=edit&id='.$le['Id'] ?>">Edit</a>
+			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=profile&id='.$le['Id'] ?>">Edit</a>
 			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=delete&id'.$le['Id'] ?>">Delete</a>
 			                                                </div>
 			                                            </div>

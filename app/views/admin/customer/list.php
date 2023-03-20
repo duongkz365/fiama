@@ -3,14 +3,13 @@
 			    <div class="content">
 			        <div class="breadcrumb-wrapper breadcrumb-contacts">
 			            <div>
-			                <h1>User List</h1>
-			                <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-			                    <span><i class="mdi mdi-chevron-right"></i></span>User
+			                <h1>Customer</h1>
+			                <p class="breadcrumbs"><span><a href="index.html">Admin</a></span>
+			                    <span><i class="mdi mdi-chevron-right"></i></span>Customer
 			                </p>
 			            </div>
 			            <div>
-			                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser"> Add User
-			                </button>
+			                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">Add Customer </button>
 			            </div>
 			        </div>
 			        <div class="row">
@@ -21,29 +20,29 @@
 			                            <table id="responsive-data-table" class="table">
 			                                <thead>
 			                                    <tr>
-			                                        <th>Ảnh</th>
-			                                        <th>Họ Tên</th>
+			                                        <th>Img</th>
+			                                        <th>Full Name</th>
 			                                        <th>Email</th>
-			                                        <th>Điện Thoại</th>
-			                                        <th>Tổng Tiền</th>
-			                                        <th>Trạng Thái</th>
-			                                        <th>Ngày Đăng Ký</th>
-			                                        <th>Hành Động</th>
+			                                        <th>Phone</th>
+			                                        <th>UserName</th>
+			                                        <th>Status</th>
+			                                        <th>JoinOn</th>
+			                                        <th>Action</th>
 			                                    </tr>
 			                                </thead>
 
 			                                <tbody>
 			                                    <?php
-                                                    foreach($listCustomer as $lcus){
+                                                    foreach($listCustomer as $lc){
                                                 ?>
 			                                    <tr>
 			                                        <td><img class="vendor-thumb" src="<?php echo _WEB_ROOT?>/public/assets/admin/img/vendor/u1.jpg" alt="user profile" /></td>
-			                                        <td><?php echo $lcus['LastName'].' '.$lcus['FirstName'] ?></td>
-			                                        <td><?php echo $lcus['Email'] ?></td>
-			                                        <td><?php echo $lcus['Phone'] ?></td>
-			                                        <td><?php echo $lcus['TotalBuy'] ?></td>
-			                                        <td><?php echo ($lcus['Status'] == 0) ? "Inactive" : " Active"; ?></td>
-			                                        <td><?php echo $lcus['JoinOn'] ?></td>
+			                                        <td><?php echo $lc['LastName'].' '.$lc['FirstName'] ?></td>
+			                                        <td><?php echo $lc['Email'] ?></td>
+			                                        <td><?php echo $lc['Phone'] ?></td>
+			                                        <td><?php echo $lc['UserName'] ?></td>
+			                                        <td><?php echo ($lc['Status'] == 0) ? "Inactive" : " Active"; ?></td>
+			                                        <td><?php echo $lc['CreatedDate'] ?></td>
 			                                        <td>
 			                                            <div class="btn-group mb-1">
 			                                                <button type="button" class="btn btn-outline-success">Info</button>
@@ -52,8 +51,9 @@
 			                                                </button>
 
 			                                                <div class="dropdown-menu">
-			                                                    <a class="dropdown-item" href="#">Edit</a>
-			                                                    <a class="dropdown-item" href="#">Delete</a>
+															    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/customer?action=profile&id='.$lc['Id']?>">Profile</a>
+			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/customer?action=profile&id='.$lc['Id'] ?>">Edit</a>
+			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/customer?action=delete&id'.$lc['Id'] ?>">Delete</a>
 			                                                </div>
 			                                            </div>
 			                                        </td>
