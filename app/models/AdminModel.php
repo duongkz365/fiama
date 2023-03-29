@@ -18,5 +18,10 @@
             $data = $this->db->Query("SELECT * FROM fiama.employee")->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
+
+        function GetListCategory(){
+            $data = $this->db->Query("SELECT * FROM fiama.categories")->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
     }
 ?>

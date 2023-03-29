@@ -123,46 +123,161 @@ class Admin extends Controller
     }
 
 
+
+
+    // Categories
+
+    public function RenderCategories(){
+        $action = '';
+        if(!empty($_GET['action'])) $action = $_GET['action'];
+
+        if($action == 'list'){
+            $this->ViewListCategory();
+        }else if($action == 'edit' && !empty($_GET['id'])){
+            $this->ViewListCategory($_GET['id']);
+        }else {
+            App::$app->LoadError();
+        }
+    }
+
+
+    public function ViewListCategory(){
+        $this->data['views']['content'] = 'admin/categories/list';
+        $this->data['subData']['listCategory']= $this->adminModel->GetListCategory();
+        $this->RenderView('layouts/adminLayout',$this->data);
+    }
+
+    public function ViewEditCategory($id){
+        $this->data['views']['content'] = 'admin/categories/list';
+        $this->data['subData'][]= [];
+        $this->RenderView('layouts/adminLayout',$this->data);
+    }
+
+
     //Products
-    function ProductAdd()
+
+
+    public function RenderProduct(){
+
+      
+        $action = '';
+
+
+        if(!empty($_GET['action'])) $action = $_GET['action'];
+        
+
+        if($action == 'list'){
+            $this->ViewProductList();
+        }else if($action == 'add'){
+            
+            $this->ViewProductAdd();
+        }else if($action == 'edit' && !empty($_GET['id'])){
+            $this->ViewProductEdit($_GET['id']);
+        }else {
+            App::$app->LoadError();
+        }
+        
+    }
+
+
+    function ViewProductAdd()
     {
-        $this->data['views'] = 'admin/products/product_add';
+        $this->data['views']['content'] = 'admin/products/add';
         $this->data['subData'][] = [];
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    function ProductDetail()
-    {
 
-        $this->RenderView('layouts/adminLayout', $this->data);
-    }
-    function ProductEdit($idProduct = 0)
+    function ViewProductEdit($idProduct = 0)
     {
-
         $product = $this->productModel->GetProduct($idProduct);
         $this->data['subData'][] = [];
-        $this->data['views'] = 'admin/products/product_edit';
+        $this->data['views']['content'] = 'admin/products/edit';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    function ProductList()
-    {
+
+    function ViewProductList(){
         $this->data['subData']['listProduct'] = $this->adminModel->GetListProduct();
-        $this->data['views'] = 'admin/products/product_list';
+        $this->data['views']['content'] = 'admin/products/list';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    // Users
-    // function UserAdd()
-    // {
-    //     $this->RenderView('layouts/adminLayout');
-    // }
-    // function UserList()
-    // {
-    //     $this->data['subData']['listCustomer'] = $this->userModel->GetListCustomer();
-    //     $this->data['views'] = 'admin/user/user_list';
-    //     $this->RenderView('layouts/adminLayout', $this->data);
-    // }
-    // function UserProfile()
-    // {
-    //     $this->RenderView('layouts/adminLayout');
-    // }
+
+    // Order
+    public function RenderOrder(){
+
+      
+        $action = '';
+
+
+        if(!empty($_GET['action'])) $action = $_GET['action'];
+        
+
+        if($action == 'new-order'){
+            $this->ViewNewOrder();
+        }else if($action == 'list'){
+            $this->ViewAllListOrder();
+        }else if($action == 'detail' && !empty($_GET['id'])){
+            $this->ViewDetailOrder($_GET['id']);
+        }else if ($action == 'invoice' && !empty($_GET['id'])){
+            $this->ViewInvoiceOrder($_GET['id']);
+        }else {
+            App::$app->LoadError();
+        }
+        
+    }
+
+    public function ViewNewOrder(){
+        $this->data['subData']=[];
+        $this->data['views']['content'] = 'admin/orders/new';
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
+    public function ViewAllListOrder(){
+        $this->data['subData']=[];
+        $this->data['views']['content'] = 'admin/orders/list';
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+    public function ViewDetailOrder($id){
+        $this->data['subData']=[];
+        $this->data['views']['content'] = 'admin/orders/detail';
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+    public function ViewInvoiceOrder($id){
+        $this->data['subData']=[];
+        $this->data['views']['content'] = 'admin/orders/invoice';
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
+
+    // Review
+
+    public function RenderReview(){
+
+      
+        $action = '';
+
+
+        if(!empty($_GET['action'])) $action = $_GET['action'];
+        
+
+        if($action == 'list'){
+            $this->ViewReview();
+        }else if($action == 'detail'){
+
+        }else {
+            App::$app->LoadError();
+        }
+        
+    }
+    public function ViewReview(){
+        $this->data['subData']=[];
+        $this->data['views']['content'] = 'admin/reviews/review';
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+    public function ViewReviewDetail(){
+
+    }
+
+
+    //Brand
 
 }
