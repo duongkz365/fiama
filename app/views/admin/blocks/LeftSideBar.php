@@ -80,18 +80,13 @@
 						<li class="has-sub">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-file-tree"></i>
-								<span class="nav-text">Danh Mục</span> <b class="caret"></b>
+								<span class="nav-text">Categories</span> <b class="caret"></b>
 							</a>
 							<div class="collapse">
 								<ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="main-category.html">
-											<span class="nav-text">Danh Sách Danh Mục</span>
-										</a>
-									</li>
-									<li class="">
-										<a class="sidenav-item-link" href="sub-category.html">
-											<span class="nav-text">Chỉnh Sửa Danh Mục</span>
+										<a class="sidenav-item-link" href="<?php  echo _WEB_ROOT.'/admin/categories?action=list'?>">
+											<span class="nav-text">List Category</span>
 										</a>
 									</li>
 								</ul>
@@ -102,23 +97,23 @@
 						<li class="has-sub">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-flower-outline"></i>
-								<span class="nav-text">Sản Phẩm</span> <b class="caret"></b>
+								<span class="nav-text">Flowers</span> <b class="caret"></b>
 							</a>
 							<div class="collapse">
 								<ul class="sub-menu" id="products" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="product-add.html">
-											<span class="nav-text">Thêm Sản Phẩm</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/product?action=list'  ?>">
+											<span class="nav-text">List Flower</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="product-list.html">
-											<span class="nav-text">Danh Sách Sản Phẩm</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/product?action=add'  ?>">
+											<span class="nav-text">Add Flower</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="product-grid.html">
-											<span class="nav-text">Chỉnh Sửa Sản Phẩm</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/product?action=list'  ?>">
+											<span class="nav-text">Edit Flower</span>
 										</a>
 									</li>
 								</ul>
@@ -129,27 +124,27 @@
 						<li class="has-sub">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-shopify"></i>
-								<span class="nav-text">Đơn Hàng</span> <b class="caret"></b>
+								<span class="nav-text">Order</span> <b class="caret"></b>
 							</a>
 							<div class="collapse">
 								<ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="new-order.html">
-											<span class="nav-text">Đơn Hàng Mới</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=new-order' ?>">
+											<span class="nav-text">New Order</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="order-history.html">
-											<span class="nav-text">Lịch Sử Đơn Hàng</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=list'?>">
+											<span class="nav-text">List Order</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="order-detail.html">
-											<span class="nav-text">Chi Tiết Đơn Hàng</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=detail&id=1' ?>">
+											<span class="nav-text">Order Detail</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="invoice.html">
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=invoice&id=1'?>">
 											<span class="nav-text">Invoice</span>
 										</a>
 									</li>
@@ -159,9 +154,9 @@
 
 						<!-- Reviews -->
 						<li>
-							<a class="sidenav-item-link" href="review-list.html">
+							<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/review?action=list' ?>">
 								<i class="mdi mdi-star-half"></i>
-								<span class="nav-text">Đánh Giá</span>
+								<span class="nav-text">Review</span>
 							</a>
 						</li>
 

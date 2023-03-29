@@ -38,7 +38,7 @@
                                                     foreach($listProduct as $lpd){
                                                 ?>
 			                                    <tr>
-			                                        <td><img class="tbl-thumb" src="<?php echo _WEB_ROOT.$lpd['img'] ?>" alt="Product Image" /></td>
+			                                        <td><img class="tbl-thumb" src="<?php echo _WEB_ROOT.'/'.$lpd['Img'] ?>" alt="Product Image" /></td>
 			                                        <td><?php echo $lpd['Title'] ?></td>
 			                                        <td><?php echo $lpd['Price'] ?>K</td>
 			                                        <td><?php echo $lpd['SalePrice'] ?>K</td>
@@ -54,7 +54,7 @@
 			                                                </button>
 
 			                                                <div class="dropdown-menu">
-			                                                    <a class="dropdown-item" href="<?php  echo _WEB_ROOT.'/chinh-sua-san-pham/'.$lpd['Id'] ?>">Edit</a>
+			                                                    <a class="dropdown-item" href="<?php  echo _WEB_ROOT.'/admin/product?action=edit&id='.$lpd['Id'] ?>">Edit</a>
 			                                                    <a class="dropdown-item" href="#">Delete</a>
 			                                                </div>
 			                                            </div>

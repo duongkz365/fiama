@@ -4,13 +4,12 @@
 				<div class="content">
 					<div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
 						<div>
-                            
-							<h1>Edit Product</h1>
-							<p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-								<span><i class="mdi mdi-chevron-right"></i></span>Product</p>
+							<h1>Add Flower</h1>
+							<p class="breadcrumbs"><span><a href="index.html">Admin</a></span>
+								<span><i class="mdi mdi-chevron-right"></i></span>Flower</p>
 						</div>
 						<div>
-							<a href="product-list.html" class="btn btn-primary"> View All
+							<a href="product-list.html" class="btn btn-primary"> View All Flower
 							</a>
 						</div>
 					</div>
@@ -18,7 +17,7 @@
 						<div class="col-12">
 							<div class="card card-default">
 								<div class="card-header card-header-border-bottom">
-									<h2>Edit Product</h2>
+									<h2>Add Flower</h2>
 								</div>
 
 								<div class="card-body">
@@ -37,7 +36,7 @@
 														<div class="avatar-preview ec-preview">
 															<div class="imagePreview ec-div-preview">
 																<img class="ec-image-preview"
-																	src="<?php echo _WEB_ROOT ?>/public/assets/admin/img/products/vender-upload-preview.jpg"
+																	src="<?php echo _WEB_ROOT ?>/public/assets/admin/img/products/vender-upload-thumb-preview.jpg"
 																	alt="edit" />
 															</div>
 														</div>
@@ -153,11 +152,11 @@
 											<div class="ec-vendor-upload-detail">
 												<form class="row g-3">
 													<div class="col-md-6">
-														<label for="inputEmail4" class="form-label">Product name</label>
+														<label for="inputEmail4" class="form-label">Flower Name</label>
 														<input type="text" class="form-control slug-title" id="inputEmail4">
 													</div>
 													<div class="col-md-6">
-														<label class="form-label">Select Categories</label>
+														<label class="form-label">Choose Cateogory <span>(Can choose multiple categories)</span></label>
 														<select name="categories" id="Categories" class="form-select">
 															<optgroup label="Fashion">
 																<option value="t-shirt">T-shirt</option>
@@ -173,78 +172,53 @@
 															</optgroup>
 														</select>
 													</div>
+                                                    <div class="col-md-12">
+														<label for="slug" class="col-12 col-form-label">Selected Choose <span> (Clisk To Delete)</span></label> 
+                                                        <div class="row">
+                                                            <div class="col-3 d-flex p-1 align-items-center justify-content-center" style="margin: 0 10px;border: 1px solid black; border-radius: 8px;">
+                                                                <h5>Hoa Hồng</h5>
+                                                            </div>
+                                                            <div class="col-md-3 d-flex p-1 align-items-center justify-content-center" style="margin: 0 10px; border: 1px solid black; border-radius: 8px;">
+                                                                <h5>Giỏ Hoa</h5>
+                                                            </div>
+                                                            <div class="col-md-3 d-flex p-1 align-items-center justify-content-center" style="margin: 0 10px; border: 1px solid black; border-radius: 8px;">
+                                                                <h5>Hoa Sinh Nhật</h5>
+                                                            </div>
+                                                        </div>
+													</div>
 													<div class="col-md-12">
-														<label for="slug" class="col-12 col-form-label">Slug</label> 
+														<label for="slug" class="col-12 col-form-label">SKU CODE</label> 
 														<div class="col-12">
 															<input id="slug" name="slug" class="form-control here set-slug" type="text">
 														</div>
 													</div>
 													<div class="col-md-12">
-														<label class="form-label">Sort Description</label>
+														<label class="form-label">Short Description</label>
 														<textarea class="form-control" rows="2"></textarea>
 													</div>
-													<div class="col-md-4 mb-25">
-														<label class="form-label">Colors</label>
-														<input type="color" class="form-control form-control-color"
-															id="exampleColorInput1" value="#ff6191"
-															title="Choose your color">
-														<input type="color" class="form-control form-control-color"
-															id="exampleColorInput2" value="#33317d"
-															title="Choose your color">
-														<input type="color" class="form-control form-control-color"
-															id="exampleColorInput3" value="#56d4b7"
-															title="Choose your color">
-														<input type="color" class="form-control form-control-color"
-															id="exampleColorInput4" value="#009688"
-															title="Choose your color">
-													</div>
-													<div class="col-md-8 mb-25">
-														<label class="form-label">Size</label>
-														<div class="form-checkbox-box">
-															<div class="form-check form-check-inline">
-																<input type="checkbox" name="size1" value="size">
-																<label>S</label>
-															</div>
-															<div class="form-check form-check-inline">
-																<input type="checkbox" name="size1" value="size">
-																<label>M</label>
-															</div>
-															<div class="form-check form-check-inline">
-																<input type="checkbox" name="size1" value="size">
-																<label>L</label>
-															</div>
-															<div class="form-check form-check-inline">
-																<input type="checkbox" name="size1" value="size">
-																<label>XL</label>
-															</div>
-															<div class="form-check form-check-inline">
-																<input type="checkbox" name="size1" value="size">
-																<label>XXL</label>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<label class="form-label">Price <span>( In USD
-																)</span></label>
-														<input type="number" class="form-control" id="price1">
-													</div>
-													<div class="col-md-6">
+                                                    <div class="col-md-12">
 														<label class="form-label">Quantity</label>
 														<input type="number" class="form-control" id="quantity1">
 													</div>
+													<div class="col-md-6">
+														<label class="form-label">SalePrice <span>( In K
+																)</span></label>
+														<input type="number" class="form-control" id="price1">
+													</div>
+                                                    <div class="col-md-6">
+														<label class="form-label">Price <span>( In K
+																)</span></label>
+														<input type="number" class="form-control" id="price1">
+													</div>
+
 													<div class="col-md-12">
-														<label class="form-label">Ful Detail</label>
+														<label class="form-label">Product Details</label>
 														<textarea class="form-control" rows="4"></textarea>
 													</div>
 													<div class="col-md-12">
-														<label class="form-label">Product Tags <span>( Type and
-																make comma to separate tags )</span></label>
-														<input type="text" class="form-control" id="group_tag"
-															name="group_tag" value="" placeholder=""
-															data-role="tagsinput" />
-													</div>
-													<div class="col-md-12">
-														<button type="submit" class="btn btn-primary">Submit</button>
+                                                        <form action="" method="post">
+                                                            <button type="submit" class="btn btn-primary">Add Flower</button>
+                                                        </form>
 													</div>
 												</form>
 											</div>

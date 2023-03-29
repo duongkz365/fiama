@@ -4,12 +4,12 @@
 				<div class="content">
 					<div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
 						<div>
-							<h1>Thêm Sản Phẩm</h1>
+							<h1>Edit Product</h1>
 							<p class="breadcrumbs"><span><a href="index.html">Admin</a></span>
-								<span><i class="mdi mdi-chevron-right"></i></span>Sản Phẩm</p>
+								<span><i class="mdi mdi-chevron-right"></i></span>Product</p>
 						</div>
 						<div>
-							<a href="product-list.html" class="btn btn-primary"> Xem Tất Cả Sản Phẩm
+							<a href="<?php echo _WEB_ROOT.'/admin/product?action=list'?>" class="btn btn-primary"> View All Product
 							</a>
 						</div>
 					</div>
@@ -17,7 +17,7 @@
 						<div class="col-12">
 							<div class="card card-default">
 								<div class="card-header card-header-border-bottom">
-									<h2>Thêm Sản Phẩm</h2>
+									<h2>Edit Product</h2>
 								</div>
 
 								<div class="card-body">
@@ -152,11 +152,11 @@
 											<div class="ec-vendor-upload-detail">
 												<form class="row g-3">
 													<div class="col-md-6">
-														<label for="inputEmail4" class="form-label">Tên sản phẩm</label>
+														<label for="inputEmail4" class="form-label">Product Name</label>
 														<input type="text" class="form-control slug-title" id="inputEmail4">
 													</div>
 													<div class="col-md-6">
-														<label class="form-label">Chọn Danh Mục <span>(Có thể chọn nhiều danh mục)</span></label>
+														<label class="form-label">Choose Category <span>(Can choose multiple categories)</span></label>
 														<select name="categories" id="Categories" class="form-select">
 															<optgroup label="Fashion">
 																<option value="t-shirt">T-shirt</option>
@@ -173,7 +173,7 @@
 														</select>
 													</div>
                                                     <div class="col-md-12">
-														<label for="slug" class="col-12 col-form-label">Danh Mục Được Chọn <span> (Nhấn vào để xoá)</span></label> 
+														<label for="slug" class="col-12 col-form-label">Selected Cateogory <span> (Click To Delete)</span></label> 
                                                         <div class="row">
                                                             <div class="col-3 d-flex p-1 align-items-center justify-content-center" style="margin: 0 10px;border: 1px solid black; border-radius: 8px;">
                                                                 <h5>Hoa Hồng</h5>
@@ -187,37 +187,37 @@
                                                         </div>
 													</div>
 													<div class="col-md-12">
-														<label for="slug" class="col-12 col-form-label">Mã SKU</label> 
+														<label for="slug" class="col-12 col-form-label">SKU Code</label> 
 														<div class="col-12">
 															<input id="slug" name="slug" class="form-control here set-slug" type="text">
 														</div>
 													</div>
 													<div class="col-md-12">
-														<label class="form-label">Mô Tả Ngắn</label>
+														<label class="form-label">Short Description</label>
 														<textarea class="form-control" rows="2"></textarea>
 													</div>
                                                     <div class="col-md-12">
-														<label class="form-label">Số Lượng Sản Phẩm Trong Kho</label>
+														<label class="form-label">Quantity</label>
 														<input type="number" class="form-control" id="quantity1">
 													</div>
 													<div class="col-md-6">
-														<label class="form-label">Giá gốc <span>( In USD
+														<label class="form-label">SalePrice <span>( In USD
 																)</span></label>
 														<input type="number" class="form-control" id="price1">
 													</div>
                                                     <div class="col-md-6">
-														<label class="form-label">Giá hiển thị <span>( In USD
+														<label class="form-label">Price <span>( In USD
 																)</span></label>
 														<input type="number" class="form-control" id="price1">
 													</div>
 
 													<div class="col-md-12">
-														<label class="form-label">Chi Tiết Sản Phẩm</label>
+														<label class="form-label">Product Details</label>
 														<textarea class="form-control" rows="4"></textarea>
 													</div>
 													<div class="col-md-12">
                                                         <form action="" method="post">
-                                                            <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+                                                            <button type="submit" class="btn btn-primary">Save Change</button>
                                                         </form>
 													</div>
 												</form>
