@@ -5,9 +5,13 @@ class Home extends Controller {
     public function __construct()
     {
         $this->homeModel = $this->CreateModel('HomeModel');
-        $this->data['slideCart'] = [];
+        $this->data['slideCart'] = [1, 2, 3];
     }
     public function index(){
+        $authModel = $this->CreateModel("AuthModel");
+        if ($authModel->check_logged_in_employee()) {
+            $authModel->logout();
+        }
         $this->data['subData']['pageTitle'] = 'Fiama';
         $this->data['views'] = 'home/index';
         $this->data['subData']['newArrivalItem']   = $this->homeModel->GetNewArrivalItem();

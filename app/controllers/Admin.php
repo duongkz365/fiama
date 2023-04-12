@@ -5,15 +5,21 @@ class Admin extends Controller
     private $adminModel, $data = [];
     private $productModel;
     private $userModel;
+    private $authModel;
 
     function __construct()
     {
         $this->adminModel = $this->CreateModel('AdminModel');
         $this->productModel = $this->CreateModel('ProductModel');
         $this->userModel = $this->CreateModel('UserModel');
+        $this->authModel = $this->CreateModel("AuthModel");
         $this->data['views']['header'] = 'admin/blocks/header';
         $this->data['views']['leftSideBar'] = 'admin/blocks/leftSideBar';
         $this->data['views']['footer'] = 'admin/blocks/footer';
+
+        if (!$this->authModel->check_logged_in_employee()) {
+            $this->authModel->logout();
+        }
     }
 
     function Index()
@@ -29,6 +35,37 @@ class Admin extends Controller
 
 
     //Employee
+
+    function SaveEmployee()
+    {
+        // var_dump($_POST);
+        // if ($_POST['ConfirmPassword'] != $_POST['Password']) echo "dcm";
+        if (!isset($_POST['FirstName']) || $_POST['FirstName'] == "") {
+            echo "<script>alert('FirstName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if (!isset($_POST['LastName']) || $_POST['LastName'] == "") {
+            echo "<script>alert('LastName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if (!isset($_POST['UserName']) || $_POST['UserName'] == "") {
+            echo "<script>alert('UserName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if (!$this->authModel->check_username($_POST['UserName'])) {
+            echo "<script>alert('Username existed!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if (!isset($_POST['Password']) || $_POST['Password'] == "") {
+            echo "<script>alert('Password is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if (!isset($_POST['ConfirmPassword']) || $_POST['ConfirmPassword'] == "") {
+            echo "<script>alert('ConfirmPassword is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else if ($_POST['ConfirmPassword'] != $_POST['Password']) {
+            echo "<script>alert('ConfirmPassword does not match!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        } else {
+            $result = $this->adminModel->SaveEmployee($_POST);
+            if ($result) {
+                echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=list" . "';</script>";
+                die;
+            } else {
+                $errMsg = $_SESSION['error'];
+                unset($_SESSION['error']);
+                echo "<script>alert('" . $errMsg . "'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            }
+        }
+    }
 
     public function RenderEmployee()
     {
