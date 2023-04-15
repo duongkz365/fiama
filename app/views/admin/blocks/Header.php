@@ -29,7 +29,11 @@
 									<li class="dropdown-header">
 										<img src="<?php echo _WEB_ROOT ?>/public/assets/admin/img/user/user.png" class="img-circle" alt="User Image" />
 										<div class="d-inline-block">
-											John Deo <small class="pt-1">john.example@gmail.com</small>
+											<?php if (isset($_SESSION['currentUser']['LAST_ACTIVITY']) && isset($_SESSION['currentUser']['username'])): ?>
+												<?=$_SESSION['currentUser']['username']?> <small class="pt-1"><?=$_SESSION['currentUser']['email']?></small>
+											<?php else: ?>
+												unknown <small class="pt-1">unknown.example@gmail.com</small>
+											<?php endif; ?>
 										</div>
 									</li>
 									<li>
@@ -49,7 +53,7 @@
 										<a href="javascript:0"> <i class="mdi mdi-settings-outline"></i> Cài Đặt</a>
 									</li>
 									<li class="dropdown-footer">
-										<a href="index.html"> <i class="mdi mdi-logout"></i> Đăng Xuất </a>
+										<a href="<?= _WEB_ROOT . '/Authentication/SignOut'?>"> <i class="mdi mdi-logout"></i> Đăng Xuất </a>
 									</li>
 								</ul>
 							</li>

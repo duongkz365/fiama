@@ -38,22 +38,22 @@
           <div class="card-body p-5">
             <h4 class="text-dark mb-5">Sign Up</h4>
 
-            <form action="/index.html">
+            <form method="POST">
               <div class="row">
                 <div class="form-group col-md-12 mb-4">
-                  <input type="text" class="form-control" id="name" placeholder="Name">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
 
                 <div class="form-group col-md-12 mb-4">
-                  <input type="email" class="form-control" id="email" placeholder="Username">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                 </div>
 
                 <div class="form-group col-md-12 ">
-                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
 
                 <div class="form-group col-md-12 ">
-                  <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password">
+                  <input type="password" class="form-control" id="cpassword" name="confirmPassword" placeholder="Confirm Password">
                 </div>
 
                 <div class="col-md-12">
@@ -68,7 +68,7 @@
                   <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
 
                   <p class="sign-upp">Already have an account?
-                    <a class="text-blue" href="sign-in.html">Sign in</a>
+                    <a class="text-blue" href="<?php echo _WEB_ROOT . "/Authentication/SignIn" ?>">Sign in</a>
                   </p>
                 </div>
               </div>

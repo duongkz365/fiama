@@ -11,10 +11,15 @@ class Database
     }
 
     function Query($sql){
-        $statement = $this->__conn->prepare($sql);
-        $statement->execute();
-        return $statement;
+        try {
+            $statement = $this->__conn->prepare($sql);
+            $statement->execute();
+            return $statement;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
+
     function Delete($table,$condition = ''){
         if(!empty($condition))
             $sql = 'DELETE FROM '.$this->__db['db'].$table.' WHERE '.$condition;
@@ -31,13 +36,15 @@ class Database
             $fieldStr = '';
             $valueStr = '';
             foreach($data as $key => $value){
-                $fieldStr.=$key;
+                $fieldStr.=$key . ",";
                 $valueStr.="'".$value."',";
             }
             $fieldStr = rtrim($fieldStr,',');
             $valueStr = rtrim($valueStr,',');
 
             $sql = "INSERT INTO $table ($fieldStr) VALUES ($valueStr)";
+            // var_dump($sql);
+            // die;
             $status = $this->Query($sql);
             if($status){
                 return true;

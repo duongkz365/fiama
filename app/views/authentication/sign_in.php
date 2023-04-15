@@ -37,21 +37,21 @@
 						<div class="card-body p-5">
 							<h4 class="text-dark mb-5">Sign In</h4>
 							
-							<form action="/index.html">
+							<form method="POST">
 								<div class="row">
 									<div class="form-group col-md-12 mb-4">
-										<input type="email" class="form-control" id="email" placeholder="Username">
+										<input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php if(isset($_SESSION["username"])) { echo $_SESSION["username"]; } ?>">
 									</div>
 									
 									<div class="form-group col-md-12 ">
-										<input type="password" class="form-control" id="password" placeholder="Password">
+										<input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php if(isset($_SESSION["password"])) { echo $_SESSION["password"]; } ?>">
 									</div>
 									
 									<div class="col-md-12">
 										<div class="d-flex my-2 justify-content-between">
 											<div class="d-inline-block mr-3">
 												<div class="control control-checkbox">Remember me
-													<input type="checkbox" />
+													<input type="checkbox" name="remember"/>
 													<div class="control-indicator"></div>
 												</div>
 											</div>
@@ -62,7 +62,7 @@
 										<button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
 										
 										<p class="sign-upp">Don't have an account yet ?
-											<a class="text-blue" href="sign-up.html">Sign Up</a>
+											<a class="text-blue" href="<?php echo _WEB_ROOT . "/Authentication/SignUp" ?>">Sign Up</a>
 										</p>
 									</div>
 								</div>

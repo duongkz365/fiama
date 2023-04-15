@@ -9,7 +9,7 @@ class Product extends Controller
         $this->productModel = $this->CreateModel('ProductModel');
         $this->data['header']['category']          = $this->productModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->productModel->GetProductSubCategory();
-        $this->data['slideCart'] = [];
+        $this->data['slideCart'] = [1, 2, 3];
         //data footer
 
         $this->data['footer'][] = [];

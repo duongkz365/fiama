@@ -93,7 +93,7 @@
                                 <li>
                                     <!-- mini-cart 2 -->
                                     <div class="mini-cart-icon mini-cart-icon-2">
-                                        <a href="<?php echo _WEB_ROOT.'/gio-hang' ?>" class="ltn__utilize-toggle">
+                                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
                                             <span class="mini-cart-icon">
                                                 <i class="icon-handbag"></i>
                                                 <sup>2</sup>
@@ -185,12 +185,13 @@
                                                 <li><a href="<?php echo _WEB_ROOT.'/gio-hang'?>">Giỏ Hàng</a></li>
                                                 <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=2'?>">Đơn Mua</a></li>
                                                 <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=6'?>">Yêu Thích</a></li>
-                                                <li><a href="<?php echo _WEB_ROOT?>">Đăng Xuất</a></li>
-                                                <li><a href="<?php echo _WEB_ROOT.'/dang-nhap'?>">Đăng Nhập</a></li>
 
-
-
-
+                                                <?php if (isset($_SESSION['currentUser']['LAST_ACTIVITY']) && isset($_SESSION['currentUser']['username'])): ?>
+                                                    <li><a href="<?= _WEB_ROOT?>">Hello, <?=$_SESSION['currentUser']['username']?></a></li>
+                                                    <li><a href="<?= _WEB_ROOT . '/Authentication/SignOut'?>">Đăng Xuất</a></li>
+                                                <?php else: ?>
+                                                    <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Đăng Nhập</a></li>
+                                                <?php endif; ?>
 
                                                 <!-- <li><a href="#">Other Pages <span class="float-right">>></span></a>
                                                     <ul>
