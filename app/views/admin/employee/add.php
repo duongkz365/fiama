@@ -20,12 +20,12 @@
 										<!-- Enter New Employee -->
 										<div class="tab-pane fade active show" id="settings" role="tabpanel" aria-labelledby="settings-tab">
 											<div class="tab-pane-content mt-5">
-												<form method="post" action="<?=_WEB_ROOT . "/Admin/SaveEmployee"?>">
+												<form method="post" enctype="multipart/form-data" action="<?=_WEB_ROOT . "/Admin/SaveEmployee"?>">
 													<div class="form-group row mb-6">
 														<label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">User Image</label>
 														<div class="col-sm-8 col-lg-10">
 															<div class="custom-file mb-1">
-																<input type="file" class="custom-file-input" id="coverImage">
+																<input type="file" name="coverImage" class="custom-file-input" id="coverImage">
 																<label class="custom-file-label" for="coverImage">Choose
 																	file...</label>
 																<div class="invalid-feedback">Example invalid custom
@@ -103,7 +103,7 @@
 														</div>
 													</div>
 													
-													<div class="row mb-2">
+													<!-- <div class="row mb-2">
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="Province">Province</label>
@@ -171,7 +171,7 @@
 																<input type="text" class="form-control" id="skype" value="skype.xxx">
 															</div>
 														</div>
-													</div>
+													</div> -->
 													<div class="d-flex justify-content-end mt-5">
 														<button type="submit" class="btn btn-primary mb-2 btn-pill">Add Staff</button>
 													</div>

@@ -8,7 +8,7 @@ class User extends Controller{
         $this->data['header']['category']          = $this->userModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->userModel->GetProductSubCategory();
         $this->data['footer'] = [];
-        $this->data['slideCart'] = [];
+        $this->data['slideCart'] = [1];
     }
     function Index(){
         $this->MyAccount();

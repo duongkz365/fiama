@@ -26,6 +26,7 @@
 	<link href='<?php echo _WEB_ROOT ?>/public/assets/admin/plugins/data-tables/responsive.datatables.min.css' rel='stylesheet'>
 	<!-- Ekka CSS -->
 	<link id="ekka-css" href="<?php echo _WEB_ROOT ?>/public/assets/admin/css/ekka.css" rel="stylesheet" />
+	<link href="<?php echo _WEB_ROOT ?>/public/assets/admin/css/checkbox.css" rel="stylesheet" />
 
 	<!-- FAVICON -->
 	<link href="<?php echo _WEB_ROOT ?>/public/assets/admin/img/favicon.png" rel="shortcut icon" />

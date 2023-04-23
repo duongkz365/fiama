@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2023 at 04:44 PM
+-- Generation Time: Apr 24, 2023 at 01:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -190,7 +190,8 @@ INSERT INTO `employee` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserNa
 (17, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky39', 'dinhky16', 1, '2023-03-19', 1),
 (18, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky40', 'dinhky17', 1, '2023-03-19', 1),
 (19, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky41', 'dinhky18', 1, '2023-03-19', 1),
-(20, 'kien', '', '', '', 'kienphan69', '123', 0, '0000-00-00', 0);
+(21, 'phan', 'kien', '123789', 'kienphan69@gmail.com', 'kienphan', '123456', 1, '0000-00-00', 1),
+(29, 'phan', 'kien', '123789', 'kienphan69@gmail.com', 'dcmm', '123456', 2, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +232,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, `Quantity`, `Img`, `Path`, `Hot`, `Discount`, `SKU`) VALUES
-(1, 'Luôn Bên Em', 100, 150, 'Luôn Bên Em', 100, 'public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 1, 18, 'SKU TEST'),
+(1, 'Luôn Bên Em', 100, 200, 'Luôn Bên Em', 100, '/public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 0, 18, 'SKU TEST'),
 (2, 'Yêu Kiều', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/yeu-kieu.jpg', 'yeu-kieu', 1, 18, 'SKU TEST'),
 (3, 'Tươi Sáng', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/tuoi-sang.jpg', 'tuoi-sang', 1, 18, 'SKU TEST'),
 (4, 'Ngày Đầu Tiên', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/ngay-dau-tien.jpg', 'ngay-dau-tien', 1, 18, 'SKU TEST'),
@@ -257,7 +258,8 @@ INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, 
 (24, 'Hoàn Hảo', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/hoan-hao.jpg', 'hoan-hao', 1, 18, 'SKU TEST'),
 (25, 'Tim Tình Yêu', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/tim-tinh-yeu.jpg', 'tim-tinh-yeu', 1, 18, 'SKU TEST'),
 (26, 'I Love You', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/i-love-you.jpg', 'i-love-you', 1, 18, 'SKU TEST'),
-(27, 'Mãi Bên Nhau', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/mai-ben-nhau.jpg', 'mai-ben-nhau', 1, 18, 'SKU TEST');
+(27, 'Mãi Bên Nhau', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/mai-ben-nhau.jpg', 'mai-ben-nhau', 1, 18, 'SKU TEST'),
+(81, 'asdasd', 100, 150, 'sadasd', 100, '/public/assets/clients/img/product/phong-canh-1.jpg', '', 1, 0, 'asdas');
 
 -- --------------------------------------------------------
 
@@ -442,7 +444,6 @@ CREATE TABLE `sub_category_product` (
 --
 
 INSERT INTO `sub_category_product` (`Id`, `SubCategoryId`, `ProductId`) VALUES
-(1, 15, 1),
 (2, 15, 2),
 (3, 15, 3),
 (4, 15, 4),
@@ -468,7 +469,37 @@ INSERT INTO `sub_category_product` (`Id`, `SubCategoryId`, `ProductId`) VALUES
 (24, 15, 24),
 (25, 15, 25),
 (26, 15, 26),
-(27, 15, 27);
+(27, 15, 27),
+(115, 28, 1),
+(116, 29, 1),
+(120, 1, 81),
+(121, 2, 81),
+(122, 3, 81);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_imgs_product`
+--
+
+CREATE TABLE `sub_imgs_product` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `path` varchar(500) NOT NULL,
+  `thumb` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sub_imgs_product`
+--
+
+INSERT INTO `sub_imgs_product` (`id`, `product_id`, `path`, `thumb`) VALUES
+(32, 1, '/public/assets/clients/img/product/100006.png', 1),
+(33, 1, '/public/assets/clients/img/product/100003.png', 6),
+(34, 1, '/public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 5),
+(35, 1, '/public/assets/clients/img/product/100003.png', 4),
+(36, 1, '/public/assets/clients/img/product/100002.png', 3),
+(37, 1, '/public/assets/clients/img/product/be-happy.png', 2);
 
 --
 -- Indexes for dumped tables
@@ -546,7 +577,16 @@ ALTER TABLE `sub_category`
 -- Indexes for table `sub_category_product`
 --
 ALTER TABLE `sub_category_product`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `SubCategory_id` (`SubCategoryId`),
+  ADD KEY `Product_id` (`ProductId`);
+
+--
+-- Indexes for table `sub_imgs_product`
+--
+ALTER TABLE `sub_imgs_product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id_FK` (`product_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -574,13 +614,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `invoice`
@@ -592,7 +632,7 @@ ALTER TABLE `invoice`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -622,7 +662,30 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `sub_category_product`
 --
 ALTER TABLE `sub_category_product`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+
+--
+-- AUTO_INCREMENT for table `sub_imgs_product`
+--
+ALTER TABLE `sub_imgs_product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `sub_category_product`
+--
+ALTER TABLE `sub_category_product`
+  ADD CONSTRAINT `Product_id` FOREIGN KEY (`ProductId`) REFERENCES `product` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `SubCategory_id` FOREIGN KEY (`SubCategoryId`) REFERENCES `sub_category` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sub_imgs_product`
+--
+ALTER TABLE `sub_imgs_product`
+  ADD CONSTRAINT `product_id_FK` FOREIGN KEY (`product_id`) REFERENCES `product` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

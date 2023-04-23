@@ -69,6 +69,7 @@ class App {
         $data['subData'] = [];
 
         $data['header'] = [];
+        $data['slideCart'] = [1];
         $controller->RenderView('layouts/clientLayout',$data);
     }
     

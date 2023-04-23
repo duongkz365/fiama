@@ -6,6 +6,7 @@ class Admin extends Controller
     private $productModel;
     private $userModel;
     private $authModel;
+    private $categoryModel;
 
     function __construct()
     {
@@ -13,6 +14,7 @@ class Admin extends Controller
         $this->productModel = $this->CreateModel('ProductModel');
         $this->userModel = $this->CreateModel('UserModel');
         $this->authModel = $this->CreateModel("AuthModel");
+        $this->categoryModel = $this->CreateModel("CategoryModel");
         $this->data['views']['header'] = 'admin/blocks/header';
         $this->data['views']['leftSideBar'] = 'admin/blocks/leftSideBar';
         $this->data['views']['footer'] = 'admin/blocks/footer';
@@ -34,27 +36,29 @@ class Admin extends Controller
     }
 
 
-    //Employee
+    //HANDLE EMPLOYEE
 
     function SaveEmployee()
     {
-        // var_dump($_POST);
-        // if ($_POST['ConfirmPassword'] != $_POST['Password']) echo "dcm";
         if (!isset($_POST['FirstName']) || $_POST['FirstName'] == "") {
-            echo "<script>alert('FirstName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("FirstName is Required!", $_POST);
         } else if (!isset($_POST['LastName']) || $_POST['LastName'] == "") {
-            echo "<script>alert('LastName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("LastName is Required!", $_POST);
         } else if (!isset($_POST['UserName']) || $_POST['UserName'] == "") {
-            echo "<script>alert('UserName is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
-        } else if (!$this->authModel->check_username($_POST['UserName'])) {
-            echo "<script>alert('Username existed!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("UserName is Required!", $_POST);
+        } else if (!$this->authModel->check_username($_POST['UserName']) && !isset($_POST['id'])) {
+            $this->displayEmployeeError("UserName existed!", $_POST);
         } else if (!isset($_POST['Password']) || $_POST['Password'] == "") {
-            echo "<script>alert('Password is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("Password is Required!", $_POST);
         } else if (!isset($_POST['ConfirmPassword']) || $_POST['ConfirmPassword'] == "") {
-            echo "<script>alert('ConfirmPassword is Required!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("Confirm password is Required!", $_POST);
         } else if ($_POST['ConfirmPassword'] != $_POST['Password']) {
-            echo "<script>alert('ConfirmPassword does not match!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+            $this->displayEmployeeError("Confirm password does not match!", $_POST);
         } else {
+            if (isset($_POST['id'])) {
+                $_POST['staffId'] = $_POST['id'];
+            }
+
             $result = $this->adminModel->SaveEmployee($_POST);
             if ($result) {
                 echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=list" . "';</script>";
@@ -62,10 +66,36 @@ class Admin extends Controller
             } else {
                 $errMsg = $_SESSION['error'];
                 unset($_SESSION['error']);
-                echo "<script>alert('" . $errMsg . "'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+                $this->displayEmployeeError($errMsg, $_POST);
             }
         }
     }
+
+    function displayEmployeeError($msg, $post)
+    {
+        if (isset($post['id'])) {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=profile&id=" . $post['id'] . "';</script>";
+        } else {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=add" . "';</script>";
+        }
+    }
+
+    function DeleteEmployee()
+    {
+        if (isset($_GET['id'])) {
+            $result = $this->adminModel->DeleteEmployeeById($_GET['id']);
+            if ($result) {
+                echo "<script>alert('Delete successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=list" . "';</script>";
+                die;
+            } else {
+                echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=list" . "';</script>";
+            }
+        } else {
+            echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/employee?action=list" . "';</script>";
+        }
+    }
+
+    // END HANDLE EMPLOYEE
 
     public function RenderEmployee()
     {
@@ -86,35 +116,41 @@ class Admin extends Controller
                 case 'profile':
                     $this->ViewProfileEmployee();
                     break;
-                default: App::$app->LoadError();
+                default:
+                    App::$app->LoadError();
             }
         }
     }
 
-    public function ViewListEmployee(){
+    public function ViewListEmployee()
+    {
         $this->data['views']['content'] = 'admin/employee/list';
         $this->data['subData']['listEmployee'] = $this->adminModel->GetListEmployee();
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewAddEmployee(){
+    public function ViewAddEmployee()
+    {
         $this->data['views']['content'] = 'admin/employee/add';
         $this->data['subData'][] = [];
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewProfileEmployee(){
+    public function ViewProfileEmployee()
+    {
 
-        if(!empty($_GET['id'])){
+        if (!empty($_GET['id'])) {
             $this->data['views']['content'] = 'admin/employee/profile';
-            $this->data['subData'][] = [];
+            $this->data['subData']['Employee'] = $this->adminModel->GetEmployeeById($_GET['id']);
+            //var_dump($this->data['subData']['Employee']);
             $this->RenderView('layouts/adminLayout', $this->data);
-        }else {
+        } else {
             App::$app->LoadError();
         }
     }
 
 
-    // Customer
-    public function RenderCustomer(){
+    // CUSTOMER
+    public function RenderCustomer()
+    {
         if (empty($_GET['action'])) {
             // render 404
             App::$app->LoadError();
@@ -132,154 +168,361 @@ class Admin extends Controller
                 case 'profile':
                     $this->ViewProfileCustomer();
                     break;
-                default: App::$app->LoadError();
+                default:
+                    App::$app->LoadError();
             }
         }
     }
 
-    public function ViewListCustomer(){
+    public function ViewListCustomer()
+    {
         $this->data['views']['content'] = 'admin/customer/list';
         $this->data['subData']['listCustomer'] = $this->userModel->GetListCustomer();
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    public function ViewAddCustomer(){
+    public function ViewAddCustomer()
+    {
         $this->data['views']['content'] = 'admin/customer/add';
         $this->data['subData'][] = [];
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    public function ViewProfileCustomer(){
-        if(!empty($_GET['id'])){
+    public function ViewProfileCustomer()
+    {
+        if (!empty($_GET['id'])) {
             $this->data['views']['content'] = 'admin/customer/profile';
-            $this->data['subData'][] = [];
+            $this->data['subData']['Customer'] = $this->adminModel->GetCustomerById($_GET['id']);
             $this->RenderView('layouts/adminLayout', $this->data);
-        }else {
+        } else {
             App::$app->LoadError();
         }
     }
+
+    function SaveCustomer()
+    {
+        if (!isset($_POST['FirstName']) || $_POST['FirstName'] == "") {
+            $this->displayCustomerError("FirstName is Required!", $_POST);
+        } else if (!isset($_POST['LastName']) || $_POST['LastName'] == "") {
+            $this->displayCustomerError("LastName is Required!", $_POST);
+        } else if (!isset($_POST['UserName']) || $_POST['UserName'] == "") {
+            $this->displayCustomerError("UserName is Required!", $_POST);
+        } else if (!$this->authModel->check_username($_POST['UserName']) && !isset($_POST['id'])) {
+            $this->displayCustomerError("UserName existed!", $_POST);
+        } else if (!isset($_POST['Password']) || $_POST['Password'] == "") {
+            $this->displayCustomerError("Password is Required!", $_POST);
+        } else if (!isset($_POST['ConfirmPassword']) || $_POST['ConfirmPassword'] == "") {
+            $this->displayCustomerError("Confirm password is Required!", $_POST);
+        } else if ($_POST['ConfirmPassword'] != $_POST['Password']) {
+            $this->displayCustomerError("Confirm password does not match!", $_POST);
+        } else {
+            if (isset($_POST['id'])) {
+                $_POST['staffId'] = $_POST['id'];
+            }
+
+            $result = $this->adminModel->SaveCustomer($_POST);
+            if ($result) {
+                echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=list" . "';</script>";
+                die;
+            } else {
+                $errMsg = $_SESSION['error'];
+                unset($_SESSION['error']);
+                $this->displayCustomerError($errMsg, $_POST);
+            }
+        }
+    }
+
+    function displayCustomerError($msg, $post)
+    {
+        if (isset($post['id'])) {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=profile&id=" . $post['id'] . "';</script>";
+        } else {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=add" . "';</script>";
+        }
+    }
+
+    function DeleteCustomer()
+    {
+        if (isset($_GET['id'])) {
+            $result = $this->adminModel->DeleteCustomerById($_GET['id']);
+            if ($result) {
+                echo "<script>alert('Delete successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=list" . "';</script>";
+                die;
+            } else {
+                echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=list" . "';</script>";
+            }
+        } else {
+            echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/customer?action=list" . "';</script>";
+        }
+    }
+
+    //END CUSTOMER
 
 
 
 
     // Categories
 
-    public function RenderCategories(){
+    public function RenderCategories()
+    {
         $action = '';
-        if(!empty($_GET['action'])) $action = $_GET['action'];
+        if (!empty($_GET['action'])) $action = $_GET['action'];
 
-        if($action == 'list'){
+        if ($action == 'list') {
             $this->ViewListCategory();
-        }else if($action == 'edit' && !empty($_GET['id'])){
+        } else if ($action == 'edit' && !empty($_GET['id'])) {
             $this->ViewListCategory($_GET['id']);
-        }else {
+        } else {
             App::$app->LoadError();
         }
     }
 
 
-    public function ViewListCategory(){
+    public function ViewListCategory()
+    {
         $this->data['views']['content'] = 'admin/categories/list';
-        $this->data['subData']['listCategory']= $this->adminModel->GetListCategory();
-        $this->RenderView('layouts/adminLayout',$this->data);
+        $this->data['subData']['listCategory'] = $this->adminModel->GetListCategory();
+        $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    public function ViewEditCategory($id){
+    public function ViewEditCategory($id)
+    {
         $this->data['views']['content'] = 'admin/categories/list';
-        $this->data['subData'][]= [];
-        $this->RenderView('layouts/adminLayout',$this->data);
+        $this->data['subData'][] = [];
+        $this->RenderView('layouts/adminLayout', $this->data);
     }
 
 
     //Products
 
 
-    public function RenderProduct(){
+    public function RenderProduct()
+    {
 
-      
+
         $action = '';
 
 
-        if(!empty($_GET['action'])) $action = $_GET['action'];
-        
+        if (!empty($_GET['action'])) $action = $_GET['action'];
 
-        if($action == 'list'){
+
+        if ($action == 'list') {
             $this->ViewProductList();
-        }else if($action == 'add'){
-            
+        } else if ($action == 'add') {
             $this->ViewProductAdd();
-        }else if($action == 'edit' && !empty($_GET['id'])){
+        } else if ($action == 'edit' && !empty($_GET['id'])) {
             $this->ViewProductEdit($_GET['id']);
-        }else {
+        } else {
             App::$app->LoadError();
         }
-        
     }
 
 
     function ViewProductAdd()
     {
         $this->data['views']['content'] = 'admin/products/add';
-        $this->data['subData'][] = [];
+        $this->data['subData']['category'] = $this->categoryModel->GetProductCategory();
+        $this->data['subData']['sub_category'] = $this->categoryModel->GetProductSubCategory();
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    function ViewProductEdit($idProduct = 0)
+    function ViewProductEdit()
     {
-        $product = $this->productModel->GetProduct($idProduct);
-        $this->data['subData'][] = [];
-        $this->data['views']['content'] = 'admin/products/edit';
-        $this->RenderView('layouts/adminLayout', $this->data);
+        //product sub_category_product sub_imgs_product
+        if (!empty($_GET['id'])) {
+            $this->data['subData']['product'] = $this->productModel->GetProductById($_GET['id']);;
+            $this->data['subData']['sub_category_product'] = $this->productModel->GetSubCategoryProductById($_GET['id']);
+            $this->data['subData']['sub_imgs_product'] = $this->productModel->GetSubImgsProduct($_GET['id']);
+            $this->data['subData']['category'] = $this->categoryModel->GetProductCategory();
+            $this->data['subData']['sub_category'] = $this->categoryModel->GetProductSubCategory();
+            $this->data['views']['content'] = 'admin/products/edit';
+            // var_dump($this->productModel->GetSubImgsProduct($_GET['id']));
+            // die;
+            $this->RenderView('layouts/adminLayout', $this->data);
+        } else {
+            App::$app->LoadError();
+        }
     }
 
-    function ViewProductList(){
+    function ViewProductList()
+    {
         $this->data['subData']['listProduct'] = $this->adminModel->GetListProduct();
         $this->data['views']['content'] = 'admin/products/list';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    // Order
-    public function RenderOrder(){
+    function SaveProduct()
+    {
+        if (!isset($_POST['Title']) || $_POST['Title'] == "") {
+            $this->displayProductError("Flower\'s name is Required!", $_POST);
+        } else if (!isset($_POST['ShortDescription']) || $_POST['ShortDescription'] == "") {
+            $this->displayProductError("Short description is Required!", $_POST);
+        } else if (!isset($_POST['Quantity']) || $_POST['Quantity'] == "") {
+            $this->displayProductError("Quantity is Required!", $_POST);
+        } else if (!isset($_POST['SalePrice']) || $_POST['SalePrice'] == "") {
+            $this->displayProductError("SalePrice is Required!", $_POST);
+        } else if (!isset($_POST['Price']) || $_POST['Price'] == "") {
+            $this->displayProductError("Price is Required!", $_POST);
+        } else {
+            if (isset($_POST['id'])) {
+                $_POST['productId'] = $_POST['id'];
+            }
 
-      
+            $countImage = 0;
+            $count_files = count($_FILES);
+            for ($i = 0; $i < $count_files; $i++)
+            {
+                if ($_FILES['thumb' . $i]['name'] != "")
+                {
+                    $countImage += 1;
+                }
+            }
+
+            if ($countImage > 0) {
+                //check imgs
+                $thumb_array = array();
+                for ($i = 0; $i < $count_files; $i++)
+                {
+                    ${"thumb".$i} = $this->check_error_img($_FILES['thumb'.$i]);
+                    $thumb_array[] = ${"thumb".$i};
+                }
+
+
+                //save product with images
+                $result = $this->productModel->SaveProduct($_POST, $thumb_array);
+                
+                if ($result) {
+                    echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=list" . "';</script>";
+                    die;
+                } else {
+                    $errMsg = $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    $this->displayProductError($errMsg, $_POST);
+                }
+            } else { //if have no image uploaded
+                $result = $this->productModel->SaveProduct($_POST);
+                if ($result) {
+                    echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=list" . "';</script>";
+                } else {
+                    $errMsg = $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    $this->displayProductError($errMsg, $_POST);
+                }
+            }
+        }
+    }
+
+    function DeleteProduct()
+    {
+        if (isset($_GET['id'])) {
+            $result = $this->productModel->DeleteProductById($_GET['id']);
+            if ($result) {
+                echo "<script>alert('Delete successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=list" . "';</script>";
+                die;
+            } else {
+                echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=list" . "';</script>";
+            }
+        } else {
+            echo "<script>alert('Delete Failed!'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=list" . "';</script>";
+        }
+    }
+
+    function check_error_img($img)
+    {
+        if ($img['name'] == "") return null;
+        $img_error = $img['error'];
+        if ($img_error !== UPLOAD_ERR_OK) { //check if file cause error
+            switch ($img_error) {
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                    $this->displayProductError("Image is too large!", $_POST);
+                    die;
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    $this->displayProductError("Image upload was not completed!", $_POST);
+                    die;
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    $this->displayProductError("No Image was uploaded!", $_POST);
+                    die;
+                    break;
+                case UPLOAD_ERR_NO_TMP_DIR:
+                case UPLOAD_ERR_CANT_WRITE:
+                    $this->displayProductError("Server error, please try again later!", $_POST);
+                    die;
+                    break;
+                default:
+                    $this->displayProductError("Unknown error!", $_POST);
+                    die;
+                    break;
+            }
+        } else {    //check if file is an image
+            $allowed_types = array(IMAGETYPE_JPEG, IMAGETYPE_PNG);
+            if (!in_array(exif_imagetype($img['tmp_name']), $allowed_types)) {
+                $this->displayProductError("File " . $img['name'] . " is not an image!", $_POST);
+                die;
+            } else {
+            }
+        }
+        return $img;
+    }
+
+    function displayProductError($msg, $post)
+    {
+        if (isset($post['id'])) {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=edit&id=" . $post['id'] . "';</script>";
+        } else {
+            echo "<script>alert('" . $msg . "'); window.location.href = '" . _WEB_ROOT . "/admin/product?action=add" . "';</script>";
+        }
+    }
+
+
+    // Order
+    public function RenderOrder()
+    {
+
+
         $action = '';
 
 
-        if(!empty($_GET['action'])) $action = $_GET['action'];
-        
+        if (!empty($_GET['action'])) $action = $_GET['action'];
 
-        if($action == 'new-order'){
+
+        if ($action == 'new-order') {
             $this->ViewNewOrder();
-        }else if($action == 'list'){
+        } else if ($action == 'list') {
             $this->ViewAllListOrder();
-        }else if($action == 'detail' && !empty($_GET['id'])){
+        } else if ($action == 'detail' && !empty($_GET['id'])) {
             $this->ViewDetailOrder($_GET['id']);
-        }else if ($action == 'invoice' && !empty($_GET['id'])){
+        } else if ($action == 'invoice' && !empty($_GET['id'])) {
             $this->ViewInvoiceOrder($_GET['id']);
-        }else {
+        } else {
             App::$app->LoadError();
         }
-        
     }
 
-    public function ViewNewOrder(){
-        $this->data['subData']=[];
+    public function ViewNewOrder()
+    {
+        $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/new';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
-    public function ViewAllListOrder(){
-        $this->data['subData']=[];
+    public function ViewAllListOrder()
+    {
+        $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/list';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewDetailOrder($id){
-        $this->data['subData']=[];
+    public function ViewDetailOrder($id)
+    {
+        $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/detail';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewInvoiceOrder($id){
-        $this->data['subData']=[];
+    public function ViewInvoiceOrder($id)
+    {
+        $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/invoice';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
@@ -287,31 +530,31 @@ class Admin extends Controller
 
     // Review
 
-    public function RenderReview(){
+    public function RenderReview()
+    {
 
-      
+
         $action = '';
 
 
-        if(!empty($_GET['action'])) $action = $_GET['action'];
-        
+        if (!empty($_GET['action'])) $action = $_GET['action'];
 
-        if($action == 'list'){
+
+        if ($action == 'list') {
             $this->ViewReview();
-        }else if($action == 'detail'){
-
-        }else {
+        } else if ($action == 'detail') {
+        } else {
             App::$app->LoadError();
         }
-        
     }
-    public function ViewReview(){
-        $this->data['subData']=[];
+    public function ViewReview()
+    {
+        $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/reviews/review';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
-    public function ViewReviewDetail(){
-
+    public function ViewReviewDetail()
+    {
     }
 
 

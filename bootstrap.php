@@ -2,7 +2,7 @@
 
 
 define('_DIR_ROOT',str_replace('\\','/', __DIR__));
-
+define('REAL_PATH', realpath(dirname(__FILE__)));
 // xử lý biến http root
 if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')
     $web_root = 'https://'.$_SERVER['HTTP_HOST'];

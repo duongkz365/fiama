@@ -3,7 +3,7 @@
 			<div id="sidebar" class="sidebar ec-sidebar-footer">
 
 				<div class="ec-brand">
-					<a href="index.html" title="Ekka">
+					<a href="<?= _WEB_ROOT . '/Admin'?>" title="Ekka">
 						<img class="ec-brand-icon" src="<?php echo _WEB_ROOT ?>/public/assets/admin/img/logo/ec-site-logo.png" alt="" />
 						<span class="ec-brand-name text-truncate">Ekka</span>
 					</a>
