@@ -18,6 +18,7 @@ class ProductModel  extends Model
 
     public function GetProductById($idProduct)
     {
+        
         $data = $this->db->Query("SELECT * FROM fiama.product WHERE Id = $idProduct")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
@@ -30,7 +31,13 @@ class ProductModel  extends Model
 
     public function GetProductByCategory($categoryId)
     {
-        $data = $this->db->Query("SELECT * FROM fiama.sub_category_product left join fiama.product on fiama.product.Id = fiama.sub_category_product.ProductId WHERE fiama.sub_category_product.SubCategoryId = $categoryId")->fetchAll(PDO::FETCH_ASSOC);
+        if($categoryId == 0){
+            $data = $this->db->Query("SELECT * FROM fiama.sub_category_product left join fiama.product on fiama.product.Id = fiama.sub_category_product.ProductId ")->fetchAll(PDO::FETCH_ASSOC);
+
+        }else {
+
+            $data = $this->db->Query("SELECT * FROM fiama.sub_category_product left join fiama.product on fiama.product.Id = fiama.sub_category_product.ProductId WHERE fiama.sub_category_product.SubCategoryId = $categoryId")->fetchAll(PDO::FETCH_ASSOC);
+        }
         return $data;
     }
     public function GetListCategory()

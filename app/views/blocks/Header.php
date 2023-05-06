@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="header-feature-info">
                                     <h6>Điện Thoại</h6>
-                                    <p><a href="tel:0123456789">0398755231</a></p>
+                                    <p><a href="tel:0398755231">0398755231</a></p>
                                 </div>
                             </div>
                             <!-- header-search-2 -->
@@ -138,7 +138,7 @@
                                     <ul>
                                         <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>">Trang Chủ</a>
                                         </li>
-                                        <li class="menu-icon"><a href="./danh-sach/1">Hoa</a>
+                                        <li class="menu-icon"><a href="./tat-ca-san-pham">Hoa</a>
                                             <ul class="mega-menu">
                                                 <!-- Render Product Category -->
                                                 <?php

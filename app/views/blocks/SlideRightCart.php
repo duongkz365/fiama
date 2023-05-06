@@ -57,7 +57,7 @@
                     </h5>
                 </div>
                 <div class="btn-wrapper">
-                    <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                    <a href="<?php echo _WEB_ROOT.'/gio-hang' ?>" class="theme-btn-1 btn btn-effect-1">View Cart</a>
                     <?php
                         if (isset($_SESSION['currentUser']['username']) && $_SESSION['currentUser']['username'] != "")
                         {
