@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 01:56 AM
+-- Generation Time: May 06, 2023 at 11:18 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -112,6 +112,7 @@ CREATE TABLE `customer` (
   `FirstName` varchar(20) NOT NULL,
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(200) NOT NULL,
+  `Address` varchar(500) NOT NULL,
   `UserName` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `CreatedDate` date NOT NULL,
@@ -122,30 +123,30 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserName`, `Password`, `CreatedDate`, `Status`) VALUES
-(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky1', 'dinhky', '2023-03-20', 1),
-(2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky2', 'dinhky', '2023-03-20', 1),
-(3, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky3', 'dinhky', '2023-03-20', 1),
-(4, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky4', 'dinhky', '2023-03-20', 1),
-(5, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky5', 'dinhky', '2023-03-20', 1),
-(6, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky6', 'dinhky', '2023-03-20', 1),
-(7, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky7', 'dinhky', '2023-03-20', 1),
-(8, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky8', 'dinhky', '2023-03-20', 1),
-(9, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky9', 'dinhky', '2023-03-20', 1),
-(10, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky10', 'dinhky', '2023-03-20', 1),
-(11, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky11', 'dinhky', '2023-03-20', 1),
-(12, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky12', 'dinhky', '2023-03-20', 1),
-(13, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky13', 'dinhky', '2023-03-20', 1),
-(14, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky14', 'dinhky', '2023-03-20', 1),
-(15, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky15', 'dinhky', '2023-03-20', 1),
-(16, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky16', 'dinhky', '2023-03-20', 1),
-(17, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky17', 'dinhky', '2023-03-20', 1),
-(18, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky18', 'dinhky', '2023-03-20', 1),
-(19, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky19', 'dinhky', '2023-03-20', 1),
-(20, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky20', 'dinhky', '2023-03-20', 1),
-(21, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky21', 'dinhky', '2023-03-20', 1),
-(22, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky22', 'dinhky', '2023-03-20', 1),
-(23, '', 'kienphan', '', '', 'kienphan', '123', '0000-00-00', 1);
+INSERT INTO `customer` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `Address`, `UserName`, `Password`, `CreatedDate`, `Status`) VALUES
+(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'some address69', 'dinhky1', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 1),
+(2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky2', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 0),
+(3, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky3', 'dinhky', '2023-03-20', 1),
+(4, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky4', 'dinhky', '2023-03-20', 1),
+(5, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky5', 'dinhky', '2023-03-20', 1),
+(6, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky6', 'dinhky', '2023-03-20', 1),
+(7, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky7', 'dinhky', '2023-03-20', 1),
+(8, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky8', 'dinhky', '2023-03-20', 1),
+(9, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky9', 'dinhky', '2023-03-20', 1),
+(10, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky10', 'dinhky', '2023-03-20', 1),
+(11, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky11', 'dinhky', '2023-03-20', 1),
+(12, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky12', 'dinhky', '2023-03-20', 1),
+(13, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky13', 'dinhky', '2023-03-20', 1),
+(14, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky14', 'dinhky', '2023-03-20', 1),
+(15, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky15', 'dinhky', '2023-03-20', 1),
+(16, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky16', 'dinhky', '2023-03-20', 1),
+(17, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky17', 'dinhky', '2023-03-20', 1),
+(18, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky18', 'dinhky', '2023-03-20', 1),
+(19, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky19', 'dinhky', '2023-03-20', 1),
+(20, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky20', 'dinhky', '2023-03-20', 1),
+(21, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky21', 'dinhky', '2023-03-20', 1),
+(22, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky22', 'dinhky', '2023-03-20', 1),
+(23, '', 'kienphan', '', '', '', 'kienphan', '123', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserName`, `Password`, `Position`, `CreatedDate`, `Status`) VALUES
-(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky23', 'dinhky', 1, '2023-03-19', 1),
+(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky23', '$2a$12$Q.OIOJlVZUEjG52r4bJioOYNb6qkZ8QktMw8NaL.5Q3YKfNWTZrrK', 1, '2023-03-19', 1),
 (2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky24', 'dinhky1', 1, '2023-03-19', 1),
 (3, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky25', 'dinhky2', 1, '2023-03-19', 1),
 (4, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky26', 'dinhky3', 1, '2023-03-19', 1),
@@ -196,6 +197,51 @@ INSERT INTO `employee` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserNa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `import_invoice`
+--
+
+CREATE TABLE `import_invoice` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `amount` int(11) NOT NULL,
+  `total_value` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `import_invoice`
+--
+
+INSERT INTO `import_invoice` (`id`, `date`, `amount`, `total_value`) VALUES
+(8, '2023-05-04', 100, '10050'),
+(9, '2023-05-04', 153, '18974');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `import_invoice_detail`
+--
+
+CREATE TABLE `import_invoice_detail` (
+  `import_invoice_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `value` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `import_invoice_detail`
+--
+
+INSERT INTO `import_invoice_detail` (`import_invoice_id`, `product_id`, `amount`, `value`) VALUES
+(8, 1, 50, '100'),
+(8, 2, 50, '101'),
+(9, 8, 50, '123'),
+(9, 12, 51, '124'),
+(9, 20, 52, '125');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `invoice`
 --
 
@@ -210,6 +256,65 @@ CREATE TABLE `invoice` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `order_date` date NOT NULL DEFAULT current_timestamp(),
+  `delivery_date` date NOT NULL,
+  `total_value` decimal(10,0) NOT NULL,
+  `total_amount` int(11) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `paid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `order_date`, `delivery_date`, `total_value`, `total_amount`, `payment_method`, `phone`, `address`, `status`, `paid`) VALUES
+(5, 1, '2023-05-05', '0000-00-00', '300', 3, 'COD', '(+84)398755231', 'some addressxxx', 'canceled', 0),
+(6, 1, '2023-05-05', '0000-00-00', '300', 3, 'COD', '(+84)398755231', 'some address69', 'done', 1),
+(7, 1, '2023-05-05', '2023-05-05', '200', 2, 'COD', '(+84)398755231', 'some address69', 'delivering', 0),
+(8, 1, '2023-05-06', '0000-00-00', '500', 5, 'COD', '(+84)398755231', 'some address69', 'pending', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `value` decimal(10,0) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_id`, `product_id`, `value`, `amount`) VALUES
+(5, 81, '100', 1),
+(5, 25, '100', 1),
+(5, 26, '100', 1),
+(6, 23, '100', 1),
+(6, 22, '100', 1),
+(6, 21, '100', 1),
+(7, 26, '100', 1),
+(7, 25, '100', 1),
+(8, 1, '100', 2),
+(8, 20, '100', 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -219,47 +324,47 @@ CREATE TABLE `product` (
   `Price` double NOT NULL,
   `SalePrice` double NOT NULL,
   `ShortDescription` varchar(4000) NOT NULL,
-  `Quantity` int(11) NOT NULL,
   `Img` varchar(500) NOT NULL,
   `Path` varchar(500) NOT NULL,
   `Hot` int(11) NOT NULL,
   `Discount` int(11) NOT NULL,
-  `SKU` varchar(255) NOT NULL
+  `SKU` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, `Quantity`, `Img`, `Path`, `Hot`, `Discount`, `SKU`) VALUES
-(1, 'Luôn Bên Em', 100, 200, 'Luôn Bên Em', 100, '/public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 0, 18, 'SKU TEST'),
-(2, 'Yêu Kiều', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/yeu-kieu.jpg', 'yeu-kieu', 1, 18, 'SKU TEST'),
-(3, 'Tươi Sáng', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/tuoi-sang.jpg', 'tuoi-sang', 1, 18, 'SKU TEST'),
-(4, 'Ngày Đầu Tiên', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/ngay-dau-tien.jpg', 'ngay-dau-tien', 1, 18, 'SKU TEST'),
-(5, 'Only You', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/only-you.jpg', 'only-you', 1, 18, 'SKU TEST'),
-(6, 'Ngày Tinh Khôi', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/ngay-tinh-khoi.jpg', 'ngay-tinh-khoi', 1, 18, 'SKU TEST'),
-(7, 'Hồng Dịu Dàng', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/hong-diu-dang.jpg', 'hong-diu-dang', 1, 18, 'SKU TEST'),
-(8, 'NgàyChung Đôi', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/ngay-chung-doi.jpg', 'ngay-chung-doi', 1, 18, 'SKU TEST'),
-(9, 'Lẵng Hoa Hạnh Phúc', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/lang-hoa-hanh-phuc.jpg', 'lang-hoa-hanh-phuc', 1, 18, 'SKU TEST'),
-(10, 'Lẵng Hoa Yêu Thương', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST'),
-(11, 'Riêng Mình Em', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/rieng-minh-em.jpg', 'rieng-minh-em', 1, 18, 'SKU TEST'),
-(12, 'Giỏ Hoa Chào Xuân', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 'gio-hoa-chao-xuan', 1, 18, 'SKU TEST'),
-(13, 'Lẵng Hoa Yêu Thương', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST'),
-(14, 'Chúc Thành Công', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/chuc-thanh-cong.jpg', 'chuc-thanh-cong', 1, 18, 'SKU TEST'),
-(15, 'Màu Tình Yêu', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/mau-tinh-yeu.jpg', 'mau-tinh-yeu', 1, 18, 'SKU TEST'),
-(16, 'Be Happy', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/be-happy.jpg', 'be-happy', 1, 18, 'SKU TEST'),
-(17, 'Bó Hoa Ban Mai', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/bo-hoa-ban-mai.jpg', 'bo-hoa-ban-mai', 1, 18, 'SKU TEST'),
-(18, 'Sức Sống', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/suc-song.jpg', 'suc-song', 1, 18, 'SKU TEST'),
-(19, 'Giấc Mơ Ngọt Ngào', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/giac-mo-ngot-ngao.jpg', 'giac-mo-ngot-ngao', 1, 18, 'SKU TEST'),
-(20, 'Yêu Thương Tím', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/yeu-thuong-tim.jpg', 'yeu-thuong-tim', 1, 18, 'SKU TEST'),
-(21, 'Món Quà Tình Yêu', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/mon-qua-tinh-yeu.jpg', 'mon-qua-tinh-yeu', 1, 18, 'SKU TEST'),
-(22, 'Hoa Chúc Mừng Rực Rỡ', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/hoa-chuc-mung-ruc-ro.jpg', 'hoa-chuc-mung-ruc-ro', 1, 18, 'SKU TEST'),
-(23, 'Yêu Hay Không Yêu', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/yeu-hay-khong-yeu.jpg', 'yeu-hay-khong-yeu', 1, 18, 'SKU TEST'),
-(24, 'Hoàn Hảo', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/hoan-hao.jpg', 'hoan-hao', 1, 18, 'SKU TEST'),
-(25, 'Tim Tình Yêu', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/tim-tinh-yeu.jpg', 'tim-tinh-yeu', 1, 18, 'SKU TEST'),
-(26, 'I Love You', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/i-love-you.jpg', 'i-love-you', 1, 18, 'SKU TEST'),
-(27, 'Mãi Bên Nhau', 100, 150, 'Shot Description', 100, 'public/assets/clients/img/product/mai-ben-nhau.jpg', 'mai-ben-nhau', 1, 18, 'SKU TEST'),
-(81, 'asdasd', 100, 150, 'sadasd', 100, '/public/assets/clients/img/product/phong-canh-1.jpg', '', 1, 0, 'asdas');
+INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, `Img`, `Path`, `Hot`, `Discount`, `SKU`, `status`) VALUES
+(1, 'Luôn Bên Em', 100, 200, 'Luôn Bên Em something', '/public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 0, 18, 'SKU TEST', 1),
+(2, 'Yêu Kiều', 100, 150, 'Shot Description', '/public/assets/clients/img/product/yeu-kieu.jpg', 'yeu-kieu', 1, 18, 'SKU TEST', 1),
+(3, 'Tươi Sáng', 100, 150, 'Shot Description', '/public/assets/clients/img/product/tuoi-sang.jpg', 'tuoi-sang', 1, 18, 'SKU TEST', 0),
+(4, 'Ngày Đầu Tiên', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-dau-tien.jpg', 'ngay-dau-tien', 1, 18, 'SKU TEST', 1),
+(5, 'Only You', 100, 150, 'Shot Description', '/public/assets/clients/img/product/only-you.jpg', 'only-you', 1, 18, 'SKU TEST', 1),
+(6, 'Ngày Tinh Khôi', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-tinh-khoi.jpg', 'ngay-tinh-khoi', 1, 18, 'SKU TEST', 1),
+(7, 'Hồng Dịu Dàng', 100, 150, 'Shot Description', '/public/assets/clients/img/product/hong-diu-dang.jpg', 'hong-diu-dang', 1, 18, 'SKU TEST', 1),
+(8, 'NgàyChung Đôi', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-chung-doi.jpg', 'ngay-chung-doi', 1, 18, 'SKU TEST', 1),
+(9, 'Lẵng Hoa Hạnh Phúc', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-hanh-phuc.jpg', 'lang-hoa-hanh-phuc', 1, 18, 'SKU TEST', 1),
+(10, 'Lẵng Hoa Yêu Thương', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST', 1),
+(11, 'Riêng Mình Em', 100, 150, 'Shot Description', '/public/assets/clients/img/product/rieng-minh-em.jpg', 'rieng-minh-em', 1, 18, 'SKU TEST', 1),
+(12, 'Giỏ Hoa Chào Xuân', 100, 150, 'Shot Description', '/public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 'gio-hoa-chao-xuan', 1, 18, 'SKU TEST', 1),
+(13, 'Lẵng Hoa Yêu Thương 2', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST', 1),
+(14, 'Chúc Thành Công', 100, 150, 'Shot Description', '/public/assets/clients/img/product/chuc-thanh-cong.jpg', 'chuc-thanh-cong', 1, 18, 'SKU TEST', 1),
+(15, 'Màu Tình Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/mau-tinh-yeu.jpg', 'mau-tinh-yeu', 1, 18, 'SKU TEST', 1),
+(16, 'Be Happy', 100, 150, 'Shot Description', '/public/assets/clients/img/product/be-happy.jpg', 'be-happy', 1, 18, 'SKU TEST', 1),
+(17, 'Bó Hoa Ban Mai', 100, 150, 'Shot Description', '/public/assets/clients/img/product/bo-hoa-ban-mai.jpg', 'bo-hoa-ban-mai', 1, 18, 'SKU TEST', 1),
+(18, 'Sức Sống', 100, 150, 'Shot Description', '/public/assets/clients/img/product/suc-song.jpg', 'suc-song', 1, 18, 'SKU TEST', 1),
+(19, 'Giấc Mơ Ngọt Ngào', 100, 150, 'Shot Description', '/public/assets/clients/img/product/giac-mo-ngot-ngao.jpg', 'giac-mo-ngot-ngao', 1, 18, 'SKU TEST', 1),
+(20, 'Yêu Thương Tím', 100, 150, 'Shot Description', '/public/assets/clients/img/product/yeu-thuong-tim.jpg', 'yeu-thuong-tim', 1, 18, 'SKU TEST', 1),
+(21, 'Món Quà Tình Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/mon-qua-tinh-yeu.jpg', 'mon-qua-tinh-yeu', 1, 18, 'SKU TEST', 1),
+(22, 'Hoa Chúc Mừng Rực Rỡ', 100, 150, 'Shot Description', '/public/assets/clients/img/product/hoa-chuc-mung-ruc-ro.jpg', 'hoa-chuc-mung-ruc-ro', 1, 18, 'SKU TEST', 1),
+(23, 'Yêu Hay Không Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/yeu-hay-khong-yeu.jpg', 'yeu-hay-khong-yeu', 1, 18, 'SKU TEST', 1),
+(24, 'Hoàn Hảo', 100, 150, 'Shot Description', '/public/assets/clients/img/product/hoan-hao.jpg', 'hoan-hao', 1, 18, 'SKU TEST', 1),
+(25, 'Tim Tình Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/tim-tinh-yeu.jpg', 'tim-tinh-yeu', 1, 18, 'SKU TEST', 1),
+(26, 'I Love You', 100, 150, 'Shot Description', '/public/assets/clients/img/product/i-love-you.jpg', 'i-love-you', 1, 18, 'SKU TEST', 1),
+(27, 'Mãi Bên Nhau', 100, 150, 'Shot Description', '/public/assets/clients/img/product/mai-ben-nhau.jpg', 'mai-ben-nhau', 1, 18, 'SKU TEST', 1),
+(81, 'asdasd', 100, 150, 'sadasd', '/public/assets/clients/img/product/phong-canh-1.jpg', '', 1, 0, 'asdas', 0);
 
 -- --------------------------------------------------------
 
@@ -364,7 +469,8 @@ INSERT INTO `routes` (`Id`, `Url`, `Rewrite`) VALUES
 (71, 'admin/categories', 'admin/rendercategories'),
 (72, 'admin/product', 'admin/renderproduct'),
 (73, 'admin/order', 'admin/renderOrder'),
-(74, 'admin/review', 'admin/renderreview');
+(74, 'admin/review', 'admin/renderreview'),
+(75, 'admin/import', 'admin/renderImport');
 
 -- --------------------------------------------------------
 
@@ -375,8 +481,18 @@ INSERT INTO `routes` (`Id`, `Url`, `Rewrite`) VALUES
 CREATE TABLE `shopping_cart` (
   `Id` int(11) NOT NULL,
   `Customer_Id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
   `Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shopping_cart`
+--
+
+INSERT INTO `shopping_cart` (`Id`, `Customer_Id`, `product_id`, `amount`, `Status`) VALUES
+(46, 1, 20, 1, 1),
+(47, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -470,11 +586,11 @@ INSERT INTO `sub_category_product` (`Id`, `SubCategoryId`, `ProductId`) VALUES
 (25, 15, 25),
 (26, 15, 26),
 (27, 15, 27),
-(115, 28, 1),
-(116, 29, 1),
 (120, 1, 81),
 (121, 2, 81),
-(122, 3, 81);
+(122, 3, 81),
+(123, 28, 1),
+(124, 29, 1);
 
 -- --------------------------------------------------------
 
@@ -494,12 +610,12 @@ CREATE TABLE `sub_imgs_product` (
 --
 
 INSERT INTO `sub_imgs_product` (`id`, `product_id`, `path`, `thumb`) VALUES
-(32, 1, '/public/assets/clients/img/product/100006.png', 1),
-(33, 1, '/public/assets/clients/img/product/100003.png', 6),
-(34, 1, '/public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 5),
-(35, 1, '/public/assets/clients/img/product/100003.png', 4),
-(36, 1, '/public/assets/clients/img/product/100002.png', 3),
-(37, 1, '/public/assets/clients/img/product/be-happy.png', 2);
+(32, 81, '/public/assets/clients/img/product/100006.png', 1),
+(33, 81, '/public/assets/clients/img/product/100003.png', 6),
+(34, 81, '/public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 5),
+(35, 81, '/public/assets/clients/img/product/100003.png', 4),
+(36, 81, '/public/assets/clients/img/product/100002.png', 3),
+(37, 81, '/public/assets/clients/img/product/be-happy.png', 2);
 
 --
 -- Indexes for dumped tables
@@ -538,16 +654,43 @@ ALTER TABLE `employee`
   ADD UNIQUE KEY `UserName` (`UserName`);
 
 --
+-- Indexes for table `import_invoice`
+--
+ALTER TABLE `import_invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `import_invoice_detail`
+--
+ALTER TABLE `import_invoice_detail`
+  ADD PRIMARY KEY (`import_invoice_id`,`product_id`),
+  ADD KEY `importinvoicedetaiil_productid_product` (`product_id`);
+
+--
 -- Indexes for table `invoice`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD KEY `orderdetail_orderid_orders` (`order_id`),
+  ADD KEY `orderdetail_productid_product` (`product_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Title` (`Title`);
 
 --
 -- Indexes for table `review`
@@ -623,10 +766,22 @@ ALTER TABLE `employee`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
+-- AUTO_INCREMENT for table `import_invoice`
+--
+ALTER TABLE `import_invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -644,13 +799,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `routes`
 --
 ALTER TABLE `routes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `sub_category`
@@ -662,7 +817,7 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `sub_category_product`
 --
 ALTER TABLE `sub_category_product`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `sub_imgs_product`
@@ -673,6 +828,20 @@ ALTER TABLE `sub_imgs_product`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `import_invoice_detail`
+--
+ALTER TABLE `import_invoice_detail`
+  ADD CONSTRAINT `importinvoicedetaiil_productid_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `importinvoicedetail_importinvoiceid_importinvoice` FOREIGN KEY (`import_invoice_id`) REFERENCES `import_invoice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `orderdetail_orderid_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orderdetail_productid_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sub_category_product`

@@ -39,6 +39,14 @@ $(document).ready(function () {
             </div>
           `
           );
+          var cart_count_text = $("#Header-cart-count").text();
+          var cart_count = parseFloat(cart_count_text);
+          $("#Header-cart-count").text(cart_count + 1);
+
+          var totalText = $("#mini-cart-total").text();
+          var total = parseFloat(totalText);
+          $("#mini-cart-total").text(total + parseFloat(response.price));
+
           alert("Add Successfully!");
         } else {
           alert(response.msg);
@@ -51,7 +59,7 @@ $(document).ready(function () {
     });
   });
 
-  $(".btnDecreaseShoppingCart").on("click", function (e) {
+  $(document).on("click", ".btnDecreaseShoppingCart", function (e) {
     e.preventDefault();
 
     var product_id = $(this).attr("data-product-id");
@@ -94,7 +102,7 @@ $(document).ready(function () {
     });
   });
 
-  $(".btnIncreaseShoppingCart").on("click", function (e) {
+  $(document).on("click", ".btnIncreaseShoppingCart", function (e) {
     e.preventDefault();
 
     var product_id = $(this).attr("data-product-id");
