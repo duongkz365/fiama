@@ -101,9 +101,18 @@ class Product extends Controller
 
 
 
+    
+
+
     function list($idCategory = 0)
     {
-        $listProduct = $this->productModel->GetProductByCategory($idCategory);
+
+
+        if (!empty($_GET['search'])) {
+            $listProduct = $this->productModel->GetSearchProduct($_GET['search']);    
+        }else {
+            $listProduct = $this->productModel->GetProductByCategory($idCategory);
+        }
 
         if(!empty($_GET['low']) && !empty($_GET['high'])){
             $listProduct = $this->filterProductByPrice($listProduct,$_GET['low'],$_GET['high']);
@@ -174,6 +183,8 @@ class Product extends Controller
         }
 
 
+
+
         if (!empty($_GET['search'])) {
             $this->data['subData']['search'] = $_GET['search'];
             $this->data['subData']['pageTitle'] = 'search';
@@ -181,6 +192,9 @@ class Product extends Controller
             $this->data['subData']['search'] = '';
             $this->data['subData']['pageTitle'] = $this->productModel->GetProCategory($idCategory)[0]['Title'];
         }
+
+
+
         $this->data['views'] = 'products/list';
         $this->RenderView('layouts/clientLayout', $this->data);
     }

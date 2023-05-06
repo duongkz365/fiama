@@ -151,6 +151,7 @@
                                             . '?'
                                             . (!empty($_GET['sort']) ? "sort=" . $_GET['sort'] . "&" : "")
                                             . ((!empty($_GET['low']) && !empty($_GET['high'])) ? "low=" . $_GET['low'] . "&high=" . $_GET['high'] . "&" : "")
+                                            . (!empty($_GET['search'])? "search=". $_GET['search']."&" : "")
                                             . 'page=' . $i;
                                         ?> ">
                                         <?php echo $i ?>

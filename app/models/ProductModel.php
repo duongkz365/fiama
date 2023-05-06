@@ -317,4 +317,10 @@ class ProductModel  extends Model
             return false;
         }
     }
+
+
+    public function GetSearchProduct($keyword){
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE Title like N'%$keyword%'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }
