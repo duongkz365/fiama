@@ -11,13 +11,10 @@ class Database
     }
 
     function Query($sql){
-        try {
             $statement = $this->__conn->prepare($sql);
             $statement->execute();
+            
             return $statement;
-        } catch (PDOException $e) {
-            return false;
-        }
     }
 
     function Delete($table,$condition = ''){
@@ -25,12 +22,12 @@ class Database
             $sql = 'DELETE FROM '.$this->__db['db']. "." .$table.' WHERE '.$condition;
         else
             $sql = 'DELETE FROM '.$this->__db. "." .$table; 
+            // var_dump($sql);
+            // die;
         $status = $this->Query($sql);
         if($status)
             return true;
         return false;
-        // var_dump($sql);
-        // die;
     }
     function Insert($table,$data){
 

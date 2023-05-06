@@ -419,10 +419,22 @@
 															</div>
 														</div>
 													</div> -->
+													
 													<div class="d-flex justify-content-end mt-5">
 														<button type="submit" class="btn btn-primary mb-2 btn-pill">Save Change</button>
 													</div>
 												</form>
+												<div class="d-flex justify-content-end mt-5">
+														<?php
+															if ($Employee[0]['Status'] == 1)
+															{
+																echo '<button data-employee-id="'.$Employee[0]['Id'].'" class="btnDisableEmployee btn btn-danger mb-2 btn-pill">Disable Employee</button>';
+															} else {
+																echo '<button data-employee-id="'.$Employee[0]['Id'].'" class="btnEnableEmployee btn btn-success mb-2 btn-pill">Enable Employee</button>';
+															}
+														?>
+														
+													</div>
 											</div>
 										</div>
 

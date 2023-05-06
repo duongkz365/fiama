@@ -7,6 +7,8 @@ class Admin extends Controller
     private $userModel;
     private $authModel;
     private $categoryModel;
+    private $importModel;
+    private $orderModel;
 
     function __construct()
     {
@@ -15,6 +17,9 @@ class Admin extends Controller
         $this->userModel = $this->CreateModel('UserModel');
         $this->authModel = $this->CreateModel("AuthModel");
         $this->categoryModel = $this->CreateModel("CategoryModel");
+        $this->importModel = $this->CreateModel("ImportModel");
+        $this->orderModel = $this->CreateModel("OrderModel");
+
         $this->data['views']['header'] = 'admin/blocks/header';
         $this->data['views']['leftSideBar'] = 'admin/blocks/leftSideBar';
         $this->data['views']['footer'] = 'admin/blocks/footer';
@@ -335,12 +340,29 @@ class Admin extends Controller
             $this->data['subData']['sub_imgs_product'] = $this->productModel->GetSubImgsProduct($_GET['id']);
             $this->data['subData']['category'] = $this->categoryModel->GetProductCategory();
             $this->data['subData']['sub_category'] = $this->categoryModel->GetProductSubCategory();
+            $this->data['subData']['storage'] = $this->orderModel->currentAmountOfAProduct($_GET['id']);
             $this->data['views']['content'] = 'admin/products/edit';
             // var_dump($this->productModel->GetSubImgsProduct($_GET['id']));
             // die;
             $this->RenderView('layouts/adminLayout', $this->data);
         } else {
             App::$app->LoadError();
+        }
+    }
+
+    function AmountOfAProductAtADate()
+    {
+        header('Content-Type: application/json');
+        if (isset($_POST['product_id']) && isset($_POST['date']) && $_POST['product_id'] != "" && $_POST['date'] != "")
+        {
+            $product_id = $_POST['product_id'];
+            $date = $_POST['date'];
+            
+            // $customer_id = $_POST['customerId'];
+            $result = $this->orderModel->AmountOfAProductAtADate($product_id, $date);
+            echo json_encode($result);
+        } else {
+            echo json_encode("fail");
         }
     }
 
@@ -351,14 +373,21 @@ class Admin extends Controller
         $this->RenderView('layouts/adminLayout', $this->data);
     }
 
+    //HANDLE
+    function GetAllProduct()
+    {
+        $products = $this->productModel->GetAllProduct();
+
+        header('Content-Type: application/json');
+        echo json_encode($products);
+    }
+
     function SaveProduct()
     {
         if (!isset($_POST['Title']) || $_POST['Title'] == "") {
             $this->displayProductError("Flower\'s name is Required!", $_POST);
         } else if (!isset($_POST['ShortDescription']) || $_POST['ShortDescription'] == "") {
             $this->displayProductError("Short description is Required!", $_POST);
-        } else if (!isset($_POST['Quantity']) || $_POST['Quantity'] == "") {
-            $this->displayProductError("Quantity is Required!", $_POST);
         } else if (!isset($_POST['SalePrice']) || $_POST['SalePrice'] == "") {
             $this->displayProductError("SalePrice is Required!", $_POST);
         } else if (!isset($_POST['Price']) || $_POST['Price'] == "") {
@@ -512,8 +541,36 @@ class Admin extends Controller
     {
         $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/list';
+
+        //order, detail, product
+        $this->data['subData']['orders'] = $this->orderModel->GetAllOrder();
+        $this->data['subData']['order_details'] = $this->orderModel->GetAllOrderDetail();
+        $this->data['subData']['products'] = $this->productModel->GetAllProduct();
+        $this->data['subData']['customers'] = $this->userModel->GetListCustomer();
+
+        //$this->data['subData']['orders'] = $this->orderModel->getAllOrderToShowToAdmin();
         $this->RenderView('layouts/adminLayout', $this->data);
     }
+
+    public function ViewFilterOrder()
+    {
+        $status = $_POST['status'];
+        $fromDate = $_POST['fromDate'];
+        $toDate = $_POST['toDate'];
+        
+        $this->data['subData'] = [];
+        $this->data['views']['content'] = 'admin/orders/list';
+
+        //order, detail, product
+        $this->data['subData']['orders'] = $this->orderModel->GetAllFilterOrder($status, $fromDate, $toDate);
+        $this->data['subData']['order_details'] = $this->orderModel->GetAllOrderDetail();
+        $this->data['subData']['products'] = $this->productModel->GetAllProduct();
+        $this->data['subData']['customers'] = $this->userModel->GetListCustomer();
+
+        //$this->data['subData']['orders'] = $this->orderModel->getAllOrderToShowToAdmin();
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
     public function ViewDetailOrder($id)
     {
         $this->data['subData'] = [];
@@ -525,6 +582,86 @@ class Admin extends Controller
         $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/invoice';
         $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
+    // Import
+    public function RenderImport()
+    {
+        $action = '';
+
+        if (!empty($_GET['action'])) $action = $_GET['action'];
+
+
+        if ($action == 'import') {
+            $this->ViewNewImport();
+        } else if ($action == 'list') {
+            $this->ViewAllListImport();
+        } else if ($action == 'detail' && !empty($_GET['id'])) {
+            $this->ViewDetailImport($_GET['id']);
+        } else {
+            App::$app->LoadError();
+        }
+    }
+
+    public function ViewNewImport()
+    {
+        $this->data['subData'] = [];
+        $this->data['views']['content'] = 'admin/imports/new';
+
+        $products = $this->productModel->GetAllProduct();
+        $this->data['subData']['products'] = $products;
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
+    public function ViewAllListImport()
+    {
+        $this->data['subData'] = [];
+        $this->data['views']['content'] = 'admin/imports/list';
+
+        $products = $this->productModel->GetAllProduct();
+        $this->data['subData']['products'] = $products;
+
+        $importInvoice = $this->importModel->GetAllImportInvoice();
+        $importInvoiceDetail = $this->importModel->GetAllImportInvoiceDetail();
+        $this->data['subData']['importInvoices'] = $importInvoice;
+        $this->data['subData']['importInvoiceDetails'] = $importInvoiceDetail;
+        
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+    public function ViewDetailImport($id)
+    {
+        $this->data['subData'] = [];
+        $this->data['views']['content'] = 'admin/imports/detail';
+
+        
+
+        $this->RenderView('layouts/adminLayout', $this->data);
+    }
+
+    //HANDLE IMPORT
+    public function handleImportProducts()
+    {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+            $product_ids = $_POST['product_id'];
+            $product_amounts = $_POST['amount'];
+            $product_values = $_POST['value'];
+
+            $totalValue = 0;
+            $totalAmount = 0;
+            foreach($product_ids as $key => $name) {
+                $totalValue += $product_values[$key] * $product_amounts[$key];
+                $totalAmount += $product_amounts[$key];
+            }
+            $invoice_id = $this->importModel->CreateImportInvoice($totalAmount, $totalValue);
+            
+            foreach($product_ids as $key => $name) {
+                $this->importModel->CreateImportInvoiceDetail($invoice_id, $product_ids[$key], $product_amounts[$key], $product_values[$key]);
+            }
+            // Hiển thị thông báo thành công hoặc chuyển hướng đến trang khác
+            echo "<script>alert('Save successfully!'); window.location.href = '" . _WEB_ROOT . "/admin/import?action=list" . "';</script>";
+        }
     }
 
 

@@ -10,6 +10,12 @@ class ProductModel  extends Model
     {
     }
 
+    public function GetAllProduct()
+    {
+        $data = $this->db->Query("SELECT * FROM fiama.product")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
     public function GetProductById($idProduct)
     {
         $data = $this->db->Query("SELECT * FROM fiama.product WHERE Id = $idProduct")->fetchAll(PDO::FETCH_ASSOC);
@@ -96,12 +102,12 @@ class ProductModel  extends Model
             "Price" => $postData['Price'],
             "SalePrice" => $postData['SalePrice'],
             "ShortDescription" => $postData['ShortDescription'],
-            "Quantity" => $postData['Quantity'],
             "Img" => isset($thumb_array[0]) ? $firstImagePath : "",
             // "Path" => $postData['Path'] ? $postData['Path'] : "",
             "Hot" => $postData['Hot'] ? $postData['Hot'] : "",
             // "Discount" => $postData['Discount'] ? $postData['Discount'] : 0,
             "SKU" => $postData['SKU'] ? $postData['SKU'] : "SKU TEST",
+            "status" => 1
         ];
 
         //unset key Img if $thumb_array[0] = null
@@ -279,8 +285,33 @@ class ProductModel  extends Model
 
     function DeleteProductById($prodId)
     {
-        $result = $this->db->Delete("product", "Id = " . $prodId);
-        if ($result) {
+        $isSold = $this->isSoldOrNot($prodId);
+
+        if (!$isSold)
+        {
+            $result = $this->db->Delete("product", "Id = " . $prodId);
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+        } else { //hide
+            $arrProduct = [
+                "status" => 0
+            ];
+            $data = $this->db->Update("fiama.product", $arrProduct, "Id=" . $prodId);
+            if ($data) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    function isSoldOrNot($prodId)
+    {
+        $result = $this->db->Query("SELECT * FROM fiama.order_detail WHERE product_id = " . $prodId)->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($result)) {
             return true;
         } else {
             return false;

@@ -25,68 +25,142 @@
             <div class="col-lg-12 col-md-12">
                 <div class="ltn__shop-details-inner">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
+                        <div class="col-md-12 d-flex">
+                            <div class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2 col-md-6">
                                 <div class="ltn__shop-details-small-img slick-arrow-2">
-                                    <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                    <!-- <div class="single-small-img">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                     </div>
                                     <div class="single-small-img">
-                                        <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
-                                    </div>
+                                        <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                    </div> -->
+
+                                    <?php
+                                        $j = 0;
+                                        $count = count($sub_imgs_product);
+                                        if ($count == 0) $count = 6;
+                                        // var_dump($sub_imgs_product);
+                                        // die;
+                                        for ($i = 1; $i <= $count; $i++)
+                                        {
+                                            if (!empty($sub_imgs_product) && isset($sub_imgs_product[$j])  && $sub_imgs_product[$j]['thumb'] == $i) {
+                                                echo '
+                                                    <div class="single-small-img">
+                                                        <img src="'. _WEB_ROOT .$sub_imgs_product[$j]['path'] .'">
+                                                    </div>
+                                                ';
+                                                $j += 1;
+                                            }
+                                            else {
+                                                echo '
+                                                    <div class="single-small-img">
+                                                        <img src="'. _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" .'">
+                                                    </div>
+                                                ';
+                                            }
+                                        }
+                                    ?>
                                 </div>
                                 <div class="ltn__shop-details-large-img">
-                                    <div class="single-large-img">
+                                    <?php 
+                                        if (isset($product['Img']) && $product['Img'] != "")
+                                        {
+                                            echo '
+                                                <div class="single-large-img">
+                                                    <a href="'. _WEB_ROOT  . $product['Img'] .'" data-rel="lightcase:myCollection">
+                                                        <img src="' . _WEB_ROOT . $product['Img'] . '" alt="Image">
+                                                    </a>
+                                                </div>
+                                            ';
+                                        } else {
+                                            echo '
+                                                <div class="single-large-img">
+                                                    <a href="' . _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" . '" data-rel="lightcase:myCollection">
+                                                        <img src="' . _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" . '" alt="Image">
+                                                    </a>
+                                                </div>
+                                            ';
+                                        }
+                                    ?>
+                                    <?php
+                                        $j = 0;
+                                        $count = count($sub_imgs_product);
+                                        // var_dump($count);
+                                        // die;
+                                        for ($i = 1; $i <= $count; $i++)
+                                        {
+                                            if (!empty($sub_imgs_product) && isset($sub_imgs_product[$j])  && $sub_imgs_product[$j]['thumb'] == $i) {
+                                                echo '
+                                                    <div class="single-large-img">
+                                                        <a href="'. _WEB_ROOT .$sub_imgs_product[$j]['path'] .'" data-rel="lightcase:myCollection">
+                                                            <img src="'. _WEB_ROOT .$sub_imgs_product[$j]['path'] .'">
+                                                        </a>
+                                                    </div>
+                                                ';
+                                                $j += 1;
+                                            }
+                                            else {
+                                                echo '
+                                                    <div class="single-large-img">
+                                                        <a href="' . _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" . '" data-rel="lightcase:myCollection">
+                                                            <img src="'. _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" .'" alt="Image">
+                                                        </a>
+                                                    </div>
+                                                ';
+                                            }
+                                        }
+                                    ?>
+                                    <!-- <div class="single-large-img">
                                         <a href="img/product/1.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/2.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/3.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/4.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/5.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/6.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
                                     <div class="single-large-img">
                                         <a href="img/product/7.png" data-rel="lightcase:myCollection">
-                                            <img src="<?php echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
+                                            <img src="< echo _WEB_ROOT . '/' . $product['Img'] ?>" alt="Image">
                                         </a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -156,14 +230,36 @@
                                         <li>
                                             <strong>Categories:</strong>
                                             <span>
-                                                <?php
-                                                foreach ($listCategory as $lct) {
-                                                ?>
-                                                    <a href="<?php echo _WEB_ROOT . '/' . $lct['Path'] ?>"><?php echo $lct['Title'] ?></a>
-
-                                                <?php
+                                            <?php
+												foreach ($category as $cate) {
+                                                    $flag = false;
+													foreach ($sub_category as $subCate) {
+														if ($cate['Id'] == $subCate['Parent']) {
+															foreach($sub_category_product as $subCateFromDb)
+															{
+																if ($subCateFromDb['SubCategoryId'] == $subCate['Id'])
+																{
+                                                                    if ($flag == false)
+                                                                    {
+                                                                        echo '<div class="col-md-12" style="margin-left: 32px;">
+                                                                                    <label class="form-label">' . $cate['Title'] . '</label>
+                                                                                <div class="d-flex flex-wrap">
+                                                                        ';
+                                                                        $flag = true;
+                                                                    }
+																	echo '
+																		<div class="d-flex flex-wrap" style="margin-left: 16px;">
+																			<label class="add-product-cbx">
+																				<span class="add-product-cbx-label-text">' . $subCate['Title'] . '</span>
+																			</label>
+																		</div>
+																	';
+																} 
+															}
+														}
+													}
                                                 }
-                                                ?>
+                                            ?>
 
                                             </span>
 
@@ -194,7 +290,7 @@
                         <div class="tab-pane fade active show" id="liton_tab_details_1_1">
                             <div class="ltn__shop-details-tab-content-inner text-center">
                                 <h4>Thông tin sản phẩm</h4>
-                                <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nost exercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepte sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit volu accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explica Nemllo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
+                                <p style="text-align: justify;"><?=$product['ShortDescription']?></p>
                             </div>
                         </div>
                         <div class="tab-pane fade active show" id="liton_tab_details_1_4">

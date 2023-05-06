@@ -32,7 +32,7 @@
                 "LastName" => $postData['LastName'],
                 "FirstName" => $postData['FirstName'],
                 "Username" => $postData['UserName'],
-                "Password" => $postData['Password'],
+                "Password" => password_hash($postData['Password'], PASSWORD_BCRYPT),
                 "Position" => $postData['Position'],
                 "CreatedDate" => date("Y-m-d"),
                 "Status" => 1,

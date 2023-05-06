@@ -4,17 +4,37 @@ class Product extends Controller
 {
     public $productModel;
     public $data = [];
+    public $categoryModel;
+    public $shoppingCartModel;
+
     function __construct()
     {
         $this->productModel = $this->CreateModel('ProductModel');
+        $this->shoppingCartModel = $this->CreateModel('ShoppingCartModel');
         $this->data['header']['category']          = $this->productModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->productModel->GetProductSubCategory();
-        $this->data['slideCart'] = [1, 2, 3];
+        if (isset($_SESSION['currentUser']['username']) && $_SESSION['currentUser']['username'] != "")
+        {
+            $this->data['header']['cart_count']       = $this->shoppingCartModel->GetCartCountByUsername($_SESSION['currentUser']['username']);
+        } else {
+            $this->data['header']['cart_count']       = 0;
+        }
+        $this->categoryModel = $this->CreateModel('CategoryModel');
+
+        $productFromCart = $this->shoppingCartModel->getProductCartByUsername($_SESSION['currentUser']['username']);
+        if (!is_null($productFromCart) && !empty($productFromCart))
+        {
+            $this->data['slideCart']['productFromCart'] = $productFromCart;
+        } else {
+            $this->data['slideCart']['productFromCart'] = [0];
+        }
         //data footer
 
         $this->data['footer'][] = [];
 
     }
+
+
     function index()
     {
         $data = $this->productModel->GetList();
@@ -70,15 +90,21 @@ class Product extends Controller
         $this->RenderView('layouts/clientLayout', $this->data);
 
     }
-    function detail($strPath)
+    function detail()
     {
-        $product =  $this->productModel->GetProduct($strPath)[0];
-        $listCategory = $this->productModel->GetCategoryFromStringPathDetail($strPath);
+        // $product =  $this->productModel->GetProduct($strPath)[0];
+        $product = $this->productModel->GetProductById($_GET['prodId']);
+        $product = $product[0];
         $this->data['subData']['pageTitle'] = $product['Title'];
         $this->data['views'] = 'products/detail';
         $this->data['subData']['product'] = $product;
-        $this->data['subData']['listCategory'] = $listCategory;
         $this->data['subData']['relatedProduct'] = $this->productModel->GetRelatedProduct();
+
+        $this->data['subData']['sub_category_product'] = $this->productModel->GetSubCategoryProductById($_GET['prodId']);
+        $this->data['subData']['sub_imgs_product'] = $this->productModel->GetSubImgsProduct($_GET['prodId']);
+        $this->data['subData']['category'] = $this->categoryModel->GetProductCategory();
+        $this->data['subData']['sub_category'] = $this->categoryModel->GetProductSubCategory();
+
         $this->RenderView('layouts/clientLayout', $this->data);
     }
 

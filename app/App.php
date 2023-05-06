@@ -9,6 +9,10 @@ class App {
 
     function __construct()
     {
+        if (!isset($_SESSION['currentUser']['username']))
+        {
+            $_SESSION['currentUser']['username'] = "";
+        }
         self::$app = $this;
         global $config;
         $this->__routes = new Route();
@@ -16,6 +20,7 @@ class App {
         $this->__action = 'index';
         $this->__params = [];
 
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->HandleURL();
     }
     function GetURL(){
@@ -69,7 +74,7 @@ class App {
         $data['subData'] = [];
 
         $data['header'] = [];
-        $data['slideCart'] = [1];
+        $data['slideCart']['productFromCart'] = [0];
         $controller->RenderView('layouts/clientLayout',$data);
     }
     

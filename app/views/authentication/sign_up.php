@@ -30,7 +30,7 @@
         <div class="card">
           <div class="card-header bg-primary">
             <div class="ec-brand">
-              <a href="index.html" title="Ekka">
+              <a href="<?=_WEB_ROOT?>" title="Ekka">
                 <img class="ec-brand-icon" src="<?php echo _WEB_ROOT ?>/public/assets/admin/img/logo/logo-login.png" alt="" />
               </a>
             </div>

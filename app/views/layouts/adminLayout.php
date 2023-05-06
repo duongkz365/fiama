@@ -90,6 +90,11 @@
 
 	<!-- Ekka Custom -->
 	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/ekka.js"></script>
+
+	<!-- handle -->
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleImport.js"></script>
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleOrder.js"></script>
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleProduct.js"></script>
 </body>
 
 </html>

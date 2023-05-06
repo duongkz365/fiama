@@ -439,6 +439,17 @@
 														</div>
 													</div> -->
 													<div class="d-flex justify-content-end mt-5">
+														<?php
+															if ($Customer[0]['Status'] == 1)
+															{
+																echo '<button data-customer-id="'.$Customer[0]['Id'].'" class="btnDisableCustomer btn btn-danger mb-2 btn-pill">Disable Customer</button>';
+															} else {
+																echo '<button data-customer-id="'.$Customer[0]['Id'].'" class="btnEnableCustomer btn btn-success mb-2 btn-pill">Enable Customer</button>';
+															}
+														?>
+														
+													</div>
+													<div class="d-flex justify-content-end mt-5">
 														<!-- <button type="submit" class="btn btn-primary mb-2 btn-pill">Save Change</button> -->
 														<p style="color: red;">Read only info</p>
 													</div>

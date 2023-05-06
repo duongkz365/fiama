@@ -24,10 +24,9 @@
 			                                        <th>Name</th>
 			                                        <th>Price</th>
 			                                        <th>Sale Price</th>
-			                                        <th>Quantity</th>
-			                                        <th>Remaining </th>
 			                                        <th>Status</th>
 			                                        <th>Date</th>
+			                                        <th>Status</th>
 			                                        <th>Action</th>
 			                                    </tr>
 			                                </thead>
@@ -42,10 +41,9 @@
 			                                        <td><?php echo $lpd['Title'] ?></td>
 			                                        <td><?php echo $lpd['Price'] ?>K</td>
 			                                        <td><?php echo $lpd['SalePrice'] ?>K</td>
-			                                        <td><?php echo $lpd['Quantity']?></td>
-			                                        <td><?php echo $lpd['Quantity']?></td>
 			                                        <td>ACTIVE</td>
 			                                        <td>2021-10-30</td>
+			                                        <td><?php echo $lpd['status'] ?></td>
 			                                        <td>
 			                                            <div class="btn-group mb-1">
 			                                                <button type="button" class="btn btn-outline-success">

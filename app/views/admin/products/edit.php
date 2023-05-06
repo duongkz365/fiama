@@ -39,7 +39,7 @@
 														<?php 
 															if (isset($product[0]['Img']) && $product[0]['Img'] != "")
 															{
-																echo '<img class="ec-image-preview" src="'. _WEB_ROOT . "/" . $product[0]['Img'] .'" alt="edit" />';
+																echo '<img class="ec-image-preview" src="'. _WEB_ROOT . $product[0]['Img'] .'" alt="edit" />';
 															} else {
 																echo '<img class="ec-image-preview" src="'. _WEB_ROOT . "/public/assets/admin/img/products/vender-upload-thumb-preview.jpg" .'" alt="edit" />';
 															}
@@ -159,8 +159,11 @@
 												<textarea name="ShortDescription" class="form-control" rows="2"><?=$product[0]['ShortDescription']?></textarea>
 											</div>
 											<div class="col-md-12">
-												<label class="form-label">Quantity</label>
-												<input type="number" name="Quantity" class="form-control" id="quantity1" value="<?=$product[0]['Quantity']?>">
+												<label class="form-label">Storage</label>
+												<div class="d-flex">
+													<input type="number" class="form-control" id="edit-product-storage" value="<?=$storage?>" readonly>
+													<input type="date" id="productStorageDateSelect" data-product-id="<?=$product[0]['Id']?>" class="form-control">
+												</div>
 											</div>
 											<div class="col-md-6">
 												<label class="form-label">SalePrice <span>( $ unit
@@ -193,6 +196,13 @@
 														?>
 														
 													</select>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<label for="status" class="col-12 col-form-label">Status</label>
+												<div class="">
+													<input id="status" class="form-control" type="text" value="<?=$product[0]['status']?>">
 												</div>
 											</div>
 

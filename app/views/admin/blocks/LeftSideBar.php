@@ -128,24 +128,46 @@
 							</a>
 							<div class="collapse">
 								<ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
-									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=new-order' ?>">
+									<!-- <li class="">
+										<a class="sidenav-item-link" href="< echo _WEB_ROOT.'/admin/order?action=new-order' ?>">
 											<span class="nav-text">New Order</span>
 										</a>
 									</li>
-									<li class="">
+									<li class=""> -->
 										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=list'?>">
 											<span class="nav-text">List Order</span>
 										</a>
 									</li>
-									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=detail&id=1' ?>">
+									<!-- <li class="">
+										<a class="sidenav-item-link" href="< echo _WEB_ROOT.'/admin/order?action=detail&id=1' ?>">
 											<span class="nav-text">Order Detail</span>
+										</a>
+									</li> -->
+									<!-- <li class="">
+										<a class="sidenav-item-link" href="< echo _WEB_ROOT.'/admin/order?action=invoice&id=1'?>">
+											<span class="nav-text">Invoice</span>
+										</a>
+									</li> -->
+								</ul>
+							</div>
+						</li>
+
+						<!-- Import -->
+						<li class="has-sub">
+							<a class="sidenav-item-link" href="javascript:void(0)">
+								<i class="mdi mdi-shopify"></i>
+								<span class="nav-text">Import</span> <b class="caret"></b>
+							</a>
+							<div class="collapse">
+								<ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
+									<li class="">
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/import?action=import' ?>">
+											<span class="nav-text">Import</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/order?action=invoice&id=1'?>">
-											<span class="nav-text">Invoice</span>
+										<a class="sidenav-item-link" href="<?php echo _WEB_ROOT.'/admin/import?action=list'?>">
+											<span class="nav-text">Import History</span>
 										</a>
 									</li>
 								</ul>
