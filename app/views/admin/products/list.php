@@ -9,7 +9,7 @@
 			                </p>
 			            </div>
 			            <div>
-			                <a href="product-list.html" class="btn btn-primary"> Add Porduct</a>
+			                <a href="<?= _WEB_ROOT ?>/admin/product?action=add" class="btn btn-primary"> Add Porduct</a>
 			            </div>
 			        </div>
 			        <div class="row">
@@ -24,10 +24,9 @@
 			                                        <th>Name</th>
 			                                        <th>Price</th>
 			                                        <th>Sale Price</th>
-			                                        <th>Quantity</th>
-			                                        <th>Remaining </th>
 			                                        <th>Status</th>
 			                                        <th>Date</th>
+			                                        <th>Status</th>
 			                                        <th>Action</th>
 			                                    </tr>
 			                                </thead>
@@ -42,20 +41,21 @@
 			                                        <td><?php echo $lpd['Title'] ?></td>
 			                                        <td><?php echo $lpd['Price'] ?>K</td>
 			                                        <td><?php echo $lpd['SalePrice'] ?>K</td>
-			                                        <td><?php echo $lpd['Quantity']?></td>
-			                                        <td><?php echo $lpd['Quantity']?></td>
 			                                        <td>ACTIVE</td>
 			                                        <td>2021-10-30</td>
+			                                        <td><?php echo $lpd['status'] ?></td>
 			                                        <td>
 			                                            <div class="btn-group mb-1">
-			                                                <button type="button" class="btn btn-outline-success">Info</button>
+			                                                <button type="button" class="btn btn-outline-success">
+																<a href="<?php echo _WEB_ROOT . '/admin/product?action=edit&id=' . $lpd['Id'] ?>" style="text-decoration: none; color: #34c997;">Info</a>
+															</button>
 			                                                <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 			                                                    <span class="sr-only">Info</span>
 			                                                </button>
 
 			                                                <div class="dropdown-menu">
 			                                                    <a class="dropdown-item" href="<?php  echo _WEB_ROOT.'/admin/product?action=edit&id='.$lpd['Id'] ?>">Edit</a>
-			                                                    <a class="dropdown-item" href="#">Delete</a>
+			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT . '/Admin/DeleteProduct?id=' . $lpd['Id'] ?>">Delete</a>
 			                                                </div>
 			                                            </div>
 			                                        </td>

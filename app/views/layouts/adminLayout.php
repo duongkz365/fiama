@@ -26,6 +26,7 @@
 	<link href='<?php echo _WEB_ROOT ?>/public/assets/admin/plugins/data-tables/responsive.datatables.min.css' rel='stylesheet'>
 	<!-- Ekka CSS -->
 	<link id="ekka-css" href="<?php echo _WEB_ROOT ?>/public/assets/admin/css/ekka.css" rel="stylesheet" />
+	<link href="<?php echo _WEB_ROOT ?>/public/assets/admin/css/checkbox.css" rel="stylesheet" />
 
 	<!-- FAVICON -->
 	<link href="<?php echo _WEB_ROOT ?>/public/assets/admin/img/favicon.png" rel="shortcut icon" />
@@ -89,6 +90,11 @@
 
 	<!-- Ekka Custom -->
 	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/ekka.js"></script>
+
+	<!-- handle -->
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleImport.js"></script>
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleOrder.js"></script>
+	<script src="<?php echo _WEB_ROOT ?>/public/assets/admin/js/handleProduct.js"></script>
 </body>
 
 </html>

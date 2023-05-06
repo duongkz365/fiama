@@ -5,55 +5,67 @@
                 <span class="ltn__utilize-menu-title">Cart</span>
                 <button class="ltn__utilize-close">×</button>
             </div>
-            <div class="mini-cart-product-area ltn__scrollbar">
-                <div class="mini-cart-item clearfix">
-                    <div class="mini-cart-img">
-                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/1.png" alt="Image"></a>
-                        <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
-                    </div>
-                    <div class="mini-cart-info">
-                        <h6><a href="#">Premium Joyful</a></h6>
-                        <span class="mini-cart-quantity">1 x $65.00</span>
-                    </div>
-                </div>
-                <div class="mini-cart-item clearfix">
-                    <div class="mini-cart-img">
-                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/2.png" alt="Image"></a>
-                        <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
-                    </div>
-                    <div class="mini-cart-info">
-                        <h6><a href="#">The White Rose</a></h6>
-                        <span class="mini-cart-quantity">1 x $85.00</span>
-                    </div>
-                </div>
-                <div class="mini-cart-item clearfix">
-                    <div class="mini-cart-img">
-                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/3.png" alt="Image"></a>
-                        <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
-                    </div>
-                    <div class="mini-cart-info">
-                        <h6><a href="#">Red Rose Bouquet</a></h6>
-                        <span class="mini-cart-quantity">1 x $92.00</span>
-                    </div>
-                </div>
-                <div class="mini-cart-item clearfix">
-                    <div class="mini-cart-img">
-                        <a href="#"><img src="<?php echo _WEB_ROOT ?>/public/assets/clients/img/product/4.png" alt="Image"></a>
-                        <span class="mini-cart-item-delete"><i class="icon-trash"></i></span>
-                    </div>
-                    <div class="mini-cart-info">
-                        <h6><a href="#">Pink Flower Tree</a></h6>
-                        <span class="mini-cart-quantity">1 x $68.00</span>
-                    </div>
-                </div>
+            <div id="SlightRightCartProductArea" class="mini-cart-product-area ltn__scrollbar">
+                <?php
+                    if(!isset($productFromCart) || !is_array($productFromCart) || $productFromCart[0] == 0)
+                    {
+                        echo "No item";
+                    } else {
+                        foreach ($productFromCart as $slc)
+                        {
+                            echo '
+                                <div class="mini-cart-item clearfix">
+                                    <div class="mini-cart-img">
+                                        <a href="#"><img src="' . _WEB_ROOT . "/" . $slc['Img'] .'" alt="Image"></a>
+                                        <span onclick="DeleteProductFromCart('. $slc['customerId'] . ",". $slc['Id'] .')" class="mini-cart-item-delete"><i class="icon-trash"></i></span>
+                                    </div>
+                                    <div class="mini-cart-info">
+                                        <h6><a href="#">'. $slc['Title'] .'</a></h6>
+                                        <div class="d-flex">
+                                            <span class="mini-cart-quantity">' . $slc['cart_amount'] .'</span>
+                                            <span style="display: block;" class="ms-2 me-2">x</span>
+                                            <span>$</span>
+                                            <span class="mini-cart-price">'. $slc['Price'] .'</span>
+                                        </div>
+                                        <div class="">
+                                            <button style="padding: 2px 6px; line-height: 1;" data-customer-id="'.$slc['customerId'].'" data-product-id="'.$slc['Id'].'" class="btnDecreaseShoppingCart btn btn-info">-</button>
+                                            <button style="padding: 2px 6px; line-height: 1;" data-customer-id="'.$slc['customerId'].'" data-product-id="'.$slc['Id'].'" class="btnIncreaseShoppingCart btn btn-info">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                    }
+                ?>                
             </div>
             <div class="mini-cart-footer">
                 <div class="mini-cart-sub-total">
-                    <h5>Subtotal: <span>$310.00</span></h5>
+                    <h5>Subtotal: 
+                        <?php
+                            if(!isset($productFromCart) || !is_array($productFromCart) || $productFromCart[0] == 0)
+                            {
+                                echo "0.00";
+                            } else {
+                                $total = 0;
+                                foreach ($productFromCart as $slc)
+                                {
+                                    $total += $slc['cart_amount'] * $slc['Price'];
+                                }
+                                echo '<span id="mini-cart-total">'. $total .'</span>';
+                            }
+                        ?>
+                    </h5>
                 </div>
                 <div class="btn-wrapper">
                     <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
-                    <a href="cart.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                    <?php
+                        if (isset($_SESSION['currentUser']['username']) && $_SESSION['currentUser']['username'] != "")
+                        {
+                            echo '<a href="'._WEB_ROOT . "/Order/PayView?username=". $_SESSION['currentUser']['username'] .'" class="theme-btn-2 btn btn-effect-2">Buy</a>';
+                        } else {
+                            echo '<a href="'._WEB_ROOT . "/Authentication/SignIn" .'" class="theme-btn-2 btn btn-effect-2">Buy</a>';
+                        }
+                    ?>
                 </div>
                 <p>Free Shipping on All Orders Over $100!</p>
             </div>

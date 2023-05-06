@@ -170,7 +170,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                             <div class="ltn__product-item text-center">
                                 <div class="product-img">
-                                    <a href="product-details.html"><img src="<?php echo _WEB_ROOT.'/'.$nai['Img'] ?>" alt="#"></a>
+                                    <a href="<?=_WEB_ROOT . "/Product/detail?prodId=" . $nai['Id'] ?>"><img src="<?php echo _WEB_ROOT.'/'.$nai['Img'] ?>" alt="#"></a>
                                     <div class="product-badge">
                                         <ul>
                                             <li class="badge-2"> <?php echo $nai['Discount'] ?>%</li>
@@ -184,7 +184,7 @@
                                                 </a>
                                             </li>
                                             <li class="add-to-cart">
-                                                <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                <a href="#" class="AddToCart" title="Add to Cart" data-product-id="<?=$nai['Id']?>" data-username="<?=$_SESSION['currentUser']['username']?>">
                                                     <span class="cart-text d-none d-xl-block">Add to Cart</span>
                                                     <span class="d-block d-xl-none"><i class="icon-handbag"></i></span>
                                                 </a>
@@ -198,7 +198,7 @@
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <h2 class="product-title"><a href="product-details.html"><?php echo $nai['Title'] ?></a></h2>
+                                    <h2 class="product-title"><a href="<?=_WEB_ROOT . "/Product/detail?prodId=" . $nai['Id'] ?>"><?php echo $nai['Title'] ?></a></h2>
                                     <div class="product-price">
                                         <span>$<?php echo $nai['Price'] ?></span>
                                         <del>$<?php echo $nai['SalePrice'] ?></del>
@@ -259,7 +259,7 @@
                     <div class="col-12">
                         <div class="ltn__product-item text-center">
                             <div class="product-img">
-                                <a href="product-details.html"><img src="<?php echo _WEB_ROOT.'/'.$tp['Img']?>" alt="#"></a>
+                                <a href="<?=_WEB_ROOT . "/Product/detail?prodId=" . $tp['Id'] ?>"><img src="<?php echo _WEB_ROOT.'/'.$tp['Img']?>" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
                                         <li class="<?php echo $tp['Hot'] == 1 ? 'badge-1' : 'badge-2';?>">
@@ -277,7 +277,7 @@
                                             </a>
                                         </li>
                                         <li class="add-to-cart">
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                            <a href="#" class="AddToCart" title="Add to Cart" data-product-id="<?=$tp['Id']?>" data-username="<?=$_SESSION['currentUser']['username']?>" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
                                                 <span class="cart-text d-none d-xl-block">Add to Cart</span>
                                                 <span class="d-block d-xl-none"><i class="icon-handbag"></i></span>
                                             </a>
@@ -291,7 +291,7 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <h2 class="product-title"><a href="product-details.html"><?php echo $tp['Title']  ?></a></h2>
+                                <h2 class="product-title"><a href="<?=_WEB_ROOT . "/Product/detail?prodId=" . $tp['Id'] ?>"><?php echo $tp['Title']  ?></a></h2>
                                 <div class="product-price">
                                     <span>$<?php echo $tp['Price'] ?></span>
                                 </div>

@@ -14,11 +14,11 @@ class HomeModel extends Model{
 
     }
     public function GetNewArrivalItem(){
-        $data = $this->db->Query("SELECT * FROM fiama.product ORDER BY Id DESC LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE status = 1 ORDER BY Id DESC LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
     public function GetTopProduct(){
-        $data = $this->db->Query("SELECT * FROM fiama.product WHERE fiama.product.Hot = 1 OR fiama.product.Discount > 10")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE status = 1 AND fiama.product.Hot = 1 OR fiama.product.Discount > 10 AND status = 1")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
     public function GetPromotion(){
@@ -34,6 +34,20 @@ class HomeModel extends Model{
     public function GetNews(){
         $data = [];
         //$data = $this->db->Query("SELECT * FROM fiama.news")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function GetProductCategory()
+    {
+        $data = [];
+        $data = $this->db->Query("SELECT * FROM fiama.category")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function GetProductSubCategory()
+    {
+        $data = [];
+        $data = $this->db->Query("SELECT * FROM fiama.sub_category")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }

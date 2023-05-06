@@ -1,11 +1,27 @@
 <?php
 class Home extends Controller {
     public $homeModel;
+    public $shoppingCartModel;
     private $data = [];
     public function __construct()
     {
         $this->homeModel = $this->CreateModel('HomeModel');
-        $this->data['slideCart'] = [1, 2, 3];
+        $this->shoppingCartModel = $this->CreateModel('ShoppingCartModel');
+
+        if (isset($_SESSION['currentUser']['username']))
+        {
+            $productFromCart = $this->shoppingCartModel->getProductCartByUsername($_SESSION['currentUser']['username']);
+            if (!empty($productFromCart))
+            {
+                $this->data['slideCart']['productFromCart'] = $productFromCart;
+            } else {
+                $this->data['slideCart']['productFromCart'] = [0];
+            }
+        } else {
+            $this->data['slideCart']['productFromCart'] = [0];
+        }
+        
+        
     }
     public function index(){
         $authModel = $this->CreateModel("AuthModel");
@@ -23,6 +39,12 @@ class Home extends Controller {
         //data header
         $this->data['header']['category']          = $this->homeModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->homeModel->GetProductSubCategory();
+        if (isset($_SESSION['currentUser']['username']) && $_SESSION['currentUser']['username'] != "")
+        {
+            $this->data['header']['cart_count']       = $this->shoppingCartModel->GetCartCountByUsername($_SESSION['currentUser']['username']);
+        } else {
+            $this->data['header']['cart_count']       = 0;
+        }
 
         //data footer
 

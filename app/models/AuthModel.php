@@ -19,20 +19,32 @@ class AuthModel extends Model
             $username = $POST['username'];
             $password = $POST['password'];
 
-            $query = "select * from fiama.customer where username = '" . $username . "' && password = '" . $password . "' limit 1";
+            //$query = "select * from fiama.customer where username = '" . $username . "' && password = '" . $password . "' limit 1";
+            $query = "select * from fiama.customer where username = '" . $username . "' limit 1";
             $data = $this->db->Query($query)->fetchAll(PDO::FETCH_ASSOC);
+            
             // var_dump($data);
             // die;
-            if (!empty($data))
+            if (!empty($data) && password_verify($password, $data[0]['Password']))
             {
+                if ($data[0]['Status'] == 0) {
+                    $_SESSION['error'] = "Your account is disable!";
+                    return;
+                }
                 //log in as a customer
                 $this->setCustomerSession($data);
                 $this->redirectTo("/Home");
+                return;
             } else {
-                $query = "select * from fiama.employee where username = '" . $username . "' && password = '" . $password . "' limit 1";
+                $query = "select * from fiama.employee where username = '" . $username . "' limit 1";
                 $data = $this->db->Query($query)->fetchAll(PDO::FETCH_ASSOC);
-                if (!empty($data))
+                
+                if (!empty($data) && password_verify($password, $data[0]['Password']))
                 {
+                    if ($data[0]['Status'] == 0) {
+                        $_SESSION['error'] = "Your account is disable!";
+                        return;
+                    }
                     //log in as an employee
                     $this->setEmployeeSession($data);
                     $this->redirectTo("/Admin");
@@ -135,7 +147,7 @@ class AuthModel extends Model
                 $arr = [
                     "FirstName" => $name,
                     "Username" => $username,
-                    "password" => $password,
+                    "password" => password_hash($password, PASSWORD_BCRYPT),
                     "CreatedDate" => date("d/m/Y"),
                     "Status" => 1
                 ];

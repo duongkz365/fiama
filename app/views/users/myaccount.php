@@ -32,10 +32,10 @@
                                     <div class="nav">
                                         <a class="active show" data-bs-toggle="tab" href="#liton_tab_1_1">Bảng Điều Khiển<i class="fas fa-home"></i></a>
                                         <a data-bs-toggle="tab" href="#liton_tab_1_2">Đơn Hàng <i class="fa-solid fa-bag-shopping"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_3">Đổi Mật Khẩu<i class="fa-solid fa-unlock"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_4">Thay Đổi Địa Chỉ <i class="fa-solid fa-map-location-dot"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_5">Thay Đổi Thông Tin <i class="fa-solid fa-circle-info"></i></a>
-                                        <a data-bs-toggle="tab" href="#liton_tab_1_6">Danh Sách Yêu Thích <i class="fa-solid fa-heart"></i></i></a>
+                                        <!-- <a data-bs-toggle="tab" href="#liton_tab_1_3">Đổi Mật Khẩu<i class="fa-solid fa-unlock"></i></a> -->
+                                        <!-- <a data-bs-toggle="tab" href="#liton_tab_1_4">Thay Đổi Địa Chỉ <i class="fa-solid fa-map-location-dot"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_tab_1_5">Thay Đổi Thông Tin <i class="fa-solid fa-circle-info"></i></a> -->
+                                        <!-- <a data-bs-toggle="tab" href="#liton_tab_1_6">Danh Sách Yêu Thích <i class="fa-solid fa-heart"></i></i></a> -->
                                         <a href="login.html">Đăng Xuất <i class="fa-solid fa-door-open"></i></a>
                                     </div>
                                 </div>
@@ -49,36 +49,56 @@
                                         <div class="ltn__myaccount-tab-content-inner mb-50">
                                             <h4>Thông tin tài khoản</h4>
                                             <div class="ltn__form-box">
-                                                <form action="#">
+                                                <form method="post" action="<?=_WEB_ROOT . "/User/SaveCustomer"?>">
+                                                    <input type="hidden" name="id" value="<?=$customer[0]['Id']?>" >
                                                     <div class="row mb-50">
                                                         <div class="col-md-6">
-                                                            <label>Tên Đăng Nhập:</label>
-                                                            <input type="email" name="ltn__lastname" placeholder="duongkz365">
+                                                            <label>Username</label>
+                                                            <input type="text" name="UserName" placeholder="Tên đăng nhập" value="<?=$customer[0]['UserName']?>" readonly>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label>Họ và Tên: </label>
-                                                            <input type="text" name="ltn__name" placeholder="Kỳ">
+                                                            <label>Old Password</label>
+                                                            <input type="password" name="OldPassword" placeholder="Enter Old Password">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label>Số Điện Thoại:</label>
-                                                            <input type="text" name="ltn__lastname" placeholder="(+84) 398755231">
+                                                            <label>New Password</label>
+                                                            <input type="password" name="NewPassword" placeholder="Enter New Password">
                                                         </div>
                                                         <div class="col-md-6">
+                                                            <label>Confirm Password</label>
+                                                            <input type="password" name="ConfirmPassword" placeholder="Enter Confirm Password">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>FirstName</label>
+                                                            <input type="text" name="FirstName" placeholder="FirstName" value="<?=$customer[0]['FirstName']?>">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>LastName</label>
+                                                            <input type="text" name="LastName" placeholder="LastName" value="<?=$customer[0]['LastName']?>">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Phone number</label>
+                                                            <input type="text" name="Phone" placeholder="Your phone number" value="<?=$customer[0]['Phone']?>">
+                                                        </div>
+                                                        <!-- <div class="col-md-6">
                                                             <label>Ngày Đăng Ký:</label>
                                                             <input type="text" name="ltn__lastname" placeholder="01-01-9999">
-                                                        </div>
+                                                        </div> -->
                                                         <div class="col-md-6">
-                                                            <label>Địa Chỉ Email:</label>
-                                                            <input type="email" name="ltn__lastname" placeholder="dinhky2468@gmail.com">
+                                                            <label>Email</label>
+                                                            <input type="email" name="Email" placeholder="example@gmail.com" value="<?=$customer[0]['Email']?>">
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <!-- <div class="col-md-6">
                                                             <label>Ngày Sinh:</label>
                                                             <input type="email" name="ltn__lastname" placeholder="07-07-2002">
-                                                        </div>
+                                                        </div> -->
                                                         <div class="col-md-12">
-                                                            <label>Địa chỉ mặc định:</label>
-                                                            <input type="email" name="ltn__lastname" placeholder="273 An Dương Vương Quận 5 Tp.Hồ Chí Minh">
+                                                            <label>Default Address:</label>
+                                                            <input type="text" name="Address" placeholder="Enter Your Address" value="<?=$customer[0]['Address']?>">
                                                         </div>
+                                                    </div>
+                                                    <div class="btn-wrapper">
+                                                        <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Lưu Thay Đổi</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -88,95 +108,82 @@
                                     </div>
                                     <div class="tab-pane fade" id="liton_tab_1_2">
                                         <div class="ltn__myaccount-tab-content-inner">
-                                            <div class="table-responsive">
                                                 <h4>Đơn Mua</h4>
-                                                <div id="table-scroll">
-                                                <table class="table" id="order-table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Đơn Hàng</th>
-                                                            <th>Ngày</th>
-                                                            <th>Trạng Thái</th>
-                                                            <th>Tổng Tiền</th>
-                                                            <th>Hành Động</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Jun 22, 2019</td>
-                                                            <td>Pending</td>
-                                                            <td>$3000</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Nov 22, 2019</td>
-                                                            <td>Approved</td>
-                                                            <td>$200</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Jan 12, 2020</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html">View</a></td>
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </table>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <?php
+                                                            foreach($orders as $order)
+                                                            {
+                                                                    if ($order['customer_id'] == $customer[0]['Id'])
+                                                                    {
+                                                                        $paid = $order['paid'] == 0 ? "Chưa thanh toán" : "Đã thanh toán";
+                                                                        $delivery_date = $order['delivery_date'] == "0000-00-00" ? "Chưa giao" : $order['delivery_date'];
+                                                                        echo '
+                                                                            <div class="col-12 p-4 mb-4" style="background-color: #c6e2ff;">
+                                                                                <div class="col-12 p-3 d-flex justify-content-around align-items-center flex-wrap">
+                                                                                    <h4 class="p-3" style="font-size: 18px;">Hóa đơn: '. $order['id'] .'</h4>
+                                                                                    <h4 class="p-3" style="font-size: 18px;">Tình trạng: '. $order['status'] .'</h4>
+                                                                                    <h4 class="p-3" style="font-size: 18px;">Thanh toán: '. $paid .'</h4>
+                                                                                    <h4 class="p-3" style="font-size: 18px;">Ngày đặt: '. $order['order_date'] .'</h4>
+                                                                                    <h4 class="p-3" style="font-size: 18px;">Ngày đi giao: '. $delivery_date .'</h4>
+                                                                                </div>
+                                                                                <div class="order-pay-user-info-wrapper col-12">
+                                                                                    <h3>Thông tin khách hàng</h3>
+                                                                                    <div class="order-pay-user-info-content row">
+                                                                                        <input type="hidden" name="customer_id" value="'. $customer[0]['Id'] .'">
+                                                                                        <div class="col-3 d-flex flex-column">
+                                                                                            <label for="order-pay-user-info-name">Tên</label>
+                                                                                            <input class="form-input" value="' . $customer[0]['FirstName'] . " " . $customer[0]['LastName'] . '" disabled>
+                                                                                        </div>
+                                                                                        <div class="col-3 d-flex flex-column">
+                                                                                            <label for="order-pay-user-info-phone">Số điện thoại</label>
+                                                                                            <input class="form-input" name="phone" value="'. $order['phone'] .'" disabled>
+                                                                                        </div>
+                                                                                        <div class="col-6 d-flex flex-column">
+                                                                                            <label for="order-pay-user-info-address">Địa chỉ</label>
+                                                                                            <input class="form-input" name="address" value="'.$order['address'].'" disabled>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                        ';
+                                                                        echo '
+                                                                            <div class="col-12 mt-4 mb-4">
+                                                                                <h3>Thông tin mua hàng</h3>
+                                                                                ';
+                                                                        foreach($order_details as $ods)
+                                                                        {
+                                                                            if ($ods['order_id'] == $order['id'])
+                                                                            {
+                                                                                foreach($products as $prod)
+                                                                                {
+                                                                                    if ($ods['product_id'] == $prod['Id'])
+                                                                                    {
+                                                                                        echo '
+                                                                                            <div class="d-flex justify-content-between align-items-center" style="background-color: aquamarine;">
+                                                                                                <img class="p-4" src="'. _WEB_ROOT . $prod['Img'] .'" style="width: 100px; height: 100px;">
+                                                                                                <div class="p-4">'. $prod['Title'] .'</div>
+                                                                                                <div class="p-4">Số lượng: '. $ods['amount'] .'</div>
+                                                                                                <div class="p-4">Đơn giá: $'. $ods['value'] .'</div>
+                                                                                            </div>
+                                                                                        ';
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        echo '
+                                                                            <div class="d-flex justify-content-end align-items-center mt-2" style="background-color: aquamarine;">
+                                                                                <div class="p-4">Tổng tiền: $'. $order['total_value']    .'</div>
+                                                                                    <input type="hidden" name="total_value" value="'. $order['total_value'] .'">
+                                                                                    <input type="hidden" name="total_amount" value="'. $order['total_amount'] .'">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                        ';
+                                                                    }
+                                                            }
+                                                        ?>
+                                                    </div>
                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="liton_tab_1_3">
@@ -488,5 +495,6 @@
     #table-scroll {
         height: 400px;
         overflow-y: auto;
+        overflow-x: auto;
     }
 </style>

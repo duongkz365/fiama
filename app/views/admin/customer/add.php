@@ -20,8 +20,8 @@
 										<!-- Enter New Employee -->
 										<div class="tab-pane fade active show" id="settings" role="tabpanel" aria-labelledby="settings-tab">
 											<div class="tab-pane-content mt-5">
-												<form>
-													<div class="form-group row mb-6">
+												<form action="<?=_WEB_ROOT . "/Admin/SaveCustomer"?>" method="post">
+													<!-- <div class="form-group row mb-6">
 														<label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Image</label>
 														<div class="col-sm-8 col-lg-10">
 															<div class="custom-file mb-1">
@@ -32,20 +32,20 @@
 																	file feedback</div>
 															</div>
 														</div>
-													</div>
+													</div> -->
 
 													<div class="row mb-2">
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="firstName">First name</label>
-																<input type="text" class="form-control" id="firstName" value="First name">
+																<input type="text" class="form-control" id="firstName" name="FirstName" placeholder="First name">
 															</div>
 														</div>
 
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="lastName">Last name</label>
-																<input type="text" class="form-control" id="lastName" value="Last name">
+																<input type="text" class="form-control" id="lastName" name="LastName" placeholder="Last name">
 															</div>
 														</div>
 													</div>
@@ -53,14 +53,14 @@
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="userName">UserName</label>
-																<input type="text" class="form-control" id="userName" value="Username">
+																<input type="text" class="form-control" id="userName" name="UserName" placeholder="Username">
 															</div>
 														</div>
 
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="Email">Email</label>
-																<input type="text" class="form-control" id="Email" value="Email">
+																<input type="text" class="form-control" id="Email" name="Email" placeholder="Email">
 															</div>
 														</div>
 													</div>
@@ -68,14 +68,14 @@
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="password">Password</label>
-																<input type="text" class="form-control" id="password" value="Password">
+																<input type="text" class="form-control" id="password" name="Password" placeholder="Password">
 															</div>
 														</div>
 
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="cofirmPassword">Cofirm Password</label>
-																<input type="text" class="form-control" id="cofirmPassword" value="Cofirm Password">
+																<input type="text" class="form-control" id="cofirmPassword" name="ConfirmPassword" placeholder="Cofirm Password">
 															</div>
 														</div>
 													</div>
@@ -84,12 +84,12 @@
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="phone">Phone</label>
-																<input type="text" class="form-control" id="phone" value="Phone">
+																<input type="text" class="form-control" id="phone" name="Phone" placeholder="Phone">
 															</div>
 														</div>
 													</div>
 													
-													<div class="row mb-2">
+													<!-- <div class="row mb-2">
 														<div class="col-lg-6">
 															<div class="form-group">
 																<label for="Province">Province</label>
@@ -157,7 +157,7 @@
 																<input type="text" class="form-control" id="skype" value="skype.xxx">
 															</div>
 														</div>
-													</div>
+													</div> -->
 													<div class="d-flex justify-content-end mt-5">
 														<button type="submit" class="btn btn-primary mb-2 btn-pill">Add Customer</button>
 													</div>

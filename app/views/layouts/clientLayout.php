@@ -40,5 +40,7 @@
     <script src="<?php echo _WEB_ROOT ?>/public/assets/clients/js/plugins.js"></script>
     <!-- Main JS -->
     <script src="<?php echo _WEB_ROOT ?>/public/assets/clients/js/main.js"></script>
+
+    <script src="<?php echo _WEB_ROOT ?>/public/assets/clients/js/submain.js"></script>
 </body>
 </html>

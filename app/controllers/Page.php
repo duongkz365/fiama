@@ -3,16 +3,30 @@
 class Page extends Controller{
 
     public $pageModel,$data = [];
-
+    public $shoppingCartModel;
     function __construct()
     {
         $this->pageModel = $this->CreateModel('PageModel');
+        $this->shoppingCartModel = $this->CreateModel('ShoppingCartModel');
 
         $this->data['header']['category']          = $this->pageModel->GetProductCategory();
         $this->data['header']['subCategory']       = $this->pageModel->GetProductSubCategory();
+        if (isset($_SESSION['currentUser']['username']) && $_SESSION['currentUser']['username'] != "")
+        {
+            $this->data['header']['cart_count']       = $this->shoppingCartModel->GetCartCountByUsername($_SESSION['currentUser']['username']);
+        } else {
+            $this->data['header']['cart_count']       = 0;
+        }
         $this->data['footer'][] = [];
-        $this->data['footer'][] = [];
-        $this->data['slideCart'] = [];
+        $this->shoppingCartModel = $this->CreateModel('ShoppingCartModel');
+
+        $productFromCart = $this->shoppingCartModel->getProductCartByUsername($_SESSION['currentUser']['username']);
+        if (!empty($productFromCart))
+        {
+            $this->data['slideCart']['productFromCart'] = $productFromCart;
+        } else {
+            $this->data['slideCart']['productFromCart'] = [0];
+        }
     }
     function AboutUs(){
         $this->data['views'] = 'pages/about';

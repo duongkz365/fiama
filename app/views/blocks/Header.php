@@ -96,7 +96,7 @@
                                         <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
                                             <span class="mini-cart-icon">
                                                 <i class="icon-handbag"></i>
-                                                <sup>2</sup>
+                                                <sup><?=$cart_count?></sup>
                                             </span>
                                             <h6><span>Giỏ Hàng</span> <span class="ltn__secondary-color">$89.25</span></h6>
                                         </a>
@@ -181,15 +181,23 @@
                                         <li><a href="<?php echo _WEB_ROOT?>/lien-he">Liên Hệ</a></li>
                                         <li class="menu-icon"><a href="#">Tài Khoản</a>
                                             <ul>
-                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=1'?>">Tài Khoản</a></li>
-                                                <li><a href="<?php echo _WEB_ROOT.'/gio-hang'?>">Giỏ Hàng</a></li>
-                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=2'?>">Đơn Mua</a></li>
-                                                <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=6'?>">Yêu Thích</a></li>
-
                                                 <?php if (isset($_SESSION['currentUser']['LAST_ACTIVITY']) && isset($_SESSION['currentUser']['username'])): ?>
-                                                    <li><a href="<?= _WEB_ROOT?>">Hello, <?=$_SESSION['currentUser']['username']?></a></li>
-                                                    <li><a href="<?= _WEB_ROOT . '/Authentication/SignOut'?>">Đăng Xuất</a></li>
+                                                    <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=1&username=' . $_SESSION['currentUser']['username']?>">Tài Khoản</a></li>
+                                                    <li><a href="<?php echo _WEB_ROOT.'/gio-hang'?>">Giỏ Hàng</a></li>
+                                                    <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=2&username=' . $_SESSION['currentUser']['username']?>">Đơn Mua</a></li>
+                                                    <li><a href="<?php echo _WEB_ROOT.'/tai-khoan-cua-toi?tab=6'?>">Yêu Thích</a></li>
+
+                                                    <?php if (isset($_SESSION['currentUser']['LAST_ACTIVITY']) && isset($_SESSION['currentUser']['username'])): ?>
+                                                        <li><a href="<?= _WEB_ROOT?>">Hello, <?=$_SESSION['currentUser']['username']?></a></li>
+                                                        <li><a href="<?= _WEB_ROOT . '/Authentication/SignOut'?>">Đăng Xuất</a></li>
+                                                    <?php else: ?>
+                                                        <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Đăng Nhập</a></li>
+                                                    <?php endif; ?>
                                                 <?php else: ?>
+                                                    <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Tài Khoản</a></li>
+                                                    <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Giỏ Hàng</a></li>
+                                                    <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Đơn Mua</a></li>
+                                                    <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Yêu Thích</a></li>
                                                     <li><a href="<?= _WEB_ROOT.'/Authentication/SignIn'?>">Đăng Nhập</a></li>
                                                 <?php endif; ?>
 

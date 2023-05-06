@@ -9,7 +9,12 @@
 			                </p>
 			            </div>
 			            <div>
-			                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser"> Add User </button>
+			                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">
+								Add User
+							</button> -->
+							<button type="button" class="btn btn-primary">
+								<a href="<?php echo _WEB_ROOT.'/admin/employee?action=add'?>" style="text-decoration: none; color: #fff;">Add Employee</a>
+							</button>
 			            </div>
 			        </div>
 			        <div class="row">
@@ -45,7 +50,9 @@
 			                                        <td><?php echo $le['CreatedDate'] ?></td>
 			                                        <td>
 			                                            <div class="btn-group mb-1">
-			                                                <button type="button" class="btn btn-outline-success">Info</button>
+			                                                <button type="button" class="btn btn-outline-success">
+																<a href="<?php echo _WEB_ROOT.'/admin/employee?action=profile&id='.$le['Id']?>" style="text-decoration: none; color: #34c997;">Info</a>
+															</button>
 			                                                <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 			                                                    <span class="sr-only">Info</span>
 			                                                </button>
@@ -53,7 +60,7 @@
 			                                                <div class="dropdown-menu">
 															    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=profile&id='.$le['Id']?>">Profile</a>
 			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=profile&id='.$le['Id'] ?>">Edit</a>
-			                                                    <a class="dropdown-item" href="<?php echo _WEB_ROOT.'/admin/employee?action=delete&id'.$le['Id'] ?>">Delete</a>
+			                                                    <a class="dropdown-item" href="<?=_WEB_ROOT . "/Admin/DeleteEmployee?id=".$le['Id'] ?>">Delete</a>
 			                                                </div>
 			                                            </div>
 			                                        </td>

@@ -82,7 +82,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="add-to-cart">
-                                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                            <a href="#" id="AddToCart" title="Add to Cart" data-product-id="<?=$lps['Id']?>" data-username="<?=$_SESSION['currentUser']['username']?>" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
                                                                 <span class="cart-text d-none d-xl-block">Add to Cart</span>
                                                                 <span class="d-block d-xl-none"><i class="icon-handbag"></i></span>
                                                             </a>

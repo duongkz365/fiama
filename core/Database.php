@@ -11,20 +11,19 @@ class Database
     }
 
     function Query($sql){
-        try {
             $statement = $this->__conn->prepare($sql);
             $statement->execute();
+            
             return $statement;
-        } catch (PDOException $e) {
-            return false;
-        }
     }
 
     function Delete($table,$condition = ''){
         if(!empty($condition))
-            $sql = 'DELETE FROM '.$this->__db['db'].$table.' WHERE '.$condition;
+            $sql = 'DELETE FROM '.$this->__db['db']. "." .$table.' WHERE '.$condition;
         else
-            $sql = 'DELETE FROM '.$this->__db.$table; 
+            $sql = 'DELETE FROM '.$this->__db. "." .$table; 
+            // var_dump($sql);
+            // die;
         $status = $this->Query($sql);
         if($status)
             return true;
@@ -53,6 +52,32 @@ class Database
         }
         return false;
     }
+
+    //return last auto id that's just inserted
+    function InsertButReturnProdId($table,$data){
+        if(!empty($data)){
+            $fieldStr = '';
+            $valueStr = '';
+            foreach($data as $key => $value){
+                $fieldStr.=$key . ",";
+                $valueStr.="'".$value."',";
+            }
+            $fieldStr = rtrim($fieldStr,',');
+            $valueStr = rtrim($valueStr,',');
+
+            $sql = "INSERT INTO $table ($fieldStr) VALUES ($valueStr)";
+            // var_dump($sql);
+            // die;
+            $status = $this->Query($sql);
+            if($status){
+                $prod_id = $this->__conn->lastInsertId();
+                return $prod_id;
+            }
+            return false;
+        }
+        return false;
+    }
+    
     function Update($table,$data,$condition =''){
         if(!empty($data)){
             $updateStr = '';
