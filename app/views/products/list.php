@@ -32,13 +32,34 @@
                         </li>
                         <li>
                             <div class="short-by text-center">
-                                <select class="nice-select">
-                                    <option>Default sorting</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by new arrivals</option>
-                                    <option>Sort by price: low to high</option>
-                                    <option>Sort by price: high to low</option>
-                                </select>
+                                <form action="" method="get">
+
+                                    <?php
+
+                                    if (!empty($_GET['low']) && !empty($_GET['high'])) {
+                                        echo '  <input type="hidden" name="low" value="' . $_GET['low'] . '" />';
+                                        echo '  <input type="hidden" name="high" value="' . $_GET['high'] . '" />';
+                                    }
+                                    ?>
+
+                                    <select class="nice-select" name="sort" onchange="this.form.submit()">
+                                        <option <?php if (!empty($_GET['sort'])) {
+                                                    echo ($_GET['sort'] == 1) ? "Selected " : "";
+                                                } ?> value="1">Default sorting</option>
+                                        <option <?php if (!empty($_GET['sort'])) {
+                                                    echo ($_GET['sort'] == 2) ? "Selected " : "";
+                                                } ?>value="2">Sort by popularity</option>
+                                        <option <?php if (!empty($_GET['sort'])) {
+                                                    echo ($_GET['sort'] == 3) ? "Selected " : "";
+                                                } ?>value="3">Sort by new arrivals</option>
+                                        <option <?php if (!empty($_GET['sort'])) {
+                                                    echo ($_GET['sort'] == 4) ? "Selected " : "";
+                                                } ?>value="4">Sort by price: low to high</option>
+                                        <option <?php if (!empty($_GET['sort'])) {
+                                                    echo ($_GET['sort'] == 5) ? "Selected " : "";
+                                                } ?>value="5">Sort by price: high to low</option>
+                                    </select>
+                                </form>
                             </div>
                             <div class="ltn__grid-list-tab-menu ">
                                 <div class="nav">
@@ -62,12 +83,12 @@
                                     <div class="col-xl-4 col-sm-6 col-12">
                                         <div class="ltn__product-item text-center">
                                             <div class="product-img">
-                                                <a href="<?php  echo _WEB_ROOT.'/'.$category[0]['Path'].'/'.$lps['Path']?>"><img style="height: 420px;" src="<?php echo _WEB_ROOT ?>/<?php echo $lps['Img'] ?>" alt="#"></a>
+                                                <a href="<?php echo _WEB_ROOT . '/' . $category[0]['Path'] . '/' . $lps['Path'] ?>"><img style="height: 420px;" src="<?php echo _WEB_ROOT ?>/<?php echo $lps['Img'] ?>" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <?php
                                                         if ($lps['Discount'] > 10)
-                                                            echo '<li class="badge-2">'.$lps['Discount'].'% </li>';
+                                                            echo '<li class="badge-2">' . $lps['Discount'] . '% </li>';
                                                         else
                                                             echo '<li class="badge-1">Hot</li>';
                                                         ?>
@@ -82,14 +103,14 @@
                                                             </a>
                                                         </li>
                                                         <li class="add-to-cart">
-                                                            <a href="#" id="AddToCart" title="Add to Cart" data-product-id="<?=$lps['Id']?>" data-username="<?=$_SESSION['currentUser']['username']?>" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                            <a href="#" id="AddToCart" title="Add to Cart" data-product-id="<?= $lps['Id'] ?>" data-username="<?= $_SESSION['currentUser']['username'] ?>" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
                                                                 <span class="cart-text d-none d-xl-block">Add to Cart</span>
                                                                 <span class="d-block d-xl-none"><i class="icon-handbag"></i></span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                                            <i class="icon-heart"></i>
+                                                                <i class="icon-heart"></i>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -98,8 +119,8 @@
                                             <div class="product-info">
                                                 <h2 class="product-title"><a href="product-details.html"> <?php echo $lps['Title'] ?> </a></h2>
                                                 <div class="product-price">
-                                                    <span><?php echo $lps['Price'].'K' ?></span>
-                                                    <del><?php  echo $lps['SalePrice']?>K</del>
+                                                    <span><?php echo $lps['Price'] . 'K' ?></span>
+                                                    <del><?php echo $lps['SalePrice'] ?>K</del>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,11 +144,22 @@
                             <?php
                             for ($i = 1; $i <= $pageCount; $i++) {
                             ?>
-                                <li <?php if ($i == $pageActive) echo 'class="active"'  ?>><a href=" <?php echo _WEB_ROOT.'/'.$category[0]['Path'] . '/?page=' . $i  ?> "><?php echo $i ?></a></li>
+                                <li <?php if ($i == $pageActive) echo 'class="active"'  ?>>
+                                    <a href="
+                                     <?php echo _WEB_ROOT
+                                            . '/' . $category[0]['Path']
+                                            . '?'
+                                            . (!empty($_GET['sort']) ? "sort=" . $_GET['sort'] . "&" : "")
+                                            . ((!empty($_GET['low']) && !empty($_GET['high'])) ? "low=" . $_GET['low'] . "&high=" . $_GET['high'] . "&" : "")
+                                            . 'page=' . $i;
+                                        ?> ">
+                                        <?php echo $i ?>
+                                    </a>
+
+                                </li>
                             <?php
-                            }
+                                 }
                             ?>
-                            <!-- <li><a href="#">...</a></li> -->
 
                             <li><a href="<?php echo $category[0]['Path'] . '/?page=' . $pageCount ?>"><i class="icon-arrow-right"></i></a></li>
                         </ul>
@@ -148,11 +180,18 @@
                     <div class="widget ltn__price-filter-widget">
                         <h4 class="ltn__widget-title">Price</h4>
                         <div class="price_filter">
-                            <div class="price_slider_amount">
-                                <input type="submit" value="Your range:" />
-                                <input type="text" class="amount" name="price" placeholder="Add Your Price" />
-                            </div>
-                            <div class="slider-range"></div>
+                            <form id="form-price" action="<?php echo _WEB_ROOT . $_SERVER['PATH_INFO'] ?>" method="get">
+
+                                <?php
+                                if (!empty($_GET['sort'])) {
+                                    echo '  <input type="hidden" name="sort" value="' . $_GET['sort'] . '" />';
+                                }
+                                ?>
+                                <input type="text" name="low" value="50" />
+                                <input type="text" name="high" value="2000" />
+                                <input type="submit" value="Filter" />
+                                <a href="<?php echo _WEB_ROOT . $_SERVER['PATH_INFO'] ?>">Reset Filter</a>
+                            </form>
                         </div>
                     </div>
                     <!-- Category Widget -->
