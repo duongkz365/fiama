@@ -17,7 +17,8 @@
 											<option value="">All</option>
 											<option value="pending">Pending</option>
 											<option value="verified">Verified</option>
-											<option value="delivering">delivering</option>
+											<option value="delivering">Delivering</option>
+											<option value="done">Done</option>
 											<option value="canceled">Canceled</option>
 										</select>
 									</div>

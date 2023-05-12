@@ -63,4 +63,31 @@ class ImportModel  extends Model{
         $data = $this->db->Query("SELECT * FROM fiama.import_invoice_detail")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+
+    public function changeImportDetail($importInvoiceId, $productId, $amount, $value) {
+        $arr = [
+            "amount" => $amount,
+            "value" => $value
+        ];
+
+        $data = $this->db->Update("fiama.import_invoice_detail", $arr, "import_invoice_id=" . $importInvoiceId . " AND product_id=" . $productId);
+        if ($data)
+        {
+            $data = $this->updateDateImportInvoice($importInvoiceId);
+            if (!$data)
+            {
+                return false;
+            }
+        }
+        return $data;
+    }
+
+    public function updateDateImportInvoice($importInvoiceId) {
+        $arr = [
+            "date" => date("Y-m-d")
+        ];
+
+        $data = $this->db->Update("fiama.import_invoice", $arr, "id=" . $importInvoiceId);
+        return $data;
+    }
 }

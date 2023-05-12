@@ -25,8 +25,8 @@
 			                                        <th>Price</th>
 			                                        <th>Sale Price</th>
 			                                        <th>Status</th>
-			                                        <th>Date</th>
-			                                        <th>Status</th>
+			                                        <th>Amount</th>
+			                                        <th>CreatedDate</th>
 			                                        <th>Action</th>
 			                                    </tr>
 			                                </thead>
@@ -41,9 +41,9 @@
 			                                        <td><?php echo $lpd['Title'] ?></td>
 			                                        <td><?php echo $lpd['Price'] ?>K</td>
 			                                        <td><?php echo $lpd['SalePrice'] ?>K</td>
-			                                        <td>ACTIVE</td>
+			                                        <td><?php if ($lpd['status'] == 0) echo "disabled"; else echo "active"; ?></td>
+													<td><?php echo $lpd['amount'] ?></td>
 			                                        <td>2021-10-30</td>
-			                                        <td><?php echo $lpd['status'] ?></td>
 			                                        <td>
 			                                            <div class="btn-group mb-1">
 			                                                <button type="button" class="btn btn-outline-success">
