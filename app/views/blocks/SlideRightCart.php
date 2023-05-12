@@ -44,14 +44,14 @@
                         <?php
                             if(!isset($productFromCart) || !is_array($productFromCart) || $productFromCart[0] == 0)
                             {
-                                echo "0.00";
+                                echo '<span>$<span id="mini-cart-total">0</span></span>';
                             } else {
                                 $total = 0;
                                 foreach ($productFromCart as $slc)
                                 {
                                     $total += $slc['cart_amount'] * $slc['Price'];
                                 }
-                                echo '<span id="mini-cart-total">'. $total .'</span>';
+                                echo '<span>$<span id="mini-cart-total">'. $total .'</span></span>';
                             }
                         ?>
                     </h5>
