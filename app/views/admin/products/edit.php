@@ -158,10 +158,15 @@
 												<label class="form-label">Short Description</label>
 												<textarea name="ShortDescription" class="form-control" rows="2"><?=$product[0]['ShortDescription']?></textarea>
 											</div>
-											<div class="col-md-12">
+											<div class="col-md-6 mt-2">
 												<label class="form-label">Storage</label>
 												<div class="d-flex">
 													<input type="number" class="form-control" id="edit-product-storage" value="<?=$storage?>" readonly>
+												</div>
+											</div>
+											<div class="col-md-6 mt-2">
+												<label class="form-label">Storage At Date</label>
+												<div class="d-flex">
 													<input type="date" id="productStorageDateSelect" data-product-id="<?=$product[0]['Id']?>" class="form-control">
 												</div>
 											</div>

@@ -352,7 +352,6 @@ class Admin extends Controller
 
     function AmountOfAProductAtADate()
     {
-        header('Content-Type: application/json');
         if (isset($_POST['product_id']) && isset($_POST['date']) && $_POST['product_id'] != "" && $_POST['date'] != "")
         {
             $product_id = $_POST['product_id'];
@@ -360,15 +359,27 @@ class Admin extends Controller
             
             // $customer_id = $_POST['customerId'];
             $result = $this->orderModel->AmountOfAProductAtADate($product_id, $date);
+            header('Content-Type: application/json');
             echo json_encode($result);
         } else {
+            header('Content-Type: application/json');
             echo json_encode("fail");
         }
     }
 
     function ViewProductList()
     {
-        $this->data['subData']['listProduct'] = $this->adminModel->GetListProduct();
+        $products = $this->adminModel->GetListProduct();
+        // $total = 0;
+        foreach($products as $key => $prod)
+        {
+            $currentProductAmount = $this->orderModel->currentAmountOfAProduct($prod['Id']);
+            // $total += $currentProductAmount;
+            $products[$key]['amount'] = $currentProductAmount;
+        }
+
+        // $this->data['subData']['total_amount'] = $total;
+        $this->data['subData']['listProduct'] = $products;
         $this->data['views']['content'] = 'admin/products/list';
         $this->RenderView('layouts/adminLayout', $this->data);
     }
@@ -555,8 +566,8 @@ class Admin extends Controller
     public function ViewFilterOrder()
     {
         $status = $_POST['status'];
-        $fromDate = $_POST['fromDate'];
-        $toDate = $_POST['toDate'];
+        $fromDate = isset($_POST['fromDate']) ? $_POST['fromDate'] : "";
+        $toDate = isset($_POST['toDate']) ? $_POST['toDate'] : "";
         
         $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/list';

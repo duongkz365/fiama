@@ -72,6 +72,15 @@ class OrderModel  extends Model {
 
     public function GetAllFilterOrder($status, $fromDate, $toDate)
     {
+        if (!isset($fromDate) || $fromDate == "")
+        {
+            $fromDate = "NULL";
+        }
+        if (!isset($toDate) || $toDate == "")
+        {
+            $toDate = "NULL";
+        }
+
         if ( !isset($status) || $status == "") {
             $data = $this->db->Query("SELECT *
                 FROM fiama.orders
@@ -80,7 +89,7 @@ class OrderModel  extends Model {
             $data = $this->db->Query("SELECT *
             FROM fiama.orders
             WHERE status = '". $status ."'
-            AND delivery_date BETWEEN COALESCE('".$fromDate."', '1970-01-01') AND COALESCE('".$toDate."', NOW())")->fetchAll(PDO::FETCH_ASSOC);
+            AND delivery_date BETWEEN COALESCE(".$fromDate.", '1970-01-01') AND COALESCE(".$toDate.", NOW())")->fetchAll(PDO::FETCH_ASSOC);
         }
         
         return $data;
@@ -142,14 +151,14 @@ class OrderModel  extends Model {
         {
             return 0;
         }
-        var_dump($result);
-        die;
         return $result['order_qty'];
     }
 
     public function AmountOfAProductAtADate($product_id, $date)
     {
-        $result = $this->total_import_at_a_time($product_id, $date) - $this->total_order_at_a_time($product_id, $date);
+        $total_import = $this->total_import_at_a_time($product_id, $date);
+        $total_order = $this->total_order_at_a_time($product_id, $date);
+        $result =  $total_import - $total_order;
 
         return $result;
     }
