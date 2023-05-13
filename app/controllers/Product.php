@@ -125,12 +125,6 @@ class Product extends Controller
         }
 
 
-        echo "<pre>";
-
-        print_r($listProduct);
-
-        echo "</pre>";
-
         $category = $this->productModel->GetProCategory($idCategory);
         $pageCount = $this->PageCount($listProduct);
         $listCategory = $this->productModel->GetListCategory();
