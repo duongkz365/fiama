@@ -101,21 +101,35 @@ class Product extends Controller
 
 
 
-    
+
 
 
     function list($idCategory = 0)
     {
 
         if (!empty($_GET['search'])) {
-            $listProduct = $this->productModel->GetSearchProduct($_GET['search']);    
-        }else {
+            $listProduct = $this->productModel->GetSearchProduct($_GET['search']);
+        } else {
             $listProduct = $this->productModel->GetProductByCategory($idCategory);
+
+            $temp = array(); // Khởi tạo một mảng tạm thời để lưu trữ các phần tử đã duyệt qua
+            foreach ($listProduct as $item) {
+                if (!isset($temp[$item['Id']])) { // Nếu phần tử chưa được duyệt qua
+                    $temp[$item['Id']] = $item; // Lưu phần tử vào mảng tạm thời
+                }
+            }
+            $listProduct = array_values($temp); // Chuyển mảng tạm thời thành mảng kết quả và duy trì chỉ số liên tục
         }
-        if(!empty($_GET['low']) && !empty($_GET['high'])){
-            $listProduct = $this->filterProductByPrice($listProduct,$_GET['low'],$_GET['high']);
+        if (!empty($_GET['low']) && !empty($_GET['high'])) {
+            $listProduct = $this->filterProductByPrice($listProduct, $_GET['low'], $_GET['high']);
         }
 
+
+        echo "<pre>";
+
+        print_r($listProduct);
+
+        echo "</pre>";
 
         $category = $this->productModel->GetProCategory($idCategory);
         $pageCount = $this->PageCount($listProduct);
@@ -188,13 +202,12 @@ class Product extends Controller
             $this->data['subData']['pageTitle'] = 'search';
         } else {
             $this->data['subData']['search'] = '';
-                if($idCategory != 0){
+            if ($idCategory != 0) {
 
-                    $this->data['subData']['pageTitle'] = $this->productModel->GetProCategory($idCategory)[0]['Title'];
-                }else {
-                    $this->data['subData']['pageTitle'] = "Tất Cả Sản Phẩm";
-
-                }
+                $this->data['subData']['pageTitle'] = $this->productModel->GetProCategory($idCategory)[0]['Title'];
+            } else {
+                $this->data['subData']['pageTitle'] = "Tất Cả Sản Phẩm";
+            }
         }
 
 
