@@ -147,7 +147,7 @@
                                 <li <?php if ($i == $pageActive) echo 'class="active"'  ?>>
                                     <a href="
                                      <?php echo _WEB_ROOT
-                                            . '/' . $category[0]['Path']
+                                            . '/' .  (!empty($category[0]['Path']) ? $category[0]['Path']:'tat-ca-san-pham' )
                                             . '?'
                                             . (!empty($_GET['sort']) ? "sort=" . $_GET['sort'] . "&" : "")
                                             . ((!empty($_GET['low']) && !empty($_GET['high'])) ? "low=" . $_GET['low'] . "&high=" . $_GET['high'] . "&" : "")
