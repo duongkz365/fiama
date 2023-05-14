@@ -234,7 +234,13 @@ $(document).ready(function () {
     responsiveDataTable.DataTable({
       "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
       "pageLength": 20,
-      "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+      "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">',
+      columnDefs: [
+        {
+            targets: [0, 2, 3, 4, 5, 6, 7], // Tắt tìm kiếm cho cột 1, 3 và 4
+            searchable: false,
+        },
+    ],
     });
   }
 
