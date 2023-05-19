@@ -60,6 +60,15 @@ class Order extends Controller {
         $this->data['subData']['pageTitle'] = 'Pay';
         $this->data['subData']['productFromCart'] = $productFromCart;
         $this->data['subData']['user'] = $user[0];
+        $this->data['subData']['addresses'] = $this->userModel->GetCustomerAddressById($user[0]['Id']);
+        //subdata address
+        $province_json = file_get_contents(_WEB_ROOT . "/public/assets/addresses/tinh_tp.json");
+        // Chuyển đổi dữ liệu JSON thành mảng PHP
+        $provinces = json_decode($province_json, true);
+        // var_dump($provinces);
+        // die;
+        $this->data['subData']['provinces'] = $provinces;
+        //end
         $this->RenderView('layouts/clientLayout',$this->data);
     }
 

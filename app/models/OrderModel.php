@@ -28,8 +28,15 @@ class OrderModel  extends Model {
         return $data;
     }
 
-    public function createOrder($customer_id, $total_value, $totalAmount, $payment_method, $phone, $address)
+    public function getCustomerAddressByAddressId($id)
     {
+        $data = $this->db->Query("SELECT * FROM fiama.customer_address WHERE id=" . $id)->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function createOrder($customer_id, $total_value, $totalAmount, $payment_method, $phone, $addressId)
+    {
+        $address = $this->getCustomerAddressByAddressId($addressId);
         $arr = [
             "customer_id" => $customer_id,
             "order_date" => date('Y-m-d'),
@@ -37,7 +44,10 @@ class OrderModel  extends Model {
             "total_amount" => $totalAmount,
             "payment_method" => $payment_method,
             "phone" => $phone,
-            "address" => $address,
+            "province" => $address['province'],
+            "district" => $address['district'],
+            "ward" => $address['ward'],
+            "address_detail" => $address['detail'],
             "status" => "pending",
             "paid" => 0
         ];
@@ -46,6 +56,8 @@ class OrderModel  extends Model {
         
         return $id;
     }
+
+    
 
     public function createOrderDetail($order_id, $product_id, $value, $amount)
     {
@@ -70,27 +82,75 @@ class OrderModel  extends Model {
         return $result;
     }
 
-    public function GetAllFilterOrder($status, $fromDate, $toDate)
+    public function GetAllFilterOrder($status, $fromDate, $toDate, $province, $district, $ward)
     {
-        if (!isset($fromDate) || $fromDate == "")
+        
+        if ((!isset($fromDate) || $fromDate == "") && (!isset($toDate) || $toDate == "") && (!isset($status) || $status == "") 
+        && (!isset($province) || $province == "") && (!isset($district) || $district == "") && (!isset($ward) || $ward == ""))
         {
-            $fromDate = "NULL";
-        }
-        if (!isset($toDate) || $toDate == "")
-        {
-            $toDate = "NULL";
-        }
-
-        if ( !isset($status) || $status == "") {
-            $data = $this->db->Query("SELECT *
-                FROM fiama.orders
-                WHERE delivery_date BETWEEN COALESCE('".$fromDate."', '1970-01-01') AND COALESCE('".$toDate."', NOW())")->fetchAll(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM fiama.orders";
         } else {
-            $data = $this->db->Query("SELECT *
-            FROM fiama.orders
-            WHERE status = '". $status ."'
-            AND delivery_date BETWEEN COALESCE(".$fromDate.", '1970-01-01') AND COALESCE(".$toDate.", NOW())")->fetchAll(PDO::FETCH_ASSOC);
+            $flag = 0;
+            $sql = "SELECT * FROM fiama.orders";
+
+            if ((!isset($fromDate) || $fromDate == "") && (!isset($toDate) || $toDate == ""))
+            {
+
+            } else {
+                if (!isset($fromDate) || $fromDate == "")
+                {
+                    $fromDate = "NULL";
+                }
+                if (!isset($toDate) || $toDate == "")
+                {
+                    $toDate = "NULL";
+                }
+                $sql .= " WHERE delivery_date BETWEEN COALESCE(".$fromDate.", '1970-01-01') AND COALESCE(".$toDate.", NOW())";
+                $flag = 1;
+            }
+    
+            
+    
+            if ( isset($status) && $status != "") {
+                if ($flag == 0) {
+                    $sql .= " WHERE status = '" . $status . "'";
+                    $flag = 1;
+                } else {
+                    $sql .= " AND status = '" . $status . "'";
+                }
+            }
+    
+            if ( isset($province) && $province != "") {
+                if ($flag == 0) {
+                    $sql .= " WHERE province = '" . $province . "'";
+                    $flag = 1;
+                } else {
+                    $sql .= " AND province = '" . $province . "'";
+                }
+            }
+    
+            if ( isset($district) && $district != "") {
+                if ($flag == 0) {
+                    $sql .= " WHERE district = '" . $district . "'";
+                    $flag = 1;
+                } else {
+                    $sql .= " AND district = '" . $district . "'";
+                }
+            }
+    
+            if ( isset($ward) && $ward != "") {
+                if ($flag == 0) {
+                    $sql .= " WHERE ward = '" . $ward . "'";
+                    $flag = 1;
+                } else {
+                    $sql .= " AND ward = '" . $ward . "'";
+                }
+            }
         }
+        // var_dump($sql);
+        // die;
+
+        $data = $this->db->Query($sql)->fetchAll(PDO::FETCH_ASSOC);
         
         return $data;
     }

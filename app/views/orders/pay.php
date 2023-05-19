@@ -15,9 +15,19 @@
                             <label for="order-pay-user-info-phone">Số điện thoại</label>
                             <input class="form-input" name="phone" value="<?=$user['Phone']?>">
                         </div>
-                        <div class="col-6 d-flex flex-column">
-                            <label for="order-pay-user-info-address">Địa chỉ</label>
-                            <input class="form-input" name="address" value="<?=$user['Address']?>">
+                        <div class="col-6 d-flex justify-content-between align-items-center">
+                            <div class="d-flex flex-column justify-content-end">
+                                <label for="order-pay-user-info-address">Địa chỉ</label>
+                                <select name="address" id="address-select" style="font-size: 16px;">
+                                    <?php
+                                        foreach($addresses as $key => $address)
+                                        {
+                                            echo '<option value="'.$address['id'].'" >'.$address['detail'].', '.$address['ward'].', '.$address['district'].', '.$address['province'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <button type="button" id="myaccount-add-address-btn" class="btn btn-success">+ Add</button>
                         </div>
                     </div>
                 </div>
@@ -74,3 +84,56 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myaccount-add-address-modal" tabindex="-1" role="dialog" aria-labelledby="myaccount-add-address-modal-Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title p-4" id="myaccount-add-address-modal-Label">Add your address</h5>
+        <button id="btn-close-add-address-modal" type="button" class="close" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-1">
+        <form method="post" action="<?=_WEB_ROOT . "/User/SavePayAddress"?>">
+            <input type="hidden" name="id" value="<?= $user['Id'] ?>" >
+            <input type="hidden" name="UserName" value="<?= $user['UserName'] ?>">
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-province">Province: </label>
+                <select name="province" id="address-modal-select-province">
+                    <option value="" selected>Choose province</option>
+                    <?php
+                        foreach($provinces as $key => $province)
+                        {
+                            echo '<option value="'.$province['name'].'" data-province-id="'.$province['code'].'">'.$province['name'].'</option>';
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-district">District: </label>
+                <select name="district" id="address-modal-select-district">
+
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-ward">Ward: </label>
+                <select name="ward" id="address-modal-select-ward">
+
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-ward">Detail: </label>
+                <input type="text" name="detail" placeholder="Enter Your Address detail">
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END -->
+

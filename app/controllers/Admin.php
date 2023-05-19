@@ -559,6 +559,15 @@ class Admin extends Controller
         $this->data['subData']['products'] = $this->productModel->GetAllProduct();
         $this->data['subData']['customers'] = $this->userModel->GetListCustomer();
 
+        //subdata address
+        $province_json = file_get_contents(_WEB_ROOT . "/public/assets/addresses/tinh_tp.json");
+        // Chuyển đổi dữ liệu JSON thành mảng PHP
+        $provinces = json_decode($province_json, true);
+        // var_dump($provinces);
+        // die;
+        $this->data['subData']['provinces'] = $provinces;
+        //end
+
         //$this->data['subData']['orders'] = $this->orderModel->getAllOrderToShowToAdmin();
         $this->RenderView('layouts/adminLayout', $this->data);
     }
@@ -568,16 +577,38 @@ class Admin extends Controller
         $status = $_POST['status'];
         $fromDate = isset($_POST['fromDate']) ? $_POST['fromDate'] : "";
         $toDate = isset($_POST['toDate']) ? $_POST['toDate'] : "";
+        $province = isset($_POST['province']) ? $_POST['province'] : "";
+        $district = isset($_POST['district']) ? $_POST['district'] : "";
+        $ward = isset($_POST['ward']) ? $_POST['ward'] : "";
         
         $this->data['subData'] = [];
         $this->data['views']['content'] = 'admin/orders/list';
 
         //order, detail, product
-        $this->data['subData']['orders'] = $this->orderModel->GetAllFilterOrder($status, $fromDate, $toDate);
+        $this->data['subData']['orders'] = $this->orderModel->GetAllFilterOrder($status, $fromDate, $toDate, $province, $district, $ward);
         $this->data['subData']['order_details'] = $this->orderModel->GetAllOrderDetail();
         $this->data['subData']['products'] = $this->productModel->GetAllProduct();
         $this->data['subData']['customers'] = $this->userModel->GetListCustomer();
 
+
+        //subdata address
+        $province_json = file_get_contents(_WEB_ROOT . "/public/assets/addresses/tinh_tp.json");
+        // Chuyển đổi dữ liệu JSON thành mảng PHP
+        $provinces = json_decode($province_json, true);
+        // var_dump($provinces);
+        // die;
+        $this->data['subData']['provinces'] = $provinces;
+        //end
+
+        $arrInfoFilter = [
+            "status" => $status,
+            "fromDate" => $fromDate,
+            "toDate" => $toDate,
+            "province" => $province,
+            "district" => $district,
+            "ward" => $ward
+        ];
+        $this->data['subData']['arrInfoFilter'] = $arrInfoFilter;
         //$this->data['subData']['orders'] = $this->orderModel->getAllOrderToShowToAdmin();
         $this->RenderView('layouts/adminLayout', $this->data);
     }

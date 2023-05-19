@@ -119,4 +119,40 @@ class UserModel  extends Model{
         $data = $this->db->Update("fiama.employee", $arr, "Id=" . $employee_id);
         return $data;
     }
+
+    public function GetCustomerAddressById($id)
+    {
+        $data = $this->db->Query("SELECT * FROM fiama.customer_address WHERE customer_id='" . $id . "'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function SaveAddress($postData)
+    {
+        $_SESSION['error'] = "";
+        $arr = [
+            "customer_id" => $postData['id'],
+            "province" => $postData['province'],
+            "district" => $postData['district'],
+            "ward" => $postData['ward'],
+            "detail" => $postData['detail'],
+        ];
+
+        $data = $this->db->Insert("fiama.customer_address", $arr);
+        if ($data) {
+            return true;
+        } else {
+            $_SESSION['error'] = "Save customer's address error!";
+            return false;
+        }
+    }
+
+    public function DeleteAddress($id)
+    {
+        $result = $this->db->Delete("customer_address", "id = " . $id);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
