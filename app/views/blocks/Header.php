@@ -138,7 +138,7 @@
                                     <ul>
                                         <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>">Trang Chủ</a>
                                         </li>
-                                        <li class="menu-icon"><a href="./tat-ca-san-pham">Hoa</a>
+                                        <li class="menu-icon"><a href="<?php echo _WEB_ROOT ?>/tat-ca-san-pham">Hoa</a>
                                             <ul class="mega-menu">
                                                 <!-- Render Product Category -->
                                                 <?php

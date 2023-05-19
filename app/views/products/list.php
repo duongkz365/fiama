@@ -139,7 +139,17 @@
                 <div class="ltn__pagination-area text-center">
                     <div class="ltn__pagination ltn__pagination-2">
                         <ul>
-                            <li><a href="<?php echo $category[0]['Path'] ?>"><i class="icon-arrow-left"></i></a></li>
+                            <li><a href="
+                            <?php 
+                                echo _WEB_ROOT
+                                . '/' .  (!empty($category[0]['Path']) ? $category[0]['Path']:'tat-ca-san-pham' )
+                                . '?'
+                                . (!empty($_GET['sort']) ? "sort=" . $_GET['sort'] . "&" : "")
+                                . ((!empty($_GET['low']) && !empty($_GET['high'])) ? "low=" . $_GET['low'] . "&high=" . $_GET['high'] . "&" : "")
+                                . (!empty($_GET['search'])? "search=". $_GET['search']."&" : "")
+                                . 'page=1'; 
+                            ?>
+                            "><i class="icon-arrow-left"></i></a></li>
                             <!-- Render page -->
                             <?php
                             for ($i = 1; $i <= $pageCount; $i++) {
@@ -162,7 +172,16 @@
                                  }
                             ?>
 
-                            <li><a href="<?php echo $category[0]['Path'] . '/?page=' . $pageCount ?>"><i class="icon-arrow-right"></i></a></li>
+                            <li><a href="<?php 
+                             echo _WEB_ROOT
+                             . '/' .  (!empty($category[0]['Path']) ? $category[0]['Path']:'tat-ca-san-pham' )
+                             . '?'
+                             . (!empty($_GET['sort']) ? "sort=" . $_GET['sort'] . "&" : "")
+                             . ((!empty($_GET['low']) && !empty($_GET['high'])) ? "low=" . $_GET['low'] . "&high=" . $_GET['high'] . "&" : "")
+                             . (!empty($_GET['search'])? "search=". $_GET['search']."&" : "")
+                             . 'page=' .$pageCount; 
+                            
+                            ?>"><i class="icon-arrow-right"></i></a></li>
                         </ul>
                     </div>
                 </div>
