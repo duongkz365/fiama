@@ -32,7 +32,7 @@ class ProductModel  extends Model
     public function GetProductByCategory($categoryId)
     {
         if($categoryId == 0){
-            $data = $this->db->Query("SELECT * FROM fiama.sub_category_product left join fiama.product on fiama.product.Id = fiama.sub_category_product.ProductId ")->fetchAll(PDO::FETCH_ASSOC);
+            $data = $this->db->Query("SELECT * FROM fiama.sub_category_product left join fiama.product on fiama.product.Id = fiama.sub_category_product.ProductId WHERE fiama.product.Status = 1 ")->fetchAll(PDO::FETCH_ASSOC);
 
         }else {
 
@@ -327,7 +327,7 @@ class ProductModel  extends Model
 
 
     public function GetSearchProduct($keyword){
-        $data = $this->db->Query("SELECT * FROM fiama.product WHERE Title like N'%$keyword%'")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->Query("SELECT * FROM fiama.product WHERE Title like N'%$keyword%' AND Status = 1")->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }
