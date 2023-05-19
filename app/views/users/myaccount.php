@@ -92,14 +92,28 @@
                                                             <label>Ngày Sinh:</label>
                                                             <input type="email" name="ltn__lastname" placeholder="07-07-2002">
                                                         </div> -->
-                                                        <div class="col-md-12">
-                                                            <label>Default Address:</label>
-                                                            <input type="text" name="Address" placeholder="Enter Your Address" value="<?=$customer[0]['Address']?>">
+                                                        <div class="btn-wrapper">
+                                                            <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Lưu Thay Đổi</button>
+                                                        </div>
+                                                        <div class="col-md-12 mt-4">
+                                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                                <h4>Addresses:</h4>
+                                                                <button type="button" id="myaccount-add-address-btn" class="btn btn-success ms-5 " style="padding: 8px;">+ Add more address</button>
+                                                            </div>
+                                                            <?php
+                                                                foreach($addresses as $key => $address)
+                                                                {
+                                                                    echo '
+                                                                        <div class="d-flex justify-content-between align-items-start">
+                                                                            <input class="" type="text" name="Address" placeholder="Enter Your Address" value="'.$address['detail'].', '.$address['ward'].', '.$address['district'].', '.$address['province'].'" readonly>
+                                                                            <button type="button" class="ms-4 btn btn-danger btn-delete-address" data-address-id="'.$address['id'].'">X</button>
+                                                                        </div>                                                                    
+                                                                    ';
+                                                                 }
+                                                            ?>
                                                         </div>
                                                     </div>
-                                                    <div class="btn-wrapper">
-                                                        <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Lưu Thay Đổi</button>
-                                                    </div>
+                                                    
                                                 </form>
                                             </div>
                                         </div>
@@ -481,6 +495,59 @@
     </div>
 </div>
 <!-- BRAND LOGO AREA END -->
+
+<!-- MODAL ADD ADDRESSES -->
+<!-- Modal -->
+<div class="modal fade" id="myaccount-add-address-modal" tabindex="-1" role="dialog" aria-labelledby="myaccount-add-address-modal-Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title p-4" id="myaccount-add-address-modal-Label">Add your address</h5>
+        <button id="btn-close-add-address-modal" type="button" class="close" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mt-1">
+        <form method="post" action="<?=_WEB_ROOT . "/User/SaveAddress"?>">
+            <input type="hidden" name="id" value="<?=$customer[0]['Id']?>" >
+            <input type="hidden" name="UserName" value="<?=$customer[0]['UserName']?>">
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-province">Province: </label>
+                <select name="province" id="address-modal-select-province">
+                    <option value="" selected>Choose province</option>
+                    <?php
+                        foreach($provinces as $key => $province)
+                        {
+                            echo '<option value="'.$province['name'].'" data-province-id="'.$province['code'].'">'.$province['name'].'</option>';
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-district">District: </label>
+                <select name="district" id="address-modal-select-district">
+
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-ward">Ward: </label>
+                <select name="ward" id="address-modal-select-ward">
+
+                </select>
+            </div>
+            <div class="form-group mt-1 d-flex flex-column">
+                <label for="address-modal-select-ward">Detail: </label>
+                <input type="text" name="detail" placeholder="Enter Your Address detail">
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END -->
 
 <style>
     /* style custom nice-select */

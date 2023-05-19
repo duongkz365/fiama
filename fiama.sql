@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 11:18 AM
+-- Generation Time: May 19, 2023 at 10:46 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -112,7 +112,6 @@ CREATE TABLE `customer` (
   `FirstName` varchar(20) NOT NULL,
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(200) NOT NULL,
-  `Address` varchar(500) NOT NULL,
   `UserName` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `CreatedDate` date NOT NULL,
@@ -123,30 +122,36 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `Address`, `UserName`, `Password`, `CreatedDate`, `Status`) VALUES
-(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'some address69', 'dinhky1', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 1),
-(2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky2', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 0),
-(3, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky3', 'dinhky', '2023-03-20', 1),
-(4, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky4', 'dinhky', '2023-03-20', 1),
-(5, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky5', 'dinhky', '2023-03-20', 1),
-(6, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky6', 'dinhky', '2023-03-20', 1),
-(7, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky7', 'dinhky', '2023-03-20', 1),
-(8, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky8', 'dinhky', '2023-03-20', 1),
-(9, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky9', 'dinhky', '2023-03-20', 1),
-(10, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky10', 'dinhky', '2023-03-20', 1),
-(11, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky11', 'dinhky', '2023-03-20', 1),
-(12, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky12', 'dinhky', '2023-03-20', 1),
-(13, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky13', 'dinhky', '2023-03-20', 1),
-(14, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky14', 'dinhky', '2023-03-20', 1),
-(15, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky15', 'dinhky', '2023-03-20', 1),
-(16, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky16', 'dinhky', '2023-03-20', 1),
-(17, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky17', 'dinhky', '2023-03-20', 1),
-(18, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky18', 'dinhky', '2023-03-20', 1),
-(19, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky19', 'dinhky', '2023-03-20', 1),
-(20, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky20', 'dinhky', '2023-03-20', 1),
-(21, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky21', 'dinhky', '2023-03-20', 1),
-(22, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', '', 'dinhky22', 'dinhky', '2023-03-20', 1),
-(23, '', 'kienphan', '', '', '', 'kienphan', '123', '0000-00-00', 1);
+INSERT INTO `customer` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserName`, `Password`, `CreatedDate`, `Status`) VALUES
+(1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky1', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 1),
+(2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky2', '$2y$10$di1CA7jQWmQmEMusYuEbyON2TiQcumHBxKraF/nkzyJQm0wI3qdTu', '2023-03-20', 0),
+(23, '', 'kienphan', '', '', 'kienphan', '123', '0000-00-00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_address`
+--
+
+CREATE TABLE `customer_address` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `ward` varchar(50) NOT NULL,
+  `detail` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer_address`
+--
+
+INSERT INTO `customer_address` (`id`, `customer_id`, `province`, `district`, `ward`, `detail`) VALUES
+(1, 1, 'Hà Nội', 'Sơn Tây', 'Ngô Quyền', 'a3/069 ấp nh1'),
+(2, 1, 'Lai Châu', 'Mường Tè', 'Tá Bạ', 'ưueuwueưe'),
+(4, 1, 'Yên Bái', 'Yên Bình', 'Vĩnh Kiên', 'test'),
+(8, 1, 'Lào Cai', 'Bảo Thắng', 'Thái Niên', 'uwe'),
+(9, 1, 'Hồ Chí Minh', '11', '15', 'new test');
 
 -- --------------------------------------------------------
 
@@ -173,25 +178,6 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`Id`, `LastName`, `FirstName`, `Phone`, `Email`, `UserName`, `Password`, `Position`, `CreatedDate`, `Status`) VALUES
 (1, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky23', '$2a$12$Q.OIOJlVZUEjG52r4bJioOYNb6qkZ8QktMw8NaL.5Q3YKfNWTZrrK', 1, '2023-03-19', 1),
-(2, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky24', 'dinhky1', 1, '2023-03-19', 1),
-(3, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky25', 'dinhky2', 1, '2023-03-19', 1),
-(4, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky26', 'dinhky3', 1, '2023-03-19', 1),
-(5, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky27', 'dinhky4', 1, '2023-03-19', 1),
-(6, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky28', 'dinhky5', 1, '2023-03-19', 1),
-(7, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky29', 'dinhky6', 1, '2023-03-19', 1),
-(8, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky30', 'dinhky7', 1, '2023-03-19', 1),
-(9, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky31', 'dinhky8', 1, '2023-03-19', 1),
-(10, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky32', 'dinhky9', 1, '2023-03-19', 1),
-(11, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky33', 'dinhky10', 1, '2023-03-19', 1),
-(12, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky34', 'dinhky11', 1, '2023-03-19', 1),
-(13, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky35', 'dinhky12', 1, '2023-03-19', 1),
-(14, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky36', 'dinhky13', 1, '2023-03-19', 1),
-(15, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky37', 'dinhky14', 1, '2023-03-19', 1),
-(16, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky38', 'dinhky15', 1, '2023-03-19', 1),
-(17, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky39', 'dinhky16', 1, '2023-03-19', 1),
-(18, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky40', 'dinhky17', 1, '2023-03-19', 1),
-(19, 'Đinh', 'Kỳ', '(+84)398755231', 'dinhky2468@gmail.com', 'dinhky41', 'dinhky18', 1, '2023-03-19', 1),
-(21, 'phan', 'kien', '123789', 'kienphan69@gmail.com', 'kienphan', '123456', 1, '0000-00-00', 1),
 (29, 'phan', 'kien', '123789', 'kienphan69@gmail.com', 'dcmm', '123456', 2, '0000-00-00', 1);
 
 -- --------------------------------------------------------
@@ -212,7 +198,7 @@ CREATE TABLE `import_invoice` (
 --
 
 INSERT INTO `import_invoice` (`id`, `date`, `amount`, `total_value`) VALUES
-(8, '2023-05-04', 100, '10050'),
+(8, '2023-05-12', 100, '10050'),
 (9, '2023-05-04', 153, '18974');
 
 -- --------------------------------------------------------
@@ -233,7 +219,7 @@ CREATE TABLE `import_invoice_detail` (
 --
 
 INSERT INTO `import_invoice_detail` (`import_invoice_id`, `product_id`, `amount`, `value`) VALUES
-(8, 1, 50, '100'),
+(8, 1, 51, '100'),
 (8, 2, 50, '101'),
 (9, 8, 50, '123'),
 (9, 12, 51, '124'),
@@ -268,7 +254,10 @@ CREATE TABLE `orders` (
   `total_amount` int(11) NOT NULL,
   `payment_method` varchar(50) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `address` varchar(500) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `ward` varchar(50) NOT NULL,
+  `address_detail` varchar(150) NOT NULL,
   `status` varchar(50) NOT NULL,
   `paid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -277,11 +266,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `order_date`, `delivery_date`, `total_value`, `total_amount`, `payment_method`, `phone`, `address`, `status`, `paid`) VALUES
-(5, 1, '2023-05-05', '0000-00-00', '300', 3, 'COD', '(+84)398755231', 'some addressxxx', 'canceled', 0),
-(6, 1, '2023-05-05', '0000-00-00', '300', 3, 'COD', '(+84)398755231', 'some address69', 'done', 1),
-(7, 1, '2023-05-05', '2023-05-05', '200', 2, 'COD', '(+84)398755231', 'some address69', 'delivering', 0),
-(8, 1, '2023-05-06', '0000-00-00', '500', 5, 'COD', '(+84)398755231', 'some address69', 'pending', 0);
+INSERT INTO `orders` (`id`, `customer_id`, `order_date`, `delivery_date`, `total_value`, `total_amount`, `payment_method`, `phone`, `province`, `district`, `ward`, `address_detail`, `status`, `paid`) VALUES
+(9, 1, '2023-05-20', '0000-00-00', '400', 1, 'COD', '(+84)398755231', 'Hồ Chí Minh', '11', '15', 'new test', 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -301,16 +287,7 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`order_id`, `product_id`, `value`, `amount`) VALUES
-(5, 81, '100', 1),
-(5, 25, '100', 1),
-(5, 26, '100', 1),
-(6, 23, '100', 1),
-(6, 22, '100', 1),
-(6, 21, '100', 1),
-(7, 26, '100', 1),
-(7, 25, '100', 1),
-(8, 1, '100', 2),
-(8, 20, '100', 3);
+(9, 1, '400', 1);
 
 -- --------------------------------------------------------
 
@@ -337,9 +314,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, `Img`, `Path`, `Hot`, `Discount`, `SKU`, `status`) VALUES
-(1, 'Luôn Bên Em', 100, 200, 'Luôn Bên Em something', '/public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 0, 18, 'SKU TEST', 1),
+(1, 'Luôn Bên Em', 400, 200, 'Luôn Bên Em', '/public/assets/clients/img/product/luon-ben-em.jpg', 'luon-ben-em', 0, 18, 'SKU TEST', 1),
 (2, 'Yêu Kiều', 100, 150, 'Shot Description', '/public/assets/clients/img/product/yeu-kieu.jpg', 'yeu-kieu', 1, 18, 'SKU TEST', 1),
-(3, 'Tươi Sáng', 100, 150, 'Shot Description', '/public/assets/clients/img/product/tuoi-sang.jpg', 'tuoi-sang', 1, 18, 'SKU TEST', 0),
+(3, 'Tươi Sáng', 100, 150, 'Shot Description', '/public/assets/clients/img/product/tuoi-sang.jpg', 'tuoi-sang', 1, 18, 'SKU TEST', 1),
 (4, 'Ngày Đầu Tiên', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-dau-tien.jpg', 'ngay-dau-tien', 1, 18, 'SKU TEST', 1),
 (5, 'Only You', 100, 150, 'Shot Description', '/public/assets/clients/img/product/only-you.jpg', 'only-you', 1, 18, 'SKU TEST', 1),
 (6, 'Ngày Tinh Khôi', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-tinh-khoi.jpg', 'ngay-tinh-khoi', 1, 18, 'SKU TEST', 1),
@@ -347,7 +324,7 @@ INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, 
 (8, 'NgàyChung Đôi', 100, 150, 'Shot Description', '/public/assets/clients/img/product/ngay-chung-doi.jpg', 'ngay-chung-doi', 1, 18, 'SKU TEST', 1),
 (9, 'Lẵng Hoa Hạnh Phúc', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-hanh-phuc.jpg', 'lang-hoa-hanh-phuc', 1, 18, 'SKU TEST', 1),
 (10, 'Lẵng Hoa Yêu Thương', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST', 1),
-(11, 'Riêng Mình Em', 100, 150, 'Shot Description', '/public/assets/clients/img/product/rieng-minh-em.jpg', 'rieng-minh-em', 1, 18, 'SKU TEST', 1),
+(11, 'Riêng Mình Em', 99, 150, 'Shot Description', '/public/assets/clients/img/product/rieng-minh-em.jpg', 'rieng-minh-em', 1, 18, 'SKU TEST', 1),
 (12, 'Giỏ Hoa Chào Xuân', 100, 150, 'Shot Description', '/public/assets/clients/img/product/gio-hoa-chao-xuan.jpg', 'gio-hoa-chao-xuan', 1, 18, 'SKU TEST', 1),
 (13, 'Lẵng Hoa Yêu Thương 2', 100, 150, 'Shot Description', '/public/assets/clients/img/product/lang-hoa-yeu-thuong.jpg', 'lang-hoa-yeu-thuong', 1, 18, 'SKU TEST', 1),
 (14, 'Chúc Thành Công', 100, 150, 'Shot Description', '/public/assets/clients/img/product/chuc-thanh-cong.jpg', 'chuc-thanh-cong', 1, 18, 'SKU TEST', 1),
@@ -362,7 +339,7 @@ INSERT INTO `product` (`Id`, `Title`, `Price`, `SalePrice`, `ShortDescription`, 
 (23, 'Yêu Hay Không Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/yeu-hay-khong-yeu.jpg', 'yeu-hay-khong-yeu', 1, 18, 'SKU TEST', 1),
 (24, 'Hoàn Hảo', 100, 150, 'Shot Description', '/public/assets/clients/img/product/hoan-hao.jpg', 'hoan-hao', 1, 18, 'SKU TEST', 1),
 (25, 'Tim Tình Yêu', 100, 150, 'Shot Description', '/public/assets/clients/img/product/tim-tinh-yeu.jpg', 'tim-tinh-yeu', 1, 18, 'SKU TEST', 1),
-(26, 'I Love You', 100, 150, 'Shot Description', '/public/assets/clients/img/product/i-love-you.jpg', 'i-love-you', 1, 18, 'SKU TEST', 1),
+(26, 'I Love You', 77, 150, 'Shot Description', '/public/assets/clients/img/product/i-love-you.jpg', 'i-love-you', 1, 18, 'SKU TEST', 1),
 (27, 'Mãi Bên Nhau', 100, 150, 'Shot Description', '/public/assets/clients/img/product/mai-ben-nhau.jpg', 'mai-ben-nhau', 1, 18, 'SKU TEST', 1),
 (81, 'asdasd', 100, 150, 'sadasd', '/public/assets/clients/img/product/phong-canh-1.jpg', '', 1, 0, 'asdas', 0);
 
@@ -470,7 +447,8 @@ INSERT INTO `routes` (`Id`, `Url`, `Rewrite`) VALUES
 (72, 'admin/product', 'admin/renderproduct'),
 (73, 'admin/order', 'admin/renderOrder'),
 (74, 'admin/review', 'admin/renderreview'),
-(75, 'admin/import', 'admin/renderImport');
+(75, 'admin/import', 'admin/renderImport'),
+(76, 'tat-ca-san-pham', 'product/list/');
 
 -- --------------------------------------------------------
 
@@ -485,14 +463,6 @@ CREATE TABLE `shopping_cart` (
   `amount` int(11) NOT NULL,
   `Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `shopping_cart`
---
-
-INSERT INTO `shopping_cart` (`Id`, `Customer_Id`, `product_id`, `amount`, `Status`) VALUES
-(46, 1, 20, 1, 1),
-(47, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -561,7 +531,6 @@ CREATE TABLE `sub_category_product` (
 
 INSERT INTO `sub_category_product` (`Id`, `SubCategoryId`, `ProductId`) VALUES
 (2, 15, 2),
-(3, 15, 3),
 (4, 15, 4),
 (5, 15, 5),
 (6, 15, 6),
@@ -586,11 +555,12 @@ INSERT INTO `sub_category_product` (`Id`, `SubCategoryId`, `ProductId`) VALUES
 (25, 15, 25),
 (26, 15, 26),
 (27, 15, 27),
+(115, 28, 1),
+(116, 29, 1),
 (120, 1, 81),
 (121, 2, 81),
 (122, 3, 81),
-(123, 28, 1),
-(124, 29, 1);
+(123, 15, 3);
 
 -- --------------------------------------------------------
 
@@ -645,6 +615,13 @@ ALTER TABLE `category`
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `UserName` (`UserName`);
+
+--
+-- Indexes for table `customer_address`
+--
+ALTER TABLE `customer_address`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cAddress_FK_customerId` (`customer_id`);
 
 --
 -- Indexes for table `employee`
@@ -760,6 +737,12 @@ ALTER TABLE `customer`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT for table `customer_address`
+--
+ALTER TABLE `customer_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
@@ -781,7 +764,7 @@ ALTER TABLE `invoice`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -799,13 +782,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `routes`
 --
 ALTER TABLE `routes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `sub_category`
@@ -817,7 +800,7 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `sub_category_product`
 --
 ALTER TABLE `sub_category_product`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `sub_imgs_product`
@@ -828,6 +811,12 @@ ALTER TABLE `sub_imgs_product`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `customer_address`
+--
+ALTER TABLE `customer_address`
+  ADD CONSTRAINT `cAddress_FK_customerId` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `import_invoice_detail`

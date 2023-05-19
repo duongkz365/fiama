@@ -6,11 +6,19 @@
 						<p class="breadcrumbs"><span><a href="index.html">Home</a></span>
 							<span><i class="mdi mdi-chevron-right"></i></span>History
 						</p>
+						
+						
 					</div>
+					<?php
+							if (isset($arrInfoFilter))
+							{
+								echo '<p class="breadcrumbs">Filter: Tình trạng: '.$arrInfoFilter['status'].', Từ ngày: '.$arrInfoFilter['fromDate'].', Đến ngày: '.$arrInfoFilter['toDate'].', Tỉnh/TP: '.$arrInfoFilter['province'].', Q/H: '.$arrInfoFilter['district'].', X/P: '.$arrInfoFilter['ward'].'</p>';
+							}
+						?>
 					<form class="mt-4 mb-4" method="post" action="<?=_WEB_ROOT?>/Admin/ViewFilterOrder">
 						<div class="row" style="background-color: #c6e2ff;">
 							<div class="col-12">
-								<div class="d-flex justify-content-around align-items-center">
+								<div class="d-flex flex-column justify-content-around align-items-start p-4">
 									<div>
 										<label>Tình trạng đơn hàng</label>
 										<select name="status">
@@ -23,8 +31,8 @@
 										</select>
 									</div>
 									<div>
-										<label>Thời gian giao hàng</label>
-										<div class="d-flex">
+										<label>Thời gian giao hàng: </label>
+										<div class="d-flex ml-4">
 											<div>
 												<label>Từ ngày</label>
 												<input type="date" name="fromDate">
@@ -32,6 +40,35 @@
 											<div>
 												<label>Đến ngày</label>
 												<input type="date" name="toDate">
+											</div>
+										</div>
+									</div>
+									<div>
+										<label>Địa điểm giao hàng: </label>
+										<div class="d-flex flex-column ml-4">
+											<div>
+												<label for="address-modal-select-province">Tỉnh/Thành phố: </label>
+												<select name="province" id="address-modal-select-province">
+													<option value="" selected>Choose province</option>
+													<?php
+														foreach($provinces as $key => $province)
+														{
+															echo '<option value="'.$province['name'].'" data-province-id="'.$province['code'].'">'.$province['name'].'</option>';
+														}
+													?>
+												</select>
+											</div>
+											<div>
+												<label for="address-modal-select-district">Quận/Huyện: </label>
+												<select name="district" id="address-modal-select-district">
+
+												</select>
+											</div>
+											<div>
+												<label for="address-modal-select-ward">Xã/Phường: </label>
+												<select name="ward" id="address-modal-select-ward">
+
+												</select>
 											</div>
 										</div>
 									</div>
@@ -74,7 +111,7 @@
 															</div>
 															<div class="col-6 d-flex flex-column">
 																<label for="order-pay-user-info-address">Địa chỉ</label>
-																<input class="form-input" name="address" value="'.$order['address'].'" disabled>
+																<input class="form-input" name="address" value="'.$order['address_detail'].', '.$order['ward'].', '.$order['district'].', '.$order['province'].'" disabled>
 															</div>
 														</div>
 													</div>
